@@ -29,7 +29,7 @@ Both fetchers write `data/fetched_at.json`; `snapshot_date` is the oldest of tho
 
 Manual run: `python scripts/fetch_aa.py`, `python scripts/fetch_go.py`, `python build.py`, then serve the folder (`python -m http.server`) and open `index.html`.
 
-Hosting: Settings → Pages → Deploy from branch → `main` / root.
+Hosting: GitHub Pages from `main` / root — https://xhang1108.github.io/opencode-cost-per-intelligence/
 
 ## Method
 
