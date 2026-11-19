@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OpenCode Go × AA — Cost per Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0c0c0c; --panel:#161616; --hover:#1a1a1a; --fill:#242424;
+    --text:#fafafa; --muted:#aeaeae; --faint:#8f8f8f;
+    --border:rgba(255,255,255,.1); --border-muted:rgba(255,255,255,.08);
+    --success:#8fbb9a; --warning:#cf9c80;
+    --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"OpenTUI Mono","JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--ui);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--muted);text-decoration:none}
+  a:hover{color:var(--text)}
+  header,main{max-width:1180px;margin:0 auto;padding:0 24px}
+  header{padding:32px 24px 16px}
+  h1{margin:0 0 8px;font-size:24px;font-weight:400;letter-spacing:-.04em;line-height:1.2}
+  h2{margin:0 0 12px;font-family:var(--mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .sub{color:var(--muted);font-size:13px;line-height:1.7}
+  .badge{display:inline-block;padding:2px 7px;border:.5px solid var(--border);border-radius:4px;font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+  .panel{background:var(--panel);border:.5px solid var(--border);border-radius:4px;padding:16px;margin-bottom:16px}
+  .stats{display:flex;gap:28px;flex-wrap:wrap}
+  .stat{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}
+  .stat b{display:block;margin-top:4px;font-family:var(--mono);font-size:18px;font-weight:500;color:var(--text);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .chart-wrap{height:460px;position:relative}
+  .toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px}
+  button{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text);background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--border);border:0;border-radius:4px;padding:6px 10px;cursor:pointer}
+  button:hover{background:rgba(255,255,255,.1)}
+  button.on{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+  button.off{opacity:.35;text-decoration:line-through}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;font-size:10px;text-transform:none;letter-spacing:0}
+  .chip i{width:6px;height:6px;border-radius:1px;display:inline-block;flex:0 0 auto}
+  .legend{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:8px;line-height:1.7}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th,td{padding:8px 10px;border-bottom:.5px solid var(--border-muted);text-align:left}
+  th{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);cursor:pointer;user-select:none}
+  th:hover{color:var(--text)}
+  td.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  td.name{font-family:var(--mono);font-size:11px}
+  tr:hover{background:var(--hover)}
+  tr.selected{background:rgba(255,255,255,.07)}
+  tr.selected td:first-child{box-shadow:inset 2px 0 0 var(--warning)}
+  .src-go{color:var(--success)}
+  .src-aa{color:var(--muted)}
+  .rank{color:var(--faint);font-family:var(--mono)}
+  .hide-btn{padding:2px 6px;font-size:10px;opacity:.35}
+  tr:hover .hide-btn{opacity:1}
+  .foot{font-family:var(--mono);font-size:10px;color:var(--faint);line-height:1.9;margin-top:16px}
+  .foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <h1>OpenCode Go × Artificial Analysis</h1>
+  <div class="sub">
+    <span class="badge">Unofficial</span>
+    <span class="badge">Go $10/mo</span>
+    <span class="badge">II v<span id="ver">—</span></span>
+    <span class="badge" title="Static data snapshot — refreshed only when the build is re-run">Snapshot <span id="snap">—</span></span><br/>
+    Cost per intelligence point at OpenCode Go rates · source: <a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">Artificial Analysis</a>
+  </div>
+</header>
+<main>
+  <div class="panel">
+    <div class="stats">
+      <div class="stat">Models (scored)<b id="n">—</b></div>
+      <div class="stat">Go models<b id="ngo">—</b></div>
+      <div class="stat">Best $/point<b id="best">—</b></div>
+      <div class="stat">Plan price<b>$10 / mo</b></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Intelligence Index vs. Cost / Task — Pareto frontier</h2>
+    <div class="chart-wrap"><canvas id="chart"></canvas></div>
+    <div class="toolbar">
+      <button id="filterAll" class="on">All</button>
+      <button id="filterGo">Go</button>
+      <button id="filterAA">AA provider</button>
+      <span style="width:10px"></span>
+      <button id="priceGo" class="on">Go price</button>
+      <button id="priceOriginal">Original price</button>
+      <span style="width:10px"></span>
+      <button id="toggleLabels" class="on">Labels</button>
+      <span style="flex:1"></span>
+      <span id="hiddenCount" style="font-family:var(--mono);font-size:10px;color:var(--faint)"></span>
+    </div>
+    <div id="companyLegend" class="toolbar"></div>
+    <div id="modelLegend" class="toolbar"></div>
+    <div class="legend">Ring = Go model · Color = vendor · Click a chip to hide · Scroll to zoom · Drag to pan</div>
+  </div>
+
+  <div class="panel">
+    <h2>Cost / task &amp; cost / point</h2>
+    <table id="tbl">
+      <thead><tr>
+        <th data-k="rank">#</th>
+        <th data-k="name">Model</th>
+        <th data-k="company">Vendor</th>
+        <th data-k="intelligence_index">II</th>
+        <th data-k="aa_cost_per_task">AA $/task</th>
+        <th data-k="go_effective_cost_per_task">Go $/task</th>
+        <th data-k="cost_per_intelligence_point">$/point</th>
+        <th data-k="monthly_task_capacity">Monthly tasks</th>
+        <th></th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    $/point = cost per task ÷ Intelligence Index. Go cost per task = AA cost × $10 / monthly limit; non-Go models at AA list price.<br/>
+    Static snapshot (not live) · <a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">AA Intelligence Index</a> · <a href="https://opencode.ai/console/go">Go pricing</a> · unofficial, not affiliated with OpenCode / SST.
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.2.0/dist/chartjs-plugin-zoom.min.js"></script>
+<script>
+if (window.ChartZoom) Chart.register(window.ChartZoom);
+else if (window.chartjsPluginZoom) Chart.register(window.chartjsPluginZoom);
+
+const COMPANY_RULES = [
+  ['OpenAI',      /^gpt-/],
+  ['Anthropic',   /^claude/],
+  ['Google',      /^(gemini|gemma)/],
+  ['DeepSeek',    /^deepseek/],
+  ['Zhipu',       /^glm/],
+  ['Alibaba',     /^qwen/],
+  ['Mistral',     /^mistral/],
+  ['xAI',         /^grok/],
+  ['Moonshot',    /^(kimi|k2)/],
+  ['IBM',         /^granite/],
+  ['NVIDIA',      /nemotron/],
+  ['MiniMax',     /^minimax/],
+  ['Xiaomi',      /^mimo/],
+  ['Cohere',      /^command/],
+  ['LiquidAI',    /^lfm/],
+  ['Tencent',     /^tencent/],
+  ['StepFun',     /^step/],
+  ['Upstage',     /^solar/],
+  ['ReflectionAI',/^(beam|reflection)/],
+  ['Muse',        /^muse/],
+  ['Inkling',     /^inkling/]
+];
+const COMPANY_EXCEPTIONS = {
+  'north-mini-code':'Other', 'agnes-2-5-pro-theta':'Other',
+  'apodex-1-1':'Other', 'ling-3-1-flash':'Other'
+};
+const COLORS = {
+  OpenAI:'#6BC7B0', Anthropic:'#C78A6B', Google:'#6B8EC7', DeepSeek:'#996BC7',
+  Zhipu:'#C76BC7', Alibaba:'#C76B96', Mistral:'#C7A86B', 'xAI':'#6BA2C7',
+  Moonshot:'#6BC78A', IBM:'#6B6BC7', NVIDIA:'#8AC76B', MiniMax:'#B06BC7',
+  Xiaomi:'#C7706B', Cohere:'#6BC7C4', LiquidAI:'#C76BB0', Tencent:'#826BC7',
+  StepFun:'#6BC76E', Upstage:'#A1C76B', ReflectionAI:'#C7C46B', Muse:'#C76B7F',
+  Inkling:'#6BB6C7', Other:'#8A8F98'
+};
+
+let data = null, filter = 'all', priceMode = 'go', sortKey = 'cost_per_intelligence_point', sortAsc = true, priceAnimTimer = null, selectedSlug = null, showLabels = true;
+const hiddenCompanies = new Set(), hiddenModels = new Set();
+
+const MONO = { family:'"OpenTUI Mono","JetBrains Mono",monospace', size:10 };
+const rgba = (hex,a) => { const n=parseInt(hex.slice(1),16); return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`; };
+const isGo = r => r.cost_source.startsWith('Go');
+const costKey = () => priceMode === 'go' ? 'go_effective_cost_per_task' : 'aa_cost_per_task';
+function chartBounds(ck){
+  const allX = data.rows.map(r=>r[ck]).filter(v=>v>0 && isFinite(v));
+  const allY = data.rows.map(r=>r.intelligence_index).filter(v=>isFinite(v));
+  return {
+    xLo: Math.pow(10, Math.floor(Math.log10(Math.min(...allX)))),
+    xHi: Math.pow(10, Math.ceil(Math.log10(Math.max(...allX)))),
+    yHi: Math.ceil(Math.max(...allY)/10)*10 + 10
+  };
+}
+
+function companyOf(r){
+  const n = (r.name||'').toLowerCase(), s = (r.slug||'').toLowerCase();
+  if(COMPANY_EXCEPTIONS[s]) return COMPANY_EXCEPTIONS[s];
+  for(const [company,re] of COMPANY_RULES) if(re.test(n) || re.test(s)) return company;
+  return 'Other';
+}
+
+function sourceRows(){
+  if(filter === 'go') return data.rows.filter(isGo);
+  if(filter === 'aa') return data.rows.filter(r=>!isGo(r));
+  return data.rows;
+}
+function visibleRows(){
+  return sourceRows().filter(r=>!hiddenModels.has(r.slug) && !hiddenCompanies.has(r.company));
+}
+function filteredRows(){ return visibleRows(); }
+function pareto(rows, ck){
+  const sorted = rows.filter(r=>r[ck] > 0).sort((a,b)=>a[ck]-b[ck]);
+  const out=[]; let bestII=-Infinity;
+  for(const r of sorted){ if(r.intelligence_index > bestII){ out.push(r); bestII=r.intelligence_index; } }
+  return out;
+}
+const fmtTick = v => v >= 1 ? String(+v.toFixed(2)) : String(+v.toPrecision(1));
+
+const LABEL_FONT = '500 10px "OpenTUI Mono","JetBrains Mono",monospace';
+const MAX_LABELS = 10;
+function shortName(name){
+  const m = /^(.*?)\s*\(([^)]*)\)/.exec(name);
+  if(!m) return name;
+  const base = m[1].trim(), tag = m[2].split(',')[0].trim();
+  return /^(low|medium|high|xhigh|max)$/i.test(tag) ? base+' ·'+tag : base;
+}
+function notablePoints(cands, ck){
+  const chosen = new Map();
+  const add = c => { if(c && !chosen.has(c.r.slug)) chosen.set(c.r.slug, c); };
+  const within = cands.filter(c=>c.r[ck] > 0 && isFinite(c.r[ck]));
+  const value = c => c.r[ck] / c.r.intelligence_index;
+  add(within.slice().sort((a,b)=>value(a)-value(b))[0]);                      // best value
+  add(cands.slice().sort((a,b)=>b.r.intelligence_index-a.r.intelligence_index)[0]); // smartest
+  add(within.slice().sort((a,b)=>a.r[ck]-b.r[ck])[0]);                        // cheapest
+  add(within.slice().sort((a,b)=>b.r[ck]-a.r[ck])[0]);                        // priciest
+  const frontier = [], sorted = within.slice().sort((a,b)=>a.r[ck]-b.r[ck]);
+  let bestII = -Infinity;
+  for(const c of sorted) if(c.r.intelligence_index > bestII){ frontier.push(c); bestII = c.r.intelligence_index; }
+  const step = Math.max(1, Math.ceil(frontier.length / 6));
+  for(let i=0; i<frontier.length; i+=step) add(frontier[i]);
+  add(frontier[frontier.length-1]);
+  return [...chosen.values()];
+}
+function roundRectPath(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+}
+const labelPlugin = {
+  id:'modelLabels',
+  afterDatasetsDraw(chart){
+    if(!showLabels) return;
+    const ctx = chart.ctx, area = chart.chartArea;
+    if(!area) return;
+    const cands = [];
+    chart.data.datasets.forEach((ds,di)=>{
+      if(ds.type === 'line') return;
+      const meta = chart.getDatasetMeta(di);
+      if(meta.hidden) return;
+      meta.data.forEach((el,i)=>{
+        const r = ds.data[i] && ds.data[i].r;
+        if(!r || !el || el.skip || !isFinite(el.x) || !isFinite(el.y)) return;
+        if(el.x < area.left || el.x > area.right || el.y < area.top || el.y > area.bottom) return;
+        cands.push({r, x:el.x, y:el.y});
+      });
+    });
+    if(!cands.length) return;
+    ctx.save();
+    ctx.font = LABEL_FONT;
+    const gap = 3, placed = [];
+    for(const c of notablePoints(cands, costKey())){
+      if(placed.length >= MAX_LABELS) break;
+      const text = shortName(c.r.name);
+      const w = ctx.measureText(text).width + 8, h = 14;
+      const opts = [[8,-h/2],[-8-w,-h/2],[-w/2,-8-h],[-w/2,8],[8,-8-h],[-8-w,-8-h],[8,8],[-8-w,8]];
+      let box = null;
+      for(const [dx,dy] of opts){
+        const b = {x:c.x+dx, y:c.y+dy, w, h};
+        const inside = b.x >= area.left+gap && b.x+b.w <= area.right-gap && b.y >= area.top+gap && b.y+b.h <= area.bottom-gap;
+        const hit = placed.some(p=> b.x < p.x+p.w+gap && b.x+b.w+gap > p.x && b.y < p.y+p.h+gap && b.y+b.h+gap > p.y);
+        if(inside && !hit){ box = b; break; }
+      }
+      if(!box) continue;
+      placed.push(box);
+      ctx.fillStyle = 'rgba(12,12,12,.86)';
+      roundRectPath(ctx,box.x,box.y,box.w,box.h,3); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,.16)'; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = '#fafafa'; ctx.textBaseline = 'middle';
+      ctx.fillText(text, box.x+4, box.y+box.h/2+0.5);
+    }
+    ctx.restore();
+  }
+};
+
+function findPoint(c, slug){
+  if(!c || !slug) return null;
+  for(let di=0; di<c.data.datasets.length; di++){
+    const ds = c.data.datasets[di];
+    if(ds.type === 'line') continue;
+    const idx = ds.data.findIndex(p=>p.r && p.r.slug === slug);
+    if(idx >= 0) return {di, idx};
+  }
+  return null;
+}
+function pinSelection(c, slug){
+  if(!c) return;
+  c.setActiveElements([]);
+  c.tooltip.setActiveElements([], {x:0,y:0});
+  const f = findPoint(c, slug);
+  if(f){
+    const el = c.getDatasetMeta(f.di).data[f.idx];
+    const active = [{datasetIndex:f.di, index:f.idx}];
+    c.setActiveElements(active);
+    c.tooltip.setActiveElements(active, {x:el.x, y:el.y});
+  }
+  c.update('none');
+}
+function setSelected(slug, from){
+  selectedSlug = (selectedSlug === slug) ? null : slug;
+  pinSelection(window._chart, selectedSlug);
+  document.querySelectorAll('#tbl tbody tr[data-slug]').forEach(tr=>{
+    tr.classList.toggle('selected', tr.dataset.slug === selectedSlug);
+  });
+  if(selectedSlug && from === 'chart'){
+    const tr = document.querySelector(`#tbl tbody tr[data-slug="${selectedSlug}"]`);
+    if(tr) tr.scrollIntoView({block:'nearest'});
+  }
+}
+
+async function init(){
+  try {
+    const res = await fetch('data/merged.json');
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    data = await res.json();
+  } catch(e) {
+    console.error('Failed to load data:', e);
+    document.querySelector('main').insertAdjacentHTML('afterbegin','<div class="panel">Failed to load data/merged.json: '+e.message+'</div>');
+    return;
+  }
+  data.rows.forEach(r=>{ r.company = companyOf(r); });
+  document.getElementById('ver').textContent = data.intelligence_index_version;
+  document.getElementById('snap').textContent = data.snapshot_date || '—';
+  document.getElementById('n').textContent = data.rows.length;
+  document.getElementById('ngo').textContent = data.rows.filter(isGo).length;
+  const best = data.rows.filter(r=>r.cost_per_intelligence_point > 0)
+                        .reduce((a,b)=> a.cost_per_intelligence_point < b.cost_per_intelligence_point ? a : b);
+  document.getElementById('best').textContent = best ? '$'+best.cost_per_intelligence_point.toFixed(4) : '—';
+
+  renderLegend();
+  renderChart(filteredRows());
+  renderTable();
+
+  const canvas = document.getElementById('chart');
+  let downPt = null;
+  canvas.addEventListener('mousedown', e=>{ downPt = {x:e.clientX, y:e.clientY}; });
+  canvas.addEventListener('click', evt=>{
+    const dragged = downPt && Math.hypot(evt.clientX-downPt.x, evt.clientY-downPt.y) > 5;
+    downPt = null;
+    if(dragged) return;
+    const c = window._chart; if(!c) return;
+    const els = c.getElementsAtEventForMode(evt, 'nearest', {intersect:true}, true);
+    if(els.length){
+      const hit = c.data.datasets[els[0].datasetIndex].data[els[0].index];
+      if(hit && hit.r){ setSelected(hit.r.slug, 'chart'); return; }
+    }
+    if(selectedSlug) setSelected(selectedSlug, 'chart');
+  });
+
+  const setFilter = (name, btn) => {
+    filter = name;
+    ['filterAll','filterGo','filterAA'].forEach(id=>document.getElementById(id).classList.remove('on'));
+    btn.classList.add('on');
+    refresh();
+  };
+  document.getElementById('filterAll').addEventListener('click', e=>setFilter('all',e.currentTarget));
+  document.getElementById('filterGo').addEventListener('click', e=>setFilter('go',e.currentTarget));
+  document.getElementById('filterAA').addEventListener('click', e=>setFilter('aa',e.currentTarget));
+  const setPrice = (mode,btn) => {
+    if(mode === priceMode) return;
+    priceMode = mode;
+    document.getElementById('priceGo').classList.remove('on');
+    document.getElementById('priceOriginal').classList.remove('on');
+    btn.classList.add('on');
+    const c = window._chart;
+    if(!c){ refresh(); return; }
+    const saved = {
+      xmin:c.options.scales.x.min, xmax:c.options.scales.x.max,
+      ymin:c.options.scales.y.min, ymax:c.options.scales.y.max
+    };
+    const ck = costKey(), b = chartBounds(ck);
+    const px = v => (v>0 && isFinite(v)) ? v : b.xLo;
+    const rows = filteredRows();
+    const byLabel = new Map(c.data.datasets.map(d=>[d.label,d]));
+    const companies = [...new Set(rows.map(r=>r.company))];
+    if(companies.some(co=>!byLabel.has(co))){ refresh(); return; }
+    c.options.scales.x.title.text = 'COST / TASK ($) — '+(mode==='go'?'GO':'ORIGINAL');
+    c.options.plugins.zoom.limits.x = {min:b.xLo,max:b.xHi,minRange:0.0002};
+    const pointSets = c.data.datasets.filter(d=>d.type !== 'line');
+    const pfSet = byLabel.get('Pareto frontier');
+    const from = pointSets.map(d=>d.data.map(p=>p.x));
+    const fromX = new Map();
+    pointSets.forEach(d=>d.data.forEach(p=>{ if(p && p.r) fromX.set(p.r.slug, p.x); }));
+
+    companies.forEach(co=>{
+      const cr = rows.filter(r=>r.company===co);
+      byLabel.get(co).data = cr.map(r=>({x:px(r[ck]), y:r.intelligence_index, r}));
+    });
+    let pfAnim = null;
+    if(pfSet){
+      const pfTo = pareto(rows, ck).map(r=>({x:px(r[ck]), y:r.intelligence_index, r}));
+      pfAnim = pfTo.map(p=>({
+        p,
+        to: p.x,
+        from: fromX.has(p.r.slug) ? fromX.get(p.r.slug) : p.x
+      }));
+      pfSet.data = pfTo;
+    }
+
+    const to = pointSets.map(d=>d.data.map(p=>p.x));
+    if(priceAnimTimer) clearTimeout(priceAnimTimer);
+    const t0 = performance.now(), dur = 420;
+    const step = () => {
+      const k = Math.min(1, (performance.now()-t0)/dur), e = 1-Math.pow(1-k,3);
+      pointSets.forEach((d,i)=>d.data.forEach((p,j)=>{
+        const f = from[i] && from[i][j] !== undefined ? from[i][j] : to[i][j];
+        p.x = f + (to[i][j]-f)*e;
+      }));
+      if(pfAnim) pfAnim.forEach(a=>{ a.p.x = a.from + (a.to-a.from)*e; });
+      if(saved.xmin !== undefined){
+        c.options.scales.x.min = saved.xmin; c.options.scales.x.max = saved.xmax;
+        c.options.scales.y.min = saved.ymin; c.options.scales.y.max = saved.ymax;
+      }
+      c.update('none');
+      priceAnimTimer = k < 1 ? setTimeout(step, 16) : null;
+    };
+    priceAnimTimer = setTimeout(step, 16);
+  };
+  document.getElementById('priceGo').addEventListener('click', e=>setPrice('go',e.currentTarget));
+  document.getElementById('priceOriginal').addEventListener('click', e=>setPrice('original',e.currentTarget));
+  document.getElementById('toggleLabels').addEventListener('click', e=>{
+    showLabels = !showLabels;
+    e.currentTarget.classList.toggle('on', showLabels);
+    if(window._chart) window._chart.update();
+  });
+
+  document.getElementById('companyLegend').addEventListener('click', e=>{
+    const b = e.target.closest('button[data-company]'); if(!b) return;
+    const co = b.dataset.company;
+    hiddenCompanies.has(co) ? hiddenCompanies.delete(co) : hiddenCompanies.add(co);
+    refresh();
+  });
+  document.getElementById('modelLegend').addEventListener('click', e=>{
+    const b = e.target.closest('button[data-unhide]'); if(!b) return;
+    hiddenModels.delete(b.dataset.unhide);
+    refresh();
+  });
+  document.querySelector('#tbl tbody').addEventListener('click', e=>{
+    const b = e.target.closest('button[data-hide]');
+    if(b){
+      hiddenModels.add(b.dataset.hide);
+      if(selectedSlug === b.dataset.hide) selectedSlug = null;
+      refresh();
+      return;
+    }
+    const tr = e.target.closest('tr[data-slug]');
+    if(tr) setSelected(tr.dataset.slug, 'table');
+  });
+  document.querySelectorAll('th[data-k]').forEach(th=>{
+    th.addEventListener('click', ()=>{
+      const k = th.dataset.k; if(k === 'rank') return;
+      if(sortKey === k) sortAsc = !sortAsc; else { sortKey = k; sortAsc = true; }
+      renderTable();
+    });
+  });
+}
+
+function refresh(){
+  renderLegend();
+  syncChartData(filteredRows());
+  if(selectedSlug && !filteredRows().some(r=>r.slug === selectedSlug)) selectedSlug = null;
+  renderTable();
+  pinSelection(window._chart, selectedSlug);
+}
+
+function renderLegend(){
+  const companies = [...new Set(sourceRows().map(r=>r.company))].sort();
+  document.getElementById('companyLegend').innerHTML = companies.map(co=>
+    `<button class="chip ${hiddenCompanies.has(co)?'off':''}" data-company="${co}"><i style="background:${COLORS[co]||COLORS.Other}"></i>${co}</button>`
+  ).join('');
+  const hidden = [...hiddenModels].map(slug=>data.rows.find(r=>r.slug===slug)).filter(Boolean);
+  document.getElementById('modelLegend').innerHTML = hidden.map(r=>
+    `<button class="chip" data-unhide="${r.slug}" title="Restore">+ ${r.name}</button>`
+  ).join('');
+  document.getElementById('hiddenCount').textContent = hidden.length ? hidden.length+' model(s) hidden' : '';
+}
+
+function companyStyle(){
+  return {
+    backgroundColor: ctx=>rgba(COLORS[ctx.raw?.r?.company]||COLORS.Other, .72),
+    borderColor: ctx=>{
+      const r=ctx.raw?.r; if(!r) return 'rgba(255,255,255,0)';
+      return r.slug === selectedSlug ? '#fafafa' : (isGo(r) ? 'rgba(250,250,250,.9)' : 'rgba(255,255,255,0)');
+    },
+    borderWidth: ctx=>{
+      const r=ctx.raw?.r; if(!r) return 0;
+      return r.slug === selectedSlug ? 2.5 : (isGo(r) ? 1.5 : 0);
+    },
+    pointRadius: ctx=>{
+      const r=ctx.raw?.r; if(!r) return 3;
+      const base=Math.max(3, Math.min(7, 9 - r.cost_per_intelligence_point*30));
+      return r.slug === selectedSlug ? base+3 : base;
+    },
+    pointHoverRadius: ctx=>{
+      const r=ctx.raw?.r; if(!r) return 4;
+      const base=Math.max(4, Math.min(9, 10 - r.cost_per_intelligence_point*30));
+      return r.slug === selectedSlug ? base+3 : base;
+    }
+  };
+}
+
+function renderChart(rows){
+  const canvas = document.getElementById('chart');
+  if(window._chart) window._chart.destroy();
+  const ck = costKey();
+  const {xLo,xHi,yHi} = chartBounds(ck);
+  const px = v => (v > 0 && isFinite(v)) ? v : xLo;
+
+  const companies = [...new Set(rows.map(r=>r.company))].sort();
+  const datasets = companies.map(co=>{
+    const cr = rows.filter(r=>r.company === co);
+    return {
+      label: co,
+      data: cr.map(r=>({x:px(r[ck]), y:r.intelligence_index, r})),
+      ...companyStyle()
+    };
+  });
+  datasets.push({
+    label:'Pareto frontier',
+    data: pareto(rows, ck).map(r=>({x:px(r[ck]), y:r.intelligence_index})),
+    type:'line', borderColor:rgba('#cf9c80',.6), borderWidth:1, borderDash:[6,4],
+    pointRadius:0, tension:.2, fill:false
+  });
+
+  window._chart = new Chart(canvas, {
+    type:'scatter',
+    data:{ datasets },
+    plugins:[labelPlugin],
+    options:{
+      responsive:true, maintainAspectRatio:false, animation:false,
+      interaction:{ mode:'nearest', intersect:true },
+      onHover:(evt, elements, chart)=>{
+        if(elements.length || !selectedSlug) return;
+        const f = findPoint(chart, selectedSlug); if(!f) return;
+        const active = chart.tooltip.getActiveElements();
+        if(active.length === 1 && active[0].datasetIndex === f.di && active[0].index === f.idx) return;
+        const el = chart.getDatasetMeta(f.di).data[f.idx];
+        chart.tooltip.setActiveElements([{datasetIndex:f.di, index:f.idx}], {x:el.x, y:el.y});
+        chart.update('none');
+      },
+      scales:{
+        x:{
+          type:'logarithmic',
+          title:{display:true,text:'COST / TASK ($) — '+(priceMode==='go'?'GO':'ORIGINAL'),color:'#8f8f8f',font:{family:MONO.family,size:10,weight:'500'}},
+          ticks:{color:'#8f8f8f',font:MONO,maxRotation:0,callback:v=>'$'+fmtTick(v)},
+          grid:{color:'rgba(255,255,255,.08)',lineWidth:.5,drawTicks:false},
+          border:{display:false},
+          afterBuildTicks(s){
+            const out=[], lo=Math.floor(Math.log10(s.min)), hi=Math.ceil(Math.log10(s.max));
+            for(let e=lo;e<=hi;e++) for(const m of [1,2,5]){
+              const v=m*Math.pow(10,e);
+              if(v>=s.min*0.9999 && v<=s.max*1.0001) out.push({value:v});
+            }
+            s.ticks=out;
+          }
+        },
+        y:{
+          title:{display:true,text:'INTELLIGENCE INDEX',color:'#8f8f8f',font:{family:MONO.family,size:10,weight:'500'}},
+          ticks:{color:'#8f8f8f',font:MONO},
+          grid:{color:'rgba(255,255,255,.08)',lineWidth:.5,drawTicks:false},
+          border:{display:false},
+          afterBuildTicks(s){
+            const out=[], step=10;
+            for(let v=Math.ceil(s.min/step)*step; v<=s.max; v+=step) out.push({value:v});
+            s.ticks=out;
+          }
+        }
+      },
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'#161616', borderColor:'rgba(255,255,255,.1)', borderWidth:1,
+          titleColor:'#fafafa', bodyColor:'#aeaeae', titleFont:{family:MONO.family,size:11},
+          bodyFont:{family:MONO.family,size:10}, padding:8, cornerRadius:4, displayColors:false,
+          callbacks:{
+            title:items=>items[0] && items[0].raw.r ? items[0].raw.r.name : '',
+            label:c=>{
+              const r=c.raw.r; if(!r) return '';
+              return `${r.company} · II ${r.intelligence_index} · $${r[costKey()].toFixed(4)}/task · $${r.cost_per_intelligence_point.toFixed(4)}/pt`;
+            }
+          }
+        },
+        zoom:{
+          limits:{ x:{min:xLo,max:xHi,minRange:0.0002}, y:{min:0,max:yHi,minRange:2} },
+          zoom:{ wheel:{enabled:true}, pinch:{enabled:true}, mode:'xy' },
+          pan:{enabled:true, mode:'xy'}
+        }
+      }
+    }
+  });
+  const c0 = window._chart;
+  c0.options.scales.x.min = c0.scales.x.min; c0.options.scales.x.max = c0.scales.x.max;
+  c0.options.scales.y.min = c0.scales.y.min; c0.options.scales.y.max = c0.scales.y.max;
+  c0.update('none');
+}
+
+function syncChartData(rows){
+  const c = window._chart;
+  if(!c){ renderChart(rows); return; }
+  if(priceAnimTimer){ clearTimeout(priceAnimTimer); priceAnimTimer = null; }
+  const saved = {
+    xmin:c.options.scales.x.min, xmax:c.options.scales.x.max,
+    ymin:c.options.scales.y.min, ymax:c.options.scales.y.max
+  };
+  const ck = costKey(), b = chartBounds(ck);
+  const px = v => (v>0 && isFinite(v)) ? v : b.xLo;
+  const companies = [...new Set(rows.map(r=>r.company))].sort();
+  const byLabel = new Map(c.data.datasets.map(d=>[d.label,d]));
+  c.data.datasets = c.data.datasets.filter(d=>d.label === 'Pareto frontier' || companies.includes(d.label));
+  companies.forEach(co=>{
+    const cr = rows.filter(r=>r.company === co);
+    let ds = byLabel.get(co);
+    if(!ds){
+      ds = { label:co, ...companyStyle() };
+      c.data.datasets.unshift(ds);
+    }
+    ds.data = cr.map(r=>({x:px(r[ck]), y:r.intelligence_index, r}));
+  });
+  let pf = c.data.datasets.find(d=>d.label === 'Pareto frontier');
+  if(!pf){
+    pf = { label:'Pareto frontier', type:'line', data:[], borderColor:rgba('#cf9c80',.6),
+           borderWidth:1, borderDash:[6,4], pointRadius:0, tension:.2, fill:false };
+    c.data.datasets.push(pf);
+  }
+  pf.data = pareto(rows, ck).map(r=>({x:px(r[ck]), y:r.intelligence_index}));
+  c.update('none');
+  if(saved.xmin !== undefined){
+    c.options.scales.x.min = saved.xmin; c.options.scales.x.max = saved.xmax;
+    c.options.scales.y.min = saved.ymin; c.options.scales.y.max = saved.ymax;
+    c.update('none');
+  }
+}
+
+function renderTable(){
+  const rows = filteredRows().slice().sort((a,b)=>{
+    let va=a[sortKey], vb=b[sortKey];
+    if(sortKey === 'name'){ va=a.name; vb=b.name; }
+    if(sortKey === 'company'){ va=a.company; vb=b.company; }
+    if(va < vb) return sortAsc ? -1 : 1;
+    if(va > vb) return sortAsc ? 1 : -1;
+    return 0;
+  });
+  document.querySelector('#tbl tbody').innerHTML = rows.map((r,i)=>
+    `<tr data-slug="${r.slug}" class="${r.slug === selectedSlug ? 'selected' : ''}">
+      <td class="rank">${i+1}</td>
+      <td class="name">${r.name}</td>
+      <td class="name"><i style="display:inline-block;width:6px;height:6px;margin-right:6px;background:${COLORS[r.company]||COLORS.Other}"></i>${r.company}</td>
+      <td class="num">${r.intelligence_index}</td>
+      <td class="num">${r.aa_cost_per_task.toFixed(4)}</td>
+      <td class="num">${r.go_effective_cost_per_task.toFixed(4)}</td>
+      <td class="num">${r.cost_per_intelligence_point.toFixed(4)}</td>
+      <td class="num">${r.monthly_task_capacity ? r.monthly_task_capacity.toFixed(0) : '—'}</td>
+      <td><button class="hide-btn" data-hide="${r.slug}" title="Hide model">×</button></td>
+    </tr>`
+  ).join('');
+}
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# OpenChamber session artifacts (screenshots, private state)
+.openchamber/
+
+__pycache__/
+*.pyc
+
+# scratch scripts
+_*.py
+_*.js

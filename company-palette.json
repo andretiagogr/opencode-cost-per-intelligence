@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "description": "Vendor/company inference + dark-theme scatter palette for data/merged.json. Every point is colored by company.",
+    "source": "data/merged.json",
+    "totalRows": 140,
+    "generated": "2026-11-19"
+  },
+  "howToApply": "Lowercase both name and slug. Evaluate rules in array order; the first rule whose 'conditions.any' has a match wins. Check exceptions.bySlug FIRST (exact slug key) to override a rule or to force 'Other'. If nothing matches, return the fallback 'Other'. The color is colors[company], or fallback when company is 'Other'/missing.",
+  "rules": [
+    {
+      "order": 1,
+      "id": "openai-gpt",
+      "company": "OpenAI",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "gpt-" },
+        { "field": "slug", "op": "startsWith", "value": "gpt-" }
+      ] },
+      "note": "GPT-6/6.1/6.2, GPT-5.6 families (Luna/Terra/Sol/Astra) and gpt-oss-120b open-weight model."
+    },
+    {
+      "order": 2,
+      "id": "anthropic-claude",
+      "company": "Anthropic",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "claude" },
+        { "field": "slug", "op": "startsWith", "value": "claude" }
+      ] },
+      "note": "Claude Haiku/Sonnet/Opus/Fable 5.x and 4.5; 'Fable' is a codename within the Claude line."
+    },
+    {
+      "order": 3,
+      "id": "google-gemini-gemma",
+      "company": "Google",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "gemini" },
+        { "field": "name", "op": "startsWith", "value": "gemma" },
+        { "field": "slug", "op": "startsWith", "value": "gemini" },
+        { "field": "slug", "op": "startsWith", "value": "gemma" }
+      ] },
+      "note": "Gemini 3.x/4.x (Hydrogen/Neon/Argon/Carbon/Flash) and Gemma 4."
+    },
+    {
+      "order": 4,
+      "id": "deepseek",
+      "company": "DeepSeek",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "deepseek" },
+        { "field": "slug", "op": "startsWith", "value": "deepseek" }
+      ] },
+      "note": "DeepSeek V4 Pro / V4.1 Flash."
+    },
+    {
+      "order": 5,
+      "id": "zhipu-glm",
+      "company": "Zhipu",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "glm" },
+        { "field": "slug", "op": "startsWith", "value": "glm" }
+      ] },
+      "note": "GLM-5.3 and GLM-5.3-Flash (Zhipu AI / ChatGLM)."
+    },
+    {
+      "order": 6,
+      "id": "alibaba-qwen",
+      "company": "Alibaba",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "qwen" },
+        { "field": "slug", "op": "startsWith", "value": "qwen" }
+      ] },
+      "note": "Qwen3.8 / Qwen4 (Alibaba Qwen team)."
+    },
+    {
+      "order": 7,
+      "id": "mistral",
+      "company": "Mistral",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "mistral" },
+        { "field": "slug", "op": "startsWith", "value": "mistral" }
+      ] },
+      "note": "Mistral Small/Large/Medium 4 and previews."
+    },
+    {
+      "order": 8,
+      "id": "xai-grok",
+      "company": "xAI",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "grok" },
+        { "field": "slug", "op": "startsWith", "value": "grok" }
+      ] },
+      "note": "Grok 4.6 / 4.7."
+    },
+    {
+      "order": 9,
+      "id": "moonshot-kimi-k2",
+      "company": "Moonshot",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "kimi" },
+        { "field": "name", "op": "startsWith", "value": "k2" },
+        { "field": "slug", "op": "startsWith", "value": "kimi" },
+        { "field": "slug", "op": "startsWith", "value": "k2" }
+      ] },
+      "note": "Kimi K3 / K3.1 Pro. The 'K2 Horizon 375B A23B' row is mapped via its K2 prefix (likely a Kimi K2 variant) - see exceptions.ambiguous.k2Horizon."
+    },
+    {
+      "order": 10,
+      "id": "ibm-granite",
+      "company": "IBM",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "granite" },
+        { "field": "slug", "op": "startsWith", "value": "granite" }
+      ] },
+      "note": "IBM Granite 4.2 8B."
+    },
+    {
+      "order": 11,
+      "id": "nvidia-nemotron",
+      "company": "NVIDIA",
+      "conditions": { "any": [
+        { "field": "name", "op": "contains", "value": "nemotron" },
+        { "field": "slug", "op": "contains", "value": "nemotron" }
+      ] },
+      "note": "NVIDIA Nemotron 3.5 Super VL / Lightning and Nemotron 3 Ultra (slug uses 'nvidia-nemotron-*', hence contains)."
+    },
+    {
+      "order": 12,
+      "id": "minimax",
+      "company": "MiniMax",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "minimax" },
+        { "field": "slug", "op": "startsWith", "value": "minimax" }
+      ] },
+      "note": "MiniMax M3 / M3.1-Flash."
+    },
+    {
+      "order": 13,
+      "id": "xiaomi-mimo",
+      "company": "Xiaomi",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "mimo" },
+        { "field": "slug", "op": "startsWith", "value": "mimo" }
+      ] },
+      "note": "MiMo-V2.6-Flash / Pro (Xiaomi MiMo)."
+    },
+    {
+      "order": 14,
+      "id": "cohere-command",
+      "company": "Cohere",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "command" },
+        { "field": "slug", "op": "startsWith", "value": "command" }
+      ] },
+      "note": "Command A+ (Cohere's Command line)."
+    },
+    {
+      "order": 15,
+      "id": "liquid-ai-lfm",
+      "company": "LiquidAI",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "lfm" },
+        { "field": "slug", "op": "startsWith", "value": "lfm" }
+      ] },
+      "note": "LFM3 1.7B / VL 2B (Liquid AI Foundation Models)."
+    },
+    {
+      "order": 16,
+      "id": "tencent",
+      "company": "Tencent",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "tencent" },
+        { "field": "slug", "op": "startsWith", "value": "tencent" }
+      ] },
+      "note": "Tencent Hy4 (likely Hunyuan 4)."
+    },
+    {
+      "order": 17,
+      "id": "stepfun",
+      "company": "StepFun",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "step" },
+        { "field": "slug", "op": "startsWith", "value": "step" }
+      ] },
+      "note": "Step 5 Preview (StepFun / 阶跃星辰)."
+    },
+    {
+      "order": 18,
+      "id": "upstage-solar",
+      "company": "Upstage",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "solar" },
+        { "field": "slug", "op": "startsWith", "value": "solar" }
+      ] },
+      "note": "Solar Pro 4 (Upstage Solar line)."
+    },
+    {
+      "order": 19,
+      "id": "reflection-ai-beam",
+      "company": "ReflectionAI",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "beam" },
+        { "field": "slug", "op": "startsWith", "value": "beam" },
+        { "field": "slug", "op": "startsWith", "value": "reflection" }
+      ] },
+      "note": "Beam 1.0, slug 'reflection-beam' -> Reflection AI."
+    },
+    {
+      "order": 20,
+      "id": "muse",
+      "company": "Muse",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "muse" },
+        { "field": "slug", "op": "startsWith", "value": "muse" }
+      ] },
+      "note": "Muse Ember/Spark/Glimmer/Wonder family. Vendor identity is unknown/ambiguous; kept as its own family color rather than merged into Other. See exceptions.ambiguous.muse."
+    },
+    {
+      "order": 21,
+      "id": "inkling",
+      "company": "Inkling",
+      "conditions": { "any": [
+        { "field": "name", "op": "startsWith", "value": "inkling" },
+        { "field": "slug", "op": "startsWith", "value": "inkling" }
+      ] },
+      "note": "Inkling / Inkling Small / Inkling 2 Small. Vendor identity is unknown/ambiguous; kept as its own family color. See exceptions.ambiguous.inkling."
+    }
+  ],
+  "exceptions": {
+    "bySlug": {
+      "north-mini-code": { "company": "Other", "ambiguous": true, "reason": "'North Mini Code' has no recognizable vendor prefix; vendor cannot be determined from name or slug." },
+      "agnes-2-5-pro-theta": { "company": "Other", "ambiguous": true, "reason": "'Agnes 2.5 Pro Theta' has no recognizable vendor prefix; possible fictional or unknown vendor." },
+      "apodex-1-1": { "company": "Other", "ambiguous": true, "reason": "'Apodex 1.1' has no recognizable vendor prefix; possible fictional or unknown vendor." },
+      "ling-3-1-flash": { "company": "Other", "ambiguous": true, "reason": "'Ling 3.1 Flash 1019' has no recognizable vendor prefix; possible fictional or unknown vendor." }
+    },
+    "ambiguous": {
+      "muse": "No known public vendor uses the 'Muse' model line. It is a coherent, multi-model family (7 rows) in this dataset, so it is treated as a distinct company rather than silently assigned to a real vendor; identity unresolved.",
+      "inkling": "No known public vendor uses the 'Inkling' model line. Coherent family (5 rows); treated as a distinct company; identity unresolved.",
+      "k2Horizon": "'K2 Horizon 375B A23B' is mapped to Moonshot because 'K2' matches Kimi K2, but 'Horizon' is not a known Kimi release. Confidence: likely, not certain.",
+      "commandAplus": "'Command A+' mapped to Cohere based on Cohere's Command model line; 'Command' is a common word, so this is an inference (medium-high confidence).",
+      "beam": "'Beam 1.0' mapped to Reflection AI primarily from its slug 'reflection-beam' (medium-high confidence).",
+      "step5": "'Step 5 Preview' mapped to StepFun (阶跃星辰) from its Step model line (medium confidence).",
+      "solar": "'Solar Pro 4' mapped to Upstage from the Upstage Solar line (medium confidence).",
+      "lfm": "'LFM3-*' mapped to Liquid AI (Liquid Foundation Models), medium-high confidence.",
+      "mimo": "'MiMo-V2.6-*' mapped to Xiaomi (MiMo), medium-high confidence."
+    }
+  },
+  "colors": {
+    "OpenAI": "#6BC7B0",
+    "Anthropic": "#C78A6B",
+    "Google": "#6B8EC7",
+    "DeepSeek": "#996BC7",
+    "Zhipu": "#C76BC7",
+    "Alibaba": "#C76B96",
+    "Mistral": "#C7A86B",
+    "xAI": "#6BA2C7",
+    "Moonshot": "#6BC78A",
+    "IBM": "#6B6BC7",
+    "NVIDIA": "#8AC76B",
+    "MiniMax": "#B06BC7",
+    "Xiaomi": "#C7706B",
+    "Cohere": "#6BC7C4",
+    "LiquidAI": "#C76BB0",
+    "Tencent": "#826BC7",
+    "StepFun": "#6BC76E",
+    "Upstage": "#A1C76B",
+    "ReflectionAI": "#C7C46B",
+    "Muse": "#C76B7F",
+    "Inkling": "#6BB6C7"
+  },
+  "fallback": "#8A8F98",
+  "goDetection": {
+    "field": "cost_source",
+    "test": "startsWith('Go')",
+    "matchedRows": 37,
+    "totalRows": 140,
+    "distinctGoModels": [
+      "Claude Haiku 5.5",
+      "DeepSeek V4 Pro",
+      "DeepSeek V4.1 Flash 1017",
+      "Gemini 4 Argon",
+      "GLM-5.3",
+      "GLM-5.3-Flash",
+      "GPT-5.6 Luna",
+      "GPT-6 Luna",
+      "Grok 4.7",
+      "Kimi K3",
+      "Kimi K3.1 Pro",
+      "MiMo-V2.6-Flash",
+      "MiMo-V2.6-Pro",
+      "MiniMax M3.1 Flash",
+      "MiniMax-M3",
+      "Muse Spark 1.3",
+      "Qwen3.8 Flash",
+      "Qwen3.8 Max",
+      "Qwen4 Max New",
+      "Step 5 Preview"
+    ]
+  },
+  "stats": {
+    "totalRows": 140,
+    "ruleCount": 21,
+    "distinctCompanies": 21,
+    "fallbackRows": 4,
+    "goRows": 37,
+    "rowsByCompany": {
+      "OpenAI": 36,
+      "Anthropic": 27,
+      "Google": 18,
+      "Alibaba": 7,
+      "Muse": 7,
+      "DeepSeek": 6,
+      "Inkling": 5,
+      "Mistral": 5,
+      "Other": 4,
+      "xAI": 4,
+      "Moonshot": 3,
+      "Zhipu": 3,
+      "NVIDIA": 3,
+      "MiniMax": 2,
+      "Xiaomi": 2,
+      "LiquidAI": 2,
+      "Tencent": 1,
+      "Cohere": 1,
+      "ReflectionAI": 1,
+      "StepFun": 1,
+      "IBM": 1,
+      "Upstage": 1
+    }
+  }
+}
