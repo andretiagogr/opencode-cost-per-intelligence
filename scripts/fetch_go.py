@@ -10,7 +10,7 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import date
+from datetime import datetime, timedelta, timezone
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 URL = 'https://opencode.ai/console/go.md'
@@ -18,6 +18,11 @@ OUT = os.path.join(BASE, 'data', 'go-limits.json')
 META = os.path.join(BASE, 'data', 'fetched_at.json')
 MIN_MODELS = 20
 REQUIRED = 'GLM-5.3'
+
+
+def today():
+    """Calendar date in Asia/Taipei (UTC+8, no DST) so CI and local runs agree."""
+    return (datetime.now(timezone.utc) + timedelta(hours=8)).date().isoformat()
 
 # Badge words the Markdown table appends to model names. "Free" / "New" stay: they are part of the name.
 BADGES = ('Contributor', 'Limited regions', 'Limited time')
@@ -66,7 +71,7 @@ def main():
     if os.path.exists(META):
         with open(META, encoding='utf-8') as f:
             meta = json.load(f)
-    meta['go'] = date.today().isoformat()
+    meta['go'] = today()
     with open(META, 'w', encoding='utf-8') as f:
         json.dump(meta, f, indent=2)
 

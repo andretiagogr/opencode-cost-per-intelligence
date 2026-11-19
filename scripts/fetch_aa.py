@@ -8,13 +8,18 @@ import json
 import os
 import sys
 import urllib.request
-from datetime import date
+from datetime import datetime, timedelta, timezone
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 URL = 'https://artificialanalysis.ai/api/v2/language/models/free'
 OUT = os.path.join(BASE, 'data', 'aa-models.json')
 META = os.path.join(BASE, 'data', 'fetched_at.json')
 MIN_SCORED = 100
+
+
+def today():
+    """Calendar date in Asia/Taipei (UTC+8, no DST) so CI and local runs agree."""
+    return (datetime.now(timezone.utc) + timedelta(hours=8)).date().isoformat()
 
 
 def get(page):
@@ -64,7 +69,7 @@ def main():
     if os.path.exists(META):
         with open(META, encoding='utf-8') as f:
             meta = json.load(f)
-    meta['aa'] = date.today().isoformat()
+    meta['aa'] = today()
     with open(META, 'w', encoding='utf-8') as f:
         json.dump(meta, f, indent=2)
 
