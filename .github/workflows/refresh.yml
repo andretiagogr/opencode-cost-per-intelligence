@@ -38,6 +38,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'no data change'
           else
-            git commit -m "data: refresh snapshot $(date -u +%F)"
+            SNAP=$(python -c "import json;print(json.load(open('data/merged.json'))['snapshot_date'])")
+            git commit -m "data: refresh snapshot $SNAP"
             git push
           fi
