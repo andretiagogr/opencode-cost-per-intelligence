@@ -179,7 +179,7 @@
         { "field": "name", "op": "startsWith", "value": "step" },
         { "field": "slug", "op": "startsWith", "value": "step" }
       ] },
-      "note": "Step 5 Preview (StepFun / 阶跃星辰)."
+      "note": "Step 5 Preview (StepFun)."
     },
     {
       "order": 18,
@@ -236,7 +236,7 @@
       "k2Horizon": "'K2 Horizon 375B A23B' is mapped to Moonshot because 'K2' matches Kimi K2, but 'Horizon' is not a known Kimi release. Confidence: likely, not certain.",
       "commandAplus": "'Command A+' mapped to Cohere based on Cohere's Command model line; 'Command' is a common word, so this is an inference (medium-high confidence).",
       "beam": "'Beam 1.0' mapped to Reflection AI primarily from its slug 'reflection-beam' (medium-high confidence).",
-      "step5": "'Step 5 Preview' mapped to StepFun (阶跃星辰) from its Step model line (medium confidence).",
+      "step5": "'Step 5 Preview' mapped to StepFun from its Step model line (medium confidence).",
       "solar": "'Solar Pro 4' mapped to Upstage from the Upstage Solar line (medium confidence).",
       "lfm": "'LFM3-*' mapped to Liquid AI (Liquid Foundation Models), medium-high confidence.",
       "mimo": "'MiMo-V2.6-*' mapped to Xiaomi (MiMo), medium-high confidence."

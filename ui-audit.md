@@ -1,12 +1,14 @@
-# Audit — index.html (pre-redesign, 221 lines)
+# Audit — index.html (pre-redesign, 221 lines) — archived
+
+> Kept as the record of the state before the canvas rewrite. The Chinese glosses it quotes were removed from the page; they are described in English here.
 
 ## 1. Structure / Traditional Chinese to translate
 - `<html lang="zh-Hant">` (L2) → should be `en`.
 - Header `.sub` (L43–44): Chinese copy about Go effective pricing, attribution, and unofficial disclaimer — needs EN.
-- Chart panel h3 (L56): "Intelligence Index vs. Cost per Task（斬殺線）" — "斬殺線" = Pareto frontier / kill-line.
+- Chart panel h3 (L56): "Intelligence Index vs. Cost per Task" plus a two-character Chinese gloss meaning "kill line" (i.e. Pareto frontier).
 - HTML legend (L58): fully Chinese, needs EN or removal.
 - Footer (L84–88): five Chinese lines (data source, Go pricing, effective-cost formula, CPI formula, disclaimer).
-- Dataset label "Pareto 斬殺線" (L174).
+- Dataset label "Pareto" plus the same Chinese gloss (L174).
 - Already English: title, badges, stats labels, filter buttons, all table headers.
 
 ## 2. Chart config (L154–203)
@@ -16,7 +18,7 @@
   1. `Go models` — goRows, x=`px(go_effective_cost_per_task)`, y=`intelligence_index`, `r`=row; radius `max(3,10-cpi*30)`; orange fill.
   2. `AA original (Go models)` — same goRows, x=`px(aa_cost_per_task)`; radius 4; translucent gray.
   3. `AA provider models` — aaRows, x=`px(go_effective_cost_per_task)`; radius `max(3,10-cpi*30)`; gray.
-  4. `Pareto 斬殺線` — `type:'line'`, pf rows, border `#e06c75`, `pointRadius:0`, `tension:0.2`, `borderWidth:2`.
+  4. `Pareto` + gloss — `type:'line'`, pf rows, border `#e06c75`, `pointRadius:0`, `tension:0.2`, `borderWidth:2`.
 - Scales: x logarithmic, fixed 1-2-5 ticks via `afterBuildTicks` (L181–188); y linear, fixed step-10 ticks (L190–194).
 - Bounds from FULL `data.rows`: `allX` = both cost fields >0/finite; `xLo=10^floor(log10(min))`, `xHi=10^ceil(log10(max))`, `yHi=ceil(maxII/10)*10+10`.
 - `px(v)` (L165): v if `v>0 && isFinite(v)`, else `xLo` — clamps zero-cost models onto the log axis.
