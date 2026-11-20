@@ -135,7 +135,7 @@
       "intelligence_per_dollar": 626.9180184129768,
       "monthly_task_capacity": 219.20210434020166,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 157.91,
+      "median_output_tokens_per_second": 157.79,
       "release_date": "2026-10-17"
     },
     {
@@ -150,7 +150,7 @@
       "intelligence_per_dollar": 541.438299285833,
       "monthly_task_capacity": 166.08536787908986,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 160.5,
+      "median_output_tokens_per_second": 159.65,
       "release_date": "2026-10-17"
     },
     {
@@ -165,7 +165,7 @@
       "intelligence_per_dollar": 440.3292181069958,
       "monthly_task_capacity": 205.76131687242795,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 119.53,
+      "median_output_tokens_per_second": 120.12,
       "release_date": "2026-09-22"
     },
     {
@@ -180,7 +180,7 @@
       "intelligence_per_dollar": 434.88481429243063,
       "monthly_task_capacity": 235.07287259050304,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 155.65,
+      "median_output_tokens_per_second": 161.1,
       "release_date": "2026-10-17"
     },
     {
@@ -240,7 +240,7 @@
       "intelligence_per_dollar": 316.4114746571377,
       "monthly_task_capacity": 99.81434531770907,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 66.83,
+      "median_output_tokens_per_second": 61.83,
       "release_date": "2026-08-18"
     },
     {
@@ -330,7 +330,7 @@
       "intelligence_per_dollar": 226.30331753554503,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 69.16,
+      "median_output_tokens_per_second": 70.25,
       "release_date": "2026-10-26"
     },
     {
@@ -345,7 +345,7 @@
       "intelligence_per_dollar": 221.13289760348584,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 74.98,
+      "median_output_tokens_per_second": 69.77,
       "release_date": "2026-11-17"
     },
     {
@@ -360,7 +360,7 @@
       "intelligence_per_dollar": 215.4798761609907,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 48.08,
+      "median_output_tokens_per_second": 46.71,
       "release_date": "2026-09-29"
     },
     {
@@ -390,7 +390,7 @@
       "intelligence_per_dollar": 197.47899159663865,
       "monthly_task_capacity": 210.08403361344537,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 114.08,
+      "median_output_tokens_per_second": 114.73,
       "release_date": "2026-09-22"
     },
     {
@@ -450,7 +450,7 @@
       "intelligence_per_dollar": 150.68493150684932,
       "monthly_task_capacity": 52.68703898840885,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 59.6,
+      "median_output_tokens_per_second": 60.03,
       "release_date": "2026-08-26"
     },
     {
@@ -480,7 +480,7 @@
       "intelligence_per_dollar": 133.2116788321168,
       "monthly_task_capacity": 36.49635036496351,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 226.39,
+      "median_output_tokens_per_second": 225.17,
       "release_date": "2026-10-07"
     },
     {
@@ -495,7 +495,7 @@
       "intelligence_per_dollar": 129.7709923664122,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 78.27,
+      "median_output_tokens_per_second": 73.14,
       "release_date": "2026-11-17"
     },
     {
@@ -525,7 +525,7 @@
       "intelligence_per_dollar": 125.92592592592591,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 123.8,
+      "median_output_tokens_per_second": 128.76,
       "release_date": "2026-08-25"
     },
     {
@@ -555,7 +555,7 @@
       "intelligence_per_dollar": 113.05215872223609,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 71.21,
+      "median_output_tokens_per_second": 70.4,
       "release_date": "2026-10-26"
     },
     {
@@ -600,7 +600,7 @@
       "intelligence_per_dollar": 97.40951029098652,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 90.27,
+      "median_output_tokens_per_second": 89.63,
       "release_date": "2026-11-17"
     },
     {
@@ -615,7 +615,7 @@
       "intelligence_per_dollar": 92.0602327173169,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 243.51,
+      "median_output_tokens_per_second": 240.57,
       "release_date": "2026-11-12"
     },
     {
@@ -690,7 +690,7 @@
       "intelligence_per_dollar": 69.0645307541182,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 41.5,
+      "median_output_tokens_per_second": 41.74,
       "release_date": "2026-11-17"
     },
     {
@@ -735,7 +735,7 @@
       "intelligence_per_dollar": 62.23628691983122,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 307.65,
+      "median_output_tokens_per_second": 314.81,
       "release_date": "2026-10-16"
     },
     {
@@ -765,7 +765,7 @@
       "intelligence_per_dollar": 56.48659305993691,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 90.92,
+      "median_output_tokens_per_second": 90.91,
       "release_date": "2026-11-17"
     },
     {
@@ -780,7 +780,7 @@
       "intelligence_per_dollar": 53.37633961086255,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 82.9,
+      "median_output_tokens_per_second": 83.85,
       "release_date": "2026-10-26"
     },
     {
@@ -795,7 +795,7 @@
       "intelligence_per_dollar": 51.62907268170426,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 200.59,
+      "median_output_tokens_per_second": 207.17,
       "release_date": "2026-11-12"
     },
     {
@@ -870,7 +870,7 @@
       "intelligence_per_dollar": 36.77077195050089,
       "monthly_task_capacity": 17.678255745433116,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 72.46,
+      "median_output_tokens_per_second": 73.96,
       "release_date": "2026-08-13"
     },
     {
@@ -915,7 +915,7 @@
       "intelligence_per_dollar": 35.23521048402053,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 40.21,
+      "median_output_tokens_per_second": 40.72,
       "release_date": "2026-11-17"
     },
     {
@@ -930,7 +930,7 @@
       "intelligence_per_dollar": 34.64203233256351,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 167.17,
+      "median_output_tokens_per_second": 177.74,
       "release_date": "2026-10-27"
     },
     {
@@ -960,7 +960,7 @@
       "intelligence_per_dollar": 33.09692671394799,
       "monthly_task_capacity": 6.953135864274787,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 82.19,
+      "median_output_tokens_per_second": 85.85,
       "release_date": "2026-09-30"
     },
     {
@@ -975,7 +975,7 @@
       "intelligence_per_dollar": 31.876606683804628,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 322.86,
+      "median_output_tokens_per_second": 322.27,
       "release_date": "2026-03-03"
     },
     {
@@ -1005,7 +1005,7 @@
       "intelligence_per_dollar": 30.402348541210063,
       "monthly_task_capacity": 6.0322120121448535,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 89.51,
+      "median_output_tokens_per_second": 95.45,
       "release_date": "2026-09-30"
     },
     {
@@ -1020,7 +1020,7 @@
       "intelligence_per_dollar": 28.979217898645064,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 41.35,
+      "median_output_tokens_per_second": 40.9,
       "release_date": "2026-11-17"
     },
     {
@@ -1050,7 +1050,7 @@
       "intelligence_per_dollar": 28.2274802822748,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 284.3,
+      "median_output_tokens_per_second": 285.13,
       "release_date": "2026-10-15"
     },
     {
@@ -1080,7 +1080,7 @@
       "intelligence_per_dollar": 25.9674134419552,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 109.35,
+      "median_output_tokens_per_second": 105.82,
       "release_date": "2026-11-05"
     },
     {
@@ -1110,7 +1110,7 @@
       "intelligence_per_dollar": 24.43377890603308,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 45.95,
+      "median_output_tokens_per_second": 43.65,
       "release_date": "2026-11-17"
     },
     {
@@ -1155,7 +1155,7 @@
       "intelligence_per_dollar": 19.586230286586403,
       "monthly_task_capacity": 8.478887569950825,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 67.54,
+      "median_output_tokens_per_second": 68.74,
       "release_date": "2026-08-13"
     },
     {
@@ -1170,7 +1170,7 @@
       "intelligence_per_dollar": 19.344933469805525,
       "monthly_task_capacity": 15.353121801432959,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 71.89,
+      "median_output_tokens_per_second": 70.16,
       "release_date": "2026-08-13"
     },
     {
@@ -1185,7 +1185,7 @@
       "intelligence_per_dollar": 18.947625774204067,
       "monthly_task_capacity": 4.074758231011627,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 28.38,
+      "median_output_tokens_per_second": 28.5,
       "release_date": "2026-10-23"
     },
     {
@@ -1200,7 +1200,7 @@
       "intelligence_per_dollar": 18.88449714536671,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 41.63,
+      "median_output_tokens_per_second": 41.5,
       "release_date": "2026-09-03"
     },
     {
@@ -1395,7 +1395,7 @@
       "intelligence_per_dollar": 15.533154906325821,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 66.54,
+      "median_output_tokens_per_second": 66.13,
       "release_date": "2026-11-17"
     },
     {
@@ -1545,7 +1545,7 @@
       "intelligence_per_dollar": 11.01823708206687,
       "monthly_task_capacity": 6.332320162107397,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 44.45,
+      "median_output_tokens_per_second": 44.38,
       "release_date": "2026-07-16"
     },
     {
@@ -1560,7 +1560,7 @@
       "intelligence_per_dollar": 11.004923255140458,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 251.25,
+      "median_output_tokens_per_second": 251.7,
       "release_date": "2025-08-05"
     },
     {
@@ -1725,7 +1725,7 @@
       "intelligence_per_dollar": 8.237578047116848,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 52.52,
+      "median_output_tokens_per_second": 53.14,
       "release_date": "2026-08-14"
     },
     {
@@ -1740,7 +1740,7 @@
       "intelligence_per_dollar": 8.101851851851851,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 52.45,
+      "median_output_tokens_per_second": 53.87,
       "release_date": "2026-08-14"
     },
     {
@@ -1770,7 +1770,7 @@
       "intelligence_per_dollar": 7.736445103474954,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 83.78,
+      "median_output_tokens_per_second": 83.02,
       "release_date": "2026-10-28"
     },
     {
@@ -1800,7 +1800,7 @@
       "intelligence_per_dollar": 6.851959081258445,
       "monthly_task_capacity": 1.930129318664351,
       "cost_source": "Go",
-      "median_output_tokens_per_second": 70.12,
+      "median_output_tokens_per_second": 68.95,
       "release_date": "2026-09-21"
     },
     {
@@ -1860,7 +1860,7 @@
       "intelligence_per_dollar": 6.2599469496021225,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 56.88,
+      "median_output_tokens_per_second": 56.82,
       "release_date": "2026-09-01"
     },
     {
@@ -1905,7 +1905,7 @@
       "intelligence_per_dollar": 5.694857628559286,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 47.82,
+      "median_output_tokens_per_second": 49.17,
       "release_date": "2026-08-14"
     },
     {
@@ -1935,7 +1935,7 @@
       "intelligence_per_dollar": 5.38886605471069,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 255.6,
+      "median_output_tokens_per_second": 254.64,
       "release_date": "2026-06-04"
     },
     {
@@ -1995,7 +1995,7 @@
       "intelligence_per_dollar": 4.426907901068232,
       "monthly_task_capacity": null,
       "cost_source": "AA provider",
-      "median_output_tokens_per_second": 171.09,
+      "median_output_tokens_per_second": 170.89,
       "release_date": "2026-04-29"
     },
     {
