@@ -2,7 +2,7 @@
   "intelligence_index_version": 5,
   "plan_price": 10.0,
   "snapshot_date": "2026-11-21",
-  "build_date": "2026-11-21",
+  "build_date": "2026-11-22",
   "rows": [
     {
       "name": "Command A+",
@@ -63,6 +63,26 @@
       "pricing_mode": "aa-standard",
       "median_output_tokens_per_second": 274.5,
       "release_date": "2026-06-09"
+    },
+    {
+      "name": "Beam 1.0",
+      "label": "Beam Free",
+      "slug": "reflection-beam-go-free",
+      "intelligence_index": 17.7,
+      "aa_cost_per_task": 0.2844,
+      "aa_cost_per_task_standard": 0.2844,
+      "aa_cost_per_task_used": 0.2844,
+      "go_model": "Beam Free",
+      "go_monthly_limit": null,
+      "go_limited_regions": true,
+      "go_effective_cost_per_task": 0,
+      "cost_per_intelligence_point": 0.0,
+      "intelligence_per_dollar": null,
+      "monthly_task_capacity": null,
+      "cost_source": "Go (free)",
+      "pricing_mode": "go-free",
+      "median_output_tokens_per_second": 278.48,
+      "release_date": "2026-10-16"
     },
     {
       "name": "GPT-6 Luna (Low)",
@@ -523,6 +543,26 @@
       "pricing_mode": "go-standard",
       "median_output_tokens_per_second": 180.44,
       "release_date": "2026-10-07"
+    },
+    {
+      "name": "Tencent Hy4",
+      "label": "Tencent Hy4",
+      "slug": "tencent-hy4",
+      "intelligence_index": 34.6,
+      "aa_cost_per_task": 1.0311,
+      "aa_cost_per_task_standard": 1.0311,
+      "aa_cost_per_task_used": 1.0311,
+      "go_model": "Hy4 New",
+      "go_monthly_limit": 60.0,
+      "go_limited_regions": false,
+      "go_effective_cost_per_task": 0.17184999999999997,
+      "cost_per_intelligence_point": 0.004966763005780346,
+      "intelligence_per_dollar": 201.338376491126,
+      "monthly_task_capacity": 58.19028222286879,
+      "cost_source": "Go",
+      "pricing_mode": "go-standard",
+      "median_output_tokens_per_second": 96.11,
+      "release_date": "2026-11-03"
     },
     {
       "name": "GPT-6 Luna (Non-reasoning)",
@@ -1263,26 +1303,6 @@
       "pricing_mode": "aa-standard",
       "median_output_tokens_per_second": 260.77,
       "release_date": "2026-11-20"
-    },
-    {
-      "name": "Tencent Hy4",
-      "label": "Tencent Hy4",
-      "slug": "tencent-hy4",
-      "intelligence_index": 34.6,
-      "aa_cost_per_task": 1.0311,
-      "aa_cost_per_task_standard": 1.0311,
-      "aa_cost_per_task_used": 1.0311,
-      "go_model": null,
-      "go_monthly_limit": null,
-      "go_limited_regions": null,
-      "go_effective_cost_per_task": 1.0311,
-      "cost_per_intelligence_point": 0.029800578034682078,
-      "intelligence_per_dollar": 33.55639608185434,
-      "monthly_task_capacity": null,
-      "cost_source": "AA provider",
-      "pricing_mode": "aa-standard",
-      "median_output_tokens_per_second": 96.11,
-      "release_date": "2026-11-03"
     },
     {
       "name": "Gemini 3.1 Flash-Lite",

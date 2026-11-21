@@ -42,8 +42,18 @@ def norm(s):
 
 go_norm = {norm(k): (k, go_value(v)) for k, v in GO.items()}
 
+# AA and Go list the same model under different product names. Verified against
+# Go canonical_id reflection/beam-1.0-501b-a23b and AA slug reflection-beam.
+GO_ALIASES = {
+    'beam10': 'Beam Free',        # AA Beam 1.0 / Go Beam Free — canonical reflection/beam-1.0-501b-a23b
+    'tencenthy4': 'Hy4 New',      # AA Tencent Hy4 / Go Hy4 — canonical tencent/hy4 (release 2026-11-03/04)
+}
+
 def match(name):
     n = norm(name)
+    if n in GO_ALIASES:
+        go_name = GO_ALIASES[n]
+        return (norm(go_name), go_name, go_norm[norm(go_name)][1])
     # exact
     if n in go_norm:
         orig, rec = go_norm[n]
@@ -65,10 +75,12 @@ def match(name):
                 best = (gn, orig, rec)
     return best
 
-def make_row(m, slug, used, go_name, limit, limited, source, pricing_mode, label=None):
+def make_row(m, slug, used, go_name, limit, limited, source, pricing_mode, label=None, eff_override=None):
     ii = m['intelligence_index']
     cpt = m['cost_per_task']
-    if limit and limit not in (None, float('inf')):
+    if eff_override is not None:
+        eff = eff_override
+    elif limit and limit not in (None, float('inf')):
         eff = used * (PLAN_PRICE / limit)
     else:
         eff = used
@@ -103,6 +115,14 @@ for m in AA['models']:
         continue
     go_name = hit[1]
     limit, contributor, limited = hit[2]
+    if limit is None:
+        # Go free tier: no monthly allowance and $0/task. Keep the AA list-price
+        # row for reference, and add a Go row at $0 — same two-row pattern as
+        # Contributor, but the cheaper side is free rather than discounted.
+        rows.append(make_row(m, m['slug'], m['cost_per_task'], None, None, None, 'AA provider', 'aa-standard'))
+        rows.append(make_row(m, m['slug'] + '-go-free', m['cost_per_task'], go_name, None, limited,
+                             'Go (free)', 'go-free', label=go_name, eff_override=0))
+        continue
     source = 'Go' if (limit and limit not in (None, float('inf'))) else 'Go (unlimited)'
     if contributor:
         # Two tiers, two rows: Meta still sells standard (what AA measured) at list price,

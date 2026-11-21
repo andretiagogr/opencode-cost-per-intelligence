@@ -22,7 +22,8 @@ A snapshot, not a live feed. Current numbers: [Intelligence Index](https://artif
 |---|---|
 | Go $/task | AA $/task × $10 ÷ monthly allowance |
 | Contributor $/task | AA $/task × 0.0531 (contributor ÷ standard blended price, 7:2:1 cache-hit : input : output) × $10 ÷ monthly allowance |
-| Two rows | A model AA has measured and Go sells in both modes is listed twice: Meta standard at AA list price, and the Go Contributor variant |
+| Two rows | A model AA has measured and Go sells in both modes is listed twice: Meta standard at AA list price, and the Go Contributor variant (or, for Beam, the Go free tier) |
+| Go free tier | Beam Free has no monthly allowance and costs $0/task on Go (limited regions, limited time, daily request cap); AA's measured list price stays as the second row |
 | $/point | Go $/task ÷ Intelligence Index |
 | Tasks per $10 | monthly allowance ÷ AA $/task |
 

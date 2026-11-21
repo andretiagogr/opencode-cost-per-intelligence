@@ -197,6 +197,7 @@
   <div class="foot">
     Go $/task = AA $/task × $10 / monthly limit; non-Go models at AA list price.<br/>
     Muse Spark appears twice: Meta standard at AA list price, and Go's Contributor price for the same model and Intelligence Index. AA's score is the Max effort run; the Contributor variant Go sells cannot use Max.<br/>
+    Beam appears twice: AA list price and Go's free tier ($0/task, no monthly allowance, limited regions and limited time). The free tier has daily request limits; it is shown at the left edge of the log-scale chart.<br/>
     Static snapshot (not live) · <a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">AA Intelligence Index</a> · <a href="https://opencode.ai/console/go">Go pricing</a> · unofficial, not affiliated with OpenCode / SST.
   </div>
 </main>
@@ -888,7 +889,7 @@ function renderTable(){
   document.querySelector('#tbl tbody').innerHTML = rows.length ? rows.map((r,i)=>
     `<tr data-slug="${r.slug}" class="${r.slug === selectedSlug ? 'selected' : ''} ${frontier.has(r.slug) ? 'frontier' : ''}">
       <td class="rank">${i+1}</td>
-      <td class="name">${r.name}${isGo(r) ? '<span class="go-badge">Go</span>' : ''}${r.pricing_mode === 'go-contributor' ? '<span class="go-badge contrib" title="Go sells Meta Contributor mode: prompts and responses may be used to train Meta models. Priced at the Go Contributor rate; the Intelligence Index is from a Max-effort run this variant cannot use.">Contributor</span>' : ''}</td>
+      <td class="name">${r.name}${isGo(r) ? '<span class="go-badge">Go</span>' : ''}${r.pricing_mode === 'go-contributor' ? '<span class="go-badge contrib" title="Go sells Meta Contributor mode: prompts and responses may be used to train Meta models. Priced at the Go Contributor rate; the Intelligence Index is from a Max-effort run this variant cannot use.">Contributor</span>' : ''}${r.pricing_mode === 'go-free' ? '<span class="go-badge" title="Go free tier: $0/task, no monthly allowance; limited regions and limited time, with a daily request cap.">Free</span>' : ''}</td>
       <td class="name"><i class="swatch table-swatch ${vendorClass(COLORS[r.company]?r.company:'Other')}"></i>${r.company}</td>
       <td class="num">${r.intelligence_index}</td>
       <td class="num">${r[ck] != null ? '$'+r[ck].toFixed(4) : '—'}</td>
