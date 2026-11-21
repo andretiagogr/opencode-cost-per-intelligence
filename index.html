@@ -58,16 +58,25 @@
   .swatch{width:6px;height:6px;border-radius:1px;display:inline-block;flex:0 0 auto;background:var(--swatch,var(--faint))}
   .table-swatch{margin-right:6px}
   .legend{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:8px;line-height:1.7}
-  .legend-frontier{color:var(--warning)}
+  .legend-frontier{font-family:var(--mono);font-size:10px;color:var(--warning)}
   .panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
   .panel-head h2{margin:0}
+  .table-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .search{position:relative;display:inline-flex;align-items:center}
+  .search input{width:190px;padding:5px 24px 5px 9px;font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--text);background:transparent;border:0;border-radius:4px;box-shadow:inset 0 0 0 1px var(--border);outline:none;-webkit-appearance:none;appearance:none}
+  .search input::placeholder{color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+  .search input:focus{box-shadow:inset 0 0 0 1px var(--border-strong)}
+  .search input::-webkit-search-cancel-button,.search input::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+  .search-clear{position:absolute;right:4px;width:16px;height:16px;padding:0;font-size:12px;line-height:1;background:transparent;box-shadow:none;color:var(--faint)}
+  .search-clear:hover{color:var(--text);background:transparent}
+  .search-clear[hidden]{display:none}
   .switch{position:relative;display:inline-flex;flex:0 0 auto;background:var(--fill);border-radius:4px;padding:4px;box-shadow:inset 0 0 0 1px var(--border);outline:none}
   .switch-thumb{position:absolute;left:4px;top:4px;bottom:4px;background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px var(--border-strong);border-radius:4px;transition:transform .28s cubic-bezier(.4,0,.2,1);pointer-events:none}
   .switch[data-count="2"] .switch-thumb{width:calc((100% - 8px)/2)}
   .switch[data-count="3"] .switch-thumb{width:calc((100% - 8px)/3)}
   .switch[data-index="1"] .switch-thumb{transform:translateX(100%)}
   .switch[data-index="2"] .switch-thumb{transform:translateX(200%)}
-  .switch-opt{position:relative;z-index:1;flex:0 0 auto;width:150px;padding:10px 20px;font-family:var(--ui);font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;text-align:center;white-space:nowrap;background:transparent;box-shadow:none;color:var(--muted);border-radius:4px;transition:color .2s}
+  .switch-opt{position:relative;z-index:1;flex:0 0 auto;width:150px;padding:10px 20px;font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;text-align:center;white-space:nowrap;background:transparent;box-shadow:none;color:var(--muted);border-radius:4px;transition:color .2s}
   .switch-opt:hover{background:transparent}
   .switch-opt.on{box-shadow:none;color:var(--text)}
   .switch.compact .switch-opt{width:120px;padding:6px 12px;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.04em;text-transform:uppercase}
@@ -91,6 +100,7 @@
   .src-aa{color:var(--muted)}
   .rank{color:var(--faint);font-family:var(--mono)}
   .go-badge{display:inline-block;margin-left:6px;padding:0 4px;border:.5px solid var(--border);border-radius:4px;font-family:var(--mono);font-size:10px;line-height:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--success);vertical-align:1px}
+  .go-badge.contrib{color:var(--warning);border-color:var(--warning);opacity:.8}
   .hide-btn{padding:2px 6px;font-size:10px;opacity:var(--dim)}
   tr:hover .hide-btn{opacity:1}
   .foot{font-family:var(--mono);font-size:10px;color:var(--faint);line-height:1.9;margin-top:16px}
@@ -104,7 +114,8 @@
     <span class="badge">Unofficial</span>
     <span class="badge">Go $10/mo</span>
     <span class="badge">II v<span id="ver">—</span></span>
-    <span class="badge" title="Static data snapshot — refreshed only when the build is re-run">Snapshot <span id="snap">—</span></span><br/>
+    <span class="badge" title="Static data snapshot — refreshed only when the build is re-run">Snapshot <span id="snap">—</span></span>
+    <span class="badge" title="Site build date — updated each time the static site is rebuilt">Updated <span id="built">—</span></span><br/>
     Cost per task at OpenCode Go rates · source: <a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">Artificial Analysis</a>
   </div>
 </header>
@@ -161,7 +172,14 @@
   <div class="panel">
     <div class="panel-head">
       <h2>Models by cost / task</h2>
-      <span class="legend-frontier">Orange = on the frontier</span>
+      <div class="table-tools">
+        <label class="search">
+          <input id="modelSearch" type="search" placeholder="Search models" autocomplete="off" spellcheck="false" aria-label="Search models by name, vendor or slug">
+          <button id="searchClear" class="search-clear" type="button" title="Clear search" aria-label="Clear search" hidden>×</button>
+        </label>
+        <span id="searchCount" class="note"></span>
+        <span class="legend-frontier">Orange = on the frontier</span>
+      </div>
     </div>
     <table id="tbl">
       <thead><tr>
@@ -178,6 +196,7 @@
 
   <div class="foot">
     Go $/task = AA $/task × $10 / monthly limit; non-Go models at AA list price.<br/>
+    Muse Spark appears twice: Meta standard at AA list price, and Go's Contributor price for the same model and Intelligence Index. AA's score is the Max effort run; the Contributor variant Go sells cannot use Max.<br/>
     Static snapshot (not live) · <a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">AA Intelligence Index</a> · <a href="https://opencode.ai/console/go">Go pricing</a> · unofficial, not affiliated with OpenCode / SST.
   </div>
 </main>
@@ -225,7 +244,7 @@ const COLORS = {
   Inkling:'#6BB6C7', Other:'#8A8F98'
 };
 
-let data = null, filter = 'all', priceMode = 'go', sortKey = 'cost', sortAsc = true, priceAnimTimer = null, selectedSlug = null, showLabels = true;
+let data = null, filter = 'all', priceMode = 'go', sortKey = 'cost', sortAsc = true, priceAnimTimer = null, selectedSlug = null, showLabels = true, searchQuery = '';
 const hiddenCompanies = new Set(), hiddenModels = new Set();
 
 const MONO = { family:'"OpenTUI Mono","JetBrains Mono",monospace', size:10 };
@@ -235,6 +254,7 @@ const T = {
   warning:'#cf9c80', transparent:'transparent'
 };
 const rgba = (hex,a) => { const n=parseInt(hex.slice(1),16); return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`; };
+const esc = s => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const vendorClass = co => 'c-'+co.toLowerCase().replace(/[^a-z0-9]+/g,'-');
 const setSwitch = (sw,index) => {
   sw.dataset.index = index;
@@ -244,7 +264,7 @@ const swatchCSS = document.createElement('style');
 swatchCSS.textContent = Object.entries(COLORS).map(([co,c])=>`.${vendorClass(co)}{--swatch:${c}}`).join('\n');
 document.head.appendChild(swatchCSS);
 const isGo = r => r.cost_source.startsWith('Go');
-const costKey = () => priceMode === 'go' ? 'go_effective_cost_per_task' : 'aa_cost_per_task';
+const costKey = () => priceMode === 'go' ? 'go_effective_cost_per_task' : 'aa_cost_per_task_used';
 function chartBounds(ck){
   const allX = data.rows.map(r=>r[ck]).filter(v=>v>0 && isFinite(v));
   const allY = data.rows.map(r=>r.intelligence_index).filter(v=>isFinite(v));
@@ -271,6 +291,15 @@ function visibleRows(){
   return sourceRows().filter(r=>!hiddenModels.has(r.slug) && !hiddenCompanies.has(r.company));
 }
 function filteredRows(){ return visibleRows(); }
+function tableRows(){
+  if(!searchQuery) return filteredRows();
+  const q = searchQuery.toLowerCase();
+  return filteredRows().filter(r=>
+    (r.name||'').toLowerCase().includes(q) ||
+    (r.slug||'').toLowerCase().includes(q) ||
+    (r.company||'').toLowerCase().includes(q)
+  );
+}
 function pareto(rows, ck){
   const sorted = rows.filter(r=>r[ck] > 0).sort((a,b)=>a[ck]-b[ck]);
   const out=[]; let bestII=-Infinity;
@@ -287,10 +316,11 @@ const LABEL_SETTLE = 64;   // px panned before labels are re-laid out
 let labelEpoch = 0;        // bumped when the data or chart changes
 const labelCache = {sig:null, labels:null, xspan:0, yspan:0, refX:0, refY:0};
 function shortName(name){
+  const tier = /contributor/i.test(name) ? ' ·Contrib' : '';
   const m = /^(.*?)\s*\(([^)]*)\)/.exec(name);
-  if(!m) return name;
+  if(!m) return name + tier;
   const base = m[1].trim(), tag = m[2].split(',')[0].trim();
-  return /^(low|medium|high|xhigh|max)$/i.test(tag) ? base+' ·'+tag : base;
+  return (/^(low|medium|high|xhigh|max)$/i.test(tag) ? base+' ·'+tag : base) + tier;
 }
 function notablePoints(cands, ck){
   const chosen = new Map();
@@ -330,7 +360,7 @@ function layoutLabels(ctx, cands, ck, area){
   ctx.font = LABEL_FONT;
   for(const c of labelOrder(cands, ck)){
     if(placed.length >= LABEL_MAX) break;
-    const text = shortName(c.r.name);
+    const text = shortName(c.r.label || c.r.name);
     const tw = ctx.measureText(text).width;
     if(tw + 8 > maxW) continue;
     const w = tw + 8, h = 14, off = Math.max(8, c.rad + 4);
@@ -479,6 +509,7 @@ async function init(){
   data.rows.forEach(r=>{ r.company = companyOf(r); });
   document.getElementById('ver').textContent = data.intelligence_index_version;
   document.getElementById('snap').textContent = data.snapshot_date || '—';
+  document.getElementById('built').textContent = data.build_date || '—';
   document.getElementById('n').textContent = data.rows.length;
   document.getElementById('ngo').textContent = data.rows.filter(isGo).length;
   renderLegend();
@@ -617,6 +648,7 @@ async function init(){
     if(e.target.closest('[data-show-all]')){
       hiddenCompanies.clear(); hiddenModels.clear(); refresh(); return;
     }
+    if(e.target.closest('[data-clear-search]')){ clearSearch(); return; }
     const b = e.target.closest('button[data-hide]');
     if(b){
       hiddenModels.add(b.dataset.hide);
@@ -627,6 +659,13 @@ async function init(){
     const tr = e.target.closest('tr[data-slug]');
     if(tr) setSelected(tr.dataset.slug, 'table');
   });
+  const searchInput = document.getElementById('modelSearch');
+  const searchClear = document.getElementById('searchClear');
+  searchInput.addEventListener('input', ()=>setSearch(searchInput.value));
+  searchInput.addEventListener('keydown', e=>{
+    if(e.key === 'Escape' && searchInput.value){ e.preventDefault(); clearSearch(); }
+  });
+  searchClear.addEventListener('click', ()=>{ clearSearch(); searchInput.focus(); });
   document.querySelectorAll('th[data-k]').forEach(th=>{
     th.addEventListener('click', ()=>{
       const k = th.dataset.k; if(k === 'rank') return;
@@ -645,6 +684,17 @@ function refresh(){
   pinSelection(window._chart, selectedSlug);
 }
 
+function setSearch(value){
+  searchQuery = String(value || '').trim();
+  document.getElementById('searchClear').hidden = !searchQuery;
+  renderTable();
+}
+function clearSearch(){
+  const input = document.getElementById('modelSearch');
+  if(input) input.value = '';
+  setSearch('');
+}
+
 function renderLegend(){
   const companies = [...new Set(sourceRows().map(r=>r.company))].sort();
   document.getElementById('companyLegend').innerHTML = companies.map(co=>
@@ -652,7 +702,7 @@ function renderLegend(){
   ).join('');
   const hidden = [...hiddenModels].map(slug=>data.rows.find(r=>r.slug===slug)).filter(Boolean);
   document.getElementById('modelLegend').innerHTML = hidden.map(r=>
-    `<button class="chip" data-unhide="${r.slug}" title="Restore">+ ${r.name}</button>`
+    `<button class="chip" data-unhide="${r.slug}" title="Restore">+ ${r.label || r.name}</button>`
   ).join('');
   const total = data.rows.length, shown = visibleRows().length;
   document.getElementById('hiddenCount').textContent = shown === total ? '' : `${total-shown} / ${total} models hidden`;
@@ -763,7 +813,7 @@ function renderChart(rows){
           titleColor:T.text, bodyColor:T.muted, titleFont:{family:MONO.family,size:12},
           bodyFont:{family:MONO.family,size:10}, padding:8, cornerRadius:4, displayColors:false,
           callbacks:{
-            title:items=>items[0] && items[0].raw.r ? items[0].raw.r.name : '',
+            title:items=>items[0] && items[0].raw.r ? (items[0].raw.r.label || items[0].raw.r.name) : '',
             label:c=>{
               const r=c.raw.r; if(!r) return '';
               return `${r.company} · II ${r.intelligence_index} · $${r[costKey()].toFixed(4)}/task`;
@@ -826,7 +876,7 @@ function renderTable(){
   const ck = costKey();
   document.querySelector('th[data-k="cost"]').textContent = priceMode === 'go' ? 'Go $/task' : 'AA $/task';
   const frontier = new Set(pareto(filteredRows(), ck).map(r=>r.slug));
-  const rows = filteredRows().slice().sort((a,b)=>{
+  const rows = tableRows().slice().sort((a,b)=>{
     let va=a[sortKey], vb=b[sortKey];
     if(sortKey === 'name'){ va=a.name; vb=b.name; }
     if(sortKey === 'company'){ va=a.company; vb=b.company; }
@@ -838,13 +888,16 @@ function renderTable(){
   document.querySelector('#tbl tbody').innerHTML = rows.length ? rows.map((r,i)=>
     `<tr data-slug="${r.slug}" class="${r.slug === selectedSlug ? 'selected' : ''} ${frontier.has(r.slug) ? 'frontier' : ''}">
       <td class="rank">${i+1}</td>
-      <td class="name">${r.name}${isGo(r) ? '<span class="go-badge">Go</span>' : ''}</td>
+      <td class="name">${r.name}${isGo(r) ? '<span class="go-badge">Go</span>' : ''}${r.pricing_mode === 'go-contributor' ? '<span class="go-badge contrib" title="Go sells Meta Contributor mode: prompts and responses may be used to train Meta models. Priced at the Go Contributor rate; the Intelligence Index is from a Max-effort run this variant cannot use.">Contributor</span>' : ''}</td>
       <td class="name"><i class="swatch table-swatch ${vendorClass(COLORS[r.company]?r.company:'Other')}"></i>${r.company}</td>
       <td class="num">${r.intelligence_index}</td>
       <td class="num">${r[ck] != null ? '$'+r[ck].toFixed(4) : '—'}</td>
       <td><button class="hide-btn" data-hide="${r.slug}" title="Hide model">×</button></td>
     </tr>`
-  ).join('') : `<tr><td class="empty" colspan="6">Nothing visible — <button class="act" data-show-all>Show all</button></td></tr>`;
+  ).join('') : searchQuery
+    ? `<tr><td class="empty" colspan="6">No models match “${esc(searchQuery)}” — <button class="act" data-clear-search>Clear search</button></td></tr>`
+    : `<tr><td class="empty" colspan="6">Nothing visible — <button class="act" data-show-all>Show all</button></td></tr>`;
+  document.getElementById('searchCount').textContent = searchQuery ? `${rows.length} / ${filteredRows().length} models` : '';
 }
 init();
 </script>
