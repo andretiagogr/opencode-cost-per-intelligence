@@ -487,7 +487,7 @@
           <th data-gk="name">Model</th>
           <th data-gk="blend">$/1M at your mix</th>
           <th data-gk="cost">Workload cost</th>
-          <th data-gk="subcost">Sub cost</th>
+          <th data-gk="subCost" title="What this workload costs out of your Go plan: workload cost ÷ allowance × plan price. Same value as the chart's x-axis.">Sub cost</th>
           <th data-gk="allowPct">% of allowance</th>
           <th data-gk="blocks">Blocks / sub</th>
           <th data-gk="maxTok">Max tokens / sub</th>
@@ -1573,7 +1573,7 @@ const GO_CACHE_TTL = 60 * 60 * 1000;
 const GO_PLANS = {
   go: { key:'go', price:10, label:'Go ($10)' }
 };
-let goData = null, goPlan = 'go', goSortKey = 'maxTok', goSortAsc = false, goChart = null;
+let goData = null, goPlan = 'go', goSortKey = 'subCost', goSortAsc = true, goChart = null;
 let goLabelMode = 'auto', goLabelEpoch = 0;
 let goPriceSource = 'loading';   // live | snapshot | loading
 const goLabelCache = {sig:null, labels:null, xspan:0, yspan:0, refX:0, refY:0};
@@ -1935,7 +1935,7 @@ function goComputedRows(){
     const allowPct = limit ? cost / limit * 100 : null;
     const blocks = limit && cost > 0 ? limit / cost : null;
     const maxTok = limit && blend > 0 ? limit / blend * 1e6 : null;
-    const subCost = limit ? cost / limit * plan.price : null;
+    const subCost = limit ? cost / limit * plan.price : (r.free ? 0 : null);
     const iiRow = lookup ? lookupGoII(lookup, r.name) : null;
     let unscored = false;
     if(!iiRow){
@@ -1967,7 +1967,7 @@ function goComputedRows(){
   return { plan, totalM, hitRate, outPct, inM, outM, freshM, cachedM, rows };
 }
 function goChartBounds(pts){
-  const xs = pts.map(r=>r.cost).filter(v=>v>0 && isFinite(v));
+  const xs = pts.map(r=>r.subCost).filter(v=>v>0 && isFinite(v));
   const ys = pts.map(r=>r.ii).filter(v=>isFinite(v));
   const xLo = xs.length ? Math.pow(10, Math.floor(Math.log10(Math.min(...xs)))) : 0.001;
   const xHi = xs.length ? Math.pow(10, Math.ceil(Math.log10(Math.max(...xs)))) : 1;
@@ -1976,13 +1976,14 @@ function goChartBounds(pts){
 }
 const goLabelPlugin = {
   id:'goModelLabels',
-  afterDatasetsDraw(chart){ drawModelLabels(chart, goLabelMode, 'cost', goLabelCache, goLabelEpoch); }
+  afterDatasetsDraw(chart){ drawModelLabels(chart, goLabelMode, 'subCost', goLabelCache, goLabelEpoch); }
 };
 function renderGoChart(rows){
   const canvas = document.getElementById('goChart');
   const empty = document.getElementById('goChartEmpty');
   if(!canvas || !empty) return;
-  const pts = (rows || []).filter(r=>r.ii != null && isFinite(r.ii) && isFinite(r.cost));
+  // x = Sub cost, the same value as the table's Sub cost column (free models: $0, left edge).
+  const pts = (rows || []).filter(r=>r.ii != null && isFinite(r.ii) && r.subCost != null && isFinite(r.subCost));
   const narrowed = reasoningAuto || manualReason.size > 0;
   empty.textContent = !goData ? 'Loading Go prices…'
     : !(rows || []).length ? 'No Go models match'
@@ -2001,7 +2002,7 @@ function renderGoChart(rows){
     const cr = pts.filter(r=>r.company === co);
     return {
       label: co,
-      data: cr.map(r=>({x:px(r.cost), y:r.ii, r})),
+      data: cr.map(r=>({x:px(r.subCost), y:r.ii, r})),
       clip: 8,
       backgroundColor: rgba(COLORS[co] || COLORS.Other, .72),
       borderColor: ctx => {
@@ -2017,7 +2018,7 @@ function renderGoChart(rows){
       pointHoverRadius: 6
     };
   });
-  const pf = pareto(pts, 'cost').map(r=>({x:px(r.cost), y:r.ii}));
+  const pf = pareto(pts, 'subCost').map(r=>({x:px(r.subCost), y:r.ii}));
   datasets.push({ label:'Pareto frontier', data:pf, type:'line', borderColor:rgba(T.warning,.6),
     borderWidth:1, borderDash:[6,4], pointRadius:0, tension:.2, fill:false });
   const xTicks = s => {
@@ -2045,7 +2046,7 @@ function renderGoChart(rows){
         scales:{
           x:{
             type:'logarithmic',
-            title:{display:true,text:'WORKLOAD COST ($)',color:T.faint,font:{family:MONO.family,size:10,weight:'500'}},
+            title:{display:true,text:'SUB COST ($ OF GO PLAN)',color:T.faint,font:{family:MONO.family,size:10,weight:'500'}},
             ticks:{color:T.faint,font:MONO,maxRotation:0,autoSkipPadding:10,callback:v=>'$'+fmtTick(v)},
             grid:{color:T.grid,lineWidth:.5,drawTicks:false},
             border:{display:false},
@@ -2077,7 +2078,7 @@ function renderGoChart(rows){
               label:c=>{
                 const r = c.raw.r; if(!r) return '';
                 const effort = r.iiEffort ? ' · ' + EFFORT_LABEL[r.iiEffort] + ' effort' : ' · no effort tag';
-                const line = tipLines(c.chart, `II ${r.score_upper_bound ? '≤ ' : ''}${r.ii}${effort} · ${fmtCost(r.cost)} workload · ${r.allowPct == null ? '—' : r.allowPct.toFixed(1)+'% allowance'} · ${fmtTokens(r.maxTok)} max`);
+                const line = tipLines(c.chart, `II ${r.score_upper_bound ? '≤ ' : ''}${r.ii}${effort} · ${fmtCost(r.subCost)} sub cost · ${fmtCost(r.cost)} workload · ${r.allowPct == null ? '—' : r.allowPct.toFixed(1)+'% allowance'} · ${fmtTokens(r.maxTok)} max`);
                 return r.score_upper_bound ? [].concat(line, tipWrap(c.chart, upperBoundNote(r))) : line;
               }
             }
@@ -2186,7 +2187,7 @@ function initGoCosts(){
     th.addEventListener('click', ()=>{
       const k = th.dataset.gk;
       if(goSortKey === k) goSortAsc = !goSortAsc;
-      else { goSortKey = k; goSortAsc = k === 'name'; }
+      else { goSortKey = k; goSortAsc = !['blocks','maxTok','limit'].includes(k); }   // costs: cheapest first; capacity: most first
       renderGoTable();
     });
   });

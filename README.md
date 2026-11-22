@@ -18,9 +18,11 @@ Fork of [xhang1108/opencode-cost-per-intelligence](https://github.com/xhang1108/
   opening on the Go subset (All and AA provider are one click away); "Per 1M tokens"
   holds the Go calculator. One lens at a time instead of one long scroll, with the
   active tab kept in the URL hash.
-- **Go chart.** Intelligence Index vs the cost of the current workload for every Go
+- **Go chart.** Intelligence Index vs the Sub cost of the current workload (the share
+  of the Go plan it uses, the table's Sub cost column and default sort) for every Go
   model with an AA score, driven by the calculator's tokens / cache-hit / output inputs.
-  The plan's allowance is reflected in the tooltip and the over-allowance ring.
+  Sub cost folds in each model's allowance, so a bigger allowance can beat a lower
+  list price; free models sit at the left edge. Over-allowance rows get an orange ring.
 - **Labels Off / Auto / All** on both charts (each chart has its own switch). Auto avoids overlaps. All removes the density thinning,
   shrinks the font and grows the chart, labelling every model that fits without a
   collision; zoom in to label the rest. With 148 rows there is no readable all-at-once
