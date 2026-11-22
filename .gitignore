@@ -1,5 +1,6 @@
 # OpenChamber session artifacts (screenshots, private state)
 .openchamber/
+.playwright-cli/
 
 __pycache__/
 *.pyc

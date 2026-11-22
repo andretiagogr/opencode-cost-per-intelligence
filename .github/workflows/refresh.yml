@@ -26,8 +26,13 @@ jobs:
         env:
           AA_API_KEY: ${{ secrets.AA_API_KEY }}
         run: |
-          python scripts/fetch_aa.py
+          if [ -n "$AA_API_KEY" ]; then
+            python scripts/fetch_aa.py
+          else
+            echo 'AA_API_KEY is not set; keeping data/aa-models.json as committed.'
+          fi
           python scripts/fetch_go.py
+          python scripts/fetch_go_models.py || echo 'go-models refresh failed; keeping committed snapshot'
           python build.py
 
       - name: Commit data if changed

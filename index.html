@@ -35,6 +35,13 @@
   .stat{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}
   .stat b{display:block;margin-top:4px;font-family:var(--mono);font-size:18px;font-weight:500;color:var(--text);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
   .chart-wrap{height:clamp(460px,58vh,820px);position:relative}
+  .go-chart{height:clamp(300px,36vh,380px)}
+  body.labels-all #mainChartWrap{height:clamp(680px,80vh,1000px)}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 16px;padding:8px 0;border-bottom:.5px solid var(--border);position:sticky;top:0;z-index:20;background:var(--bg)}
+  .tab{background:transparent;box-shadow:none;color:var(--muted);padding:7px 12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+  .tab:hover{background:rgba(255,255,255,.06);color:var(--text)}
+  .tab.on{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px var(--border-strong);color:var(--text)}
+  [data-tab-panel][hidden]{display:none}
   .toolbar{display:flex;flex-wrap:wrap;gap:var(--gap);align-items:center;margin:10px 0 8px}
   .providers{border-top:.5px solid var(--border);padding-top:10px;margin-top:10px}
   .providers .toolbar{margin:0 0 var(--gap)}
@@ -42,6 +49,20 @@
   .switch-name{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}
   .note{font-family:var(--mono);font-size:10px;color:var(--faint)}
   .note:empty{display:none}
+  .reasoning-models{margin-top:2px;border-top:.5px solid var(--border-muted)}
+  .reasoning-models>summary{display:flex;align-items:center;gap:8px;padding:7px 0 5px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);cursor:pointer;list-style:none}
+  .reasoning-models>summary::-webkit-details-marker{display:none}
+  .reasoning-models>summary::before{content:"▸";color:var(--faint)}
+  .reasoning-models[open]>summary::before{content:"▾"}
+  .reasoning-models>summary:hover{color:var(--muted)}
+  .reasoning-models>summary:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
+  .reasoning-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0 18px;padding:2px 0}
+  .reason-group{min-width:0;padding:2px 0 6px}
+  .reason-group-name{display:flex;align-items:center;gap:6px;min-width:0;font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .reason-group-name span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .reason-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+  .reason-chips .chip{padding:2px 6px;font-size:10px}
+  @media (max-width:520px){.reasoning-grid{grid-template-columns:1fr}}
   button{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--text);background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--border);border:0;border-radius:4px;padding:6px 10px;cursor:pointer}
   button:hover{background:rgba(255,255,255,.1)}
   button.on{box-shadow:inset 0 0 0 1px var(--border-strong)}
@@ -61,6 +82,9 @@
   .legend-frontier{font-family:var(--mono);font-size:10px;color:var(--warning)}
   .panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
   .panel-head h2{margin:0}
+  .switch-row{display:flex;gap:var(--gap);flex-wrap:wrap;align-items:center}
+  .zoom-btns{display:inline-flex;gap:4px;align-items:center;flex-wrap:wrap}
+  .zoom-hint{display:none;font-family:var(--mono);font-size:10px;color:var(--faint)}
   .table-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .search{position:relative;display:inline-flex;align-items:center}
   .search input{width:190px;padding:5px 24px 5px 9px;font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--text);background:transparent;border:0;border-radius:4px;box-shadow:inset 0 0 0 1px var(--border);outline:none;-webkit-appearance:none;appearance:none}
@@ -81,10 +105,15 @@
   .switch-opt.on{box-shadow:none;color:var(--text)}
   .switch.compact .switch-opt{width:120px;padding:6px 12px;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.04em;text-transform:uppercase}
   .switch.labels .switch-opt{width:64px}
+  .switch.zdr .switch-opt{width:auto;padding:6px 12px;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.04em;text-transform:uppercase}
+  .switch.zdr .switch-thumb{width:calc(100% - 8px);opacity:0;transition:opacity .2s}
+  .switch.zdr[aria-pressed="true"] .switch-thumb{opacity:1}
+  .switch.zdr[aria-pressed="true"] .switch-opt{color:var(--text)}
   .shape{display:inline-block;width:6px;height:6px;margin-right:6px;vertical-align:1px;flex:0 0 auto}
   .shape-square{background:var(--muted);box-shadow:0 0 0 1px var(--text)}
   .shape-circle{border-radius:50%;background:var(--muted)}
-  @media (max-width:520px){.switch.hero{width:100%}}
+  @media (max-width:520px){.switch.hero{width:100%}.switch.compact .switch-opt{width:104px;padding:6px 8px;font-size:11px}.switch.labels .switch-opt{width:72px}.chart-wrap{height:clamp(440px,58vh,560px)}.go-chart{height:clamp(360px,52vh,480px)}body.labels-all #mainChartWrap{height:clamp(560px,72vh,760px)}.zoom-hint{display:inline}}
+  .table-wrap{overflow-x:auto}
   @media (prefers-reduced-motion:reduce){.switch-thumb{transition:none}}
   table{width:100%;border-collapse:collapse;font-size:12px}
   th,td{padding:8px 10px;border-bottom:.5px solid var(--border-muted);text-align:left}
@@ -101,10 +130,172 @@
   .rank{color:var(--faint);font-family:var(--mono)}
   .go-badge{display:inline-block;margin-left:6px;padding:0 4px;border:.5px solid var(--border);border-radius:4px;font-family:var(--mono);font-size:10px;line-height:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--success);vertical-align:1px}
   .go-badge.contrib{color:var(--warning);border-color:var(--warning);opacity:.8}
+  .go-badge.upper{color:var(--warning);border-color:var(--warning);opacity:.85}
+  .go-badge.unscored{color:var(--faint);border-color:var(--border);opacity:.9}
+  .go-badge.peak{color:var(--warning);border-color:var(--warning);opacity:.85}
+  .go-badge.offpeak{color:var(--success);border-color:var(--success);opacity:.85}
+  #goLiveBadge.ok{color:var(--success);border-color:var(--success)}
+  #goLiveBadge.warn{color:var(--warning);border-color:var(--warning)}
+  .calc{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;margin-bottom:12px}
+  .calc-field{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}
+  .calc-field input{width:120px;padding:6px 8px;font-family:var(--mono);font-size:11px;color:var(--text);background:transparent;border:0;border-radius:4px;box-shadow:inset 0 0 0 1px var(--border);outline:none;-webkit-appearance:none;appearance:none}
+  .calc-field input:focus{box-shadow:inset 0 0 0 1px var(--border-strong)}
+  .calc-check{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);padding-bottom:7px}
+  .calc-check input{accent-color:var(--accent);width:15px;height:15px;margin:0}
+  th.sorted{color:var(--text)}
+  th:empty,th[data-k="rank"]{cursor:default}
+  th:empty:hover,th[data-k="rank"]:hover{color:var(--faint)}
+  .source-row .badge{margin-right:0}
+  .calc .source-row{padding-bottom:4px}
+  .go-summary{display:block;margin-bottom:4px}
+  .go-table{margin-top:16px;border-top:.5px solid var(--border)}
+  #goChartWrap.labels-all{height:clamp(440px,58vh,640px)}
+  @media (max-width:520px){#goChartWrap.labels-all{height:clamp(460px,64vh,620px)}.calc .source-row{margin-left:0}}
+  .allowbar{height:4px;background:var(--fill);border-radius:2px;margin-top:4px;overflow:hidden;min-width:64px}
+  .allowbar span{display:block;height:100%;background:var(--success)}
+  .allowbar.over span{background:var(--warning)}
   .hide-btn{padding:2px 6px;font-size:10px;opacity:var(--dim)}
   tr:hover .hide-btn{opacity:1}
-  .foot{font-family:var(--mono);font-size:10px;color:var(--faint);line-height:1.9;margin-top:16px}
-  .foot a{color:var(--muted)}
+  .foot{font-family:var(--mono);font-size:10px;color:var(--faint);line-height:1.9;margin-top:16px;padding:14px 0 max(32px,env(safe-area-inset-bottom));border-top:.5px solid var(--border-muted);overflow-wrap:anywhere}
+  .foot a{color:var(--muted);text-decoration:underline;text-decoration-color:rgba(255,255,255,.28);text-underline-offset:2px}
+  .foot a:hover{text-decoration-color:currentColor}
+  .foot>div+div,.foot #footNotes>div+div{margin-top:6px}
+  .foot #footNotes:empty{display:none}
+
+  /* ---- Responsive layer ---------------------------------------------------
+     Tables scroll inside their own wrapper (never the page), keep the model
+     column pinned, and on desktop keep the header pinned. Phones get larger
+     tap targets and a denser, single-column filter block. */
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  img,canvas{max-width:100%}
+  .panel{min-width:0}
+  .chart-wrap canvas{touch-action:pan-y}
+  .table-wrap{
+    overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;max-width:100%;
+    /* right-edge glow shows there is more to scroll; fades once the end is reached */
+    background:
+      linear-gradient(to left,var(--panel) 30%,transparent) 100% 0/36px 100% no-repeat local,
+      radial-gradient(farthest-side at 100% 50%,rgba(255,255,255,.14),transparent) 100% 0/12px 100% no-repeat scroll;
+  }
+  .table-wrap::-webkit-scrollbar{height:6px;width:6px;display:block}
+  .table-wrap{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent}
+  td.num,td.name{vertical-align:middle}
+  td.num{white-space:nowrap}
+  #tbl th:nth-child(4),#tbl th:nth-child(5),#goTbl th:not(:first-child){text-align:right}
+  #goTbl th{white-space:normal;line-height:1.35;vertical-align:bottom}
+  #goTbl td.name{min-width:150px}
+  /* pinned model column (opaque so scrolled cells never show through) */
+  #tbl th:nth-child(2),#tbl td:nth-child(2),#goTbl th:first-child,#goTbl td:first-child{
+    position:sticky;left:0;z-index:1;background:var(--panel)}
+  #tbl tr:hover td:nth-child(2),#goTbl tr:hover td:first-child{background:var(--hover)}
+  #tbl tr.selected td:nth-child(2){background:var(--fill)}
+  .vsub{display:none;margin-top:3px;font-size:10px;color:var(--muted)}
+  tr.frontier .vsub{color:var(--warning)}
+  .vsub .swatch{margin-right:5px}
+  @media (min-width:721px){
+    .table-wrap{max-height:max(480px,min(82vh,860px));overflow-y:auto}
+    thead th{position:sticky;top:0;z-index:3;background:var(--panel);border-bottom-color:transparent;box-shadow:inset 0 -1px 0 var(--border)}
+    #tbl th:nth-child(2),#goTbl th:first-child{z-index:4}
+  }
+  /* a divider on the pinned column only where the table can actually scroll sideways */
+  @media (max-width:1140px){
+    #goTbl th:first-child,#goTbl td:first-child{box-shadow:inset -1px 0 0 var(--border-muted)}
+    #goTbl tr.selected td:first-child{box-shadow:inset -1px 0 0 var(--border-muted)}
+  }
+  @media (min-width:721px) and (max-width:1140px){
+    #goTbl th:first-child{box-shadow:inset -1px 0 0 var(--border-muted),inset 0 -1px 0 var(--border)}
+  }
+  @media (max-width:720px){
+    #tbl th:nth-child(2),#tbl td:nth-child(2){box-shadow:inset -1px 0 0 var(--border-muted)}
+    #tbl tr.selected td:nth-child(2){box-shadow:inset 2px 0 0 var(--warning),inset -1px 0 0 var(--border-muted)}
+    header,main{padding-left:14px;padding-right:14px}
+    header{padding-top:22px}
+    .badge{margin-bottom:5px}
+    .panel{padding:12px;margin-bottom:12px}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+    .stat b{font-size:16px}
+    .tabs{gap:6px;padding:8px 0}
+    .tab{flex:1 1 0;min-height:40px;padding:8px 10px;font-size:11px;text-align:center}
+    .toggle-row{flex-wrap:wrap;justify-content:flex-end}
+    .toolbar{row-gap:10px}
+    .switch.compact{width:100%}
+    .switch.compact .switch-opt{flex:1 1 0;width:auto;min-width:0;min-height:36px;padding:6px 4px;font-size:11px}
+    .switch.labels{width:auto}
+    .switch.labels .switch-opt{flex:0 0 auto;width:72px}
+    .switch.hero .switch-opt{flex:1 1 0;width:auto;min-height:44px;padding:10px 8px;font-size:13px}
+    .switch.zdr .switch-opt{min-height:28px;display:inline-flex;align-items:center}
+    .act{min-height:34px;padding:6px 12px;font-size:11px}
+    .zoom-btns{gap:6px}
+    .zoom-btns .act{min-width:40px}
+    .chip{min-height:34px;padding:7px 11px;font-size:11px}
+    .reason-chips{gap:6px;margin-top:5px}
+    .reason-chips .chip{min-height:32px;padding:6px 10px;font-size:11px}
+    .reason-group-name{font-size:11px}
+    .reason-group{padding:4px 0 8px}
+    .reasoning-models>summary{min-height:44px;padding:0;font-size:11px;flex-wrap:wrap;row-gap:0}
+    .hide-btn{min-width:34px;min-height:34px;font-size:14px;opacity:.7}
+    .tab,.act,.chip,.hide-btn,.switch-opt{touch-action:manipulation}
+    .legend,.note,.legend-frontier{font-size:11px}
+    .legend{line-height:1.6}
+    .search{flex:1 1 100%}
+    .search input{width:100%;min-height:40px;padding:8px 32px 8px 11px;font-size:16px}
+    .search-clear{width:32px;height:32px;right:4px;font-size:18px}
+    .table-tools{gap:8px 12px;width:100%}
+    .table-tools .legend-frontier{margin-left:auto}
+    .calc{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}
+    .calc-field{min-width:0}
+    .calc-field input{width:100%;min-height:40px;font-size:16px;padding:8px 10px}
+    .calc-check{padding-bottom:12px;min-height:40px;align-items:center}
+    .calc-check input{width:20px;height:20px}
+    .calc .source-row{grid-column:1/-1;margin-left:0;justify-content:flex-start;padding-bottom:0}
+    .panel-head{gap:10px}
+    .panel-head .switch-row{width:100%;justify-content:space-between}
+    h2{line-height:1.5}
+    /* tables */
+    th,td{padding:9px 7px}
+    th{font-size:10px;line-height:1.3;vertical-align:bottom}
+    td.name,td.num{font-size:12px}
+    #tbl th:first-child,#tbl td:first-child,#tbl th:nth-child(3),#tbl td:nth-child(3){display:none}
+    #tbl th:nth-child(2),#tbl td:nth-child(2){min-width:116px;max-width:190px;width:100%}
+    #tbl th:nth-child(4){min-width:60px}
+    #tbl th:nth-child(5){min-width:70px}
+    .providers .toolbar:has(.zdr)>.switch-name{flex:0 0 100%}
+    .providers .toolbar:has(.zdr)>.toggle-row{margin-left:0;justify-content:flex-start;flex:1 1 100%}
+    #tbl th:last-child,#tbl td:last-child{padding-left:2px;padding-right:2px;width:38px}
+    .vsub{display:block}
+    #tbl td.name{line-height:1.45}
+    #goTbl td.name{min-width:128px;max-width:160px}
+    #goTbl th:not(:first-child){min-width:76px}
+    .go-badge{margin-left:5px}
+    #tbl td.empty,#goTbl td.empty{padding:24px 8px;white-space:normal}
+    .foot{font-size:11px;line-height:1.7}
+    .foot>div+div,.foot #footNotes>div+div{margin-top:10px}
+    .calc{margin-bottom:12px}
+  }
+  @media (max-width:520px){
+    .zoom-hint{display:inline-flex;align-items:center;min-height:34px}
+    /* small-viewport units: the chart keeps its size when the mobile URL bar slides away */
+    @supports (height:1svh){
+      .chart-wrap{height:clamp(420px,56svh,540px)}
+      .go-chart{height:clamp(360px,50svh,480px)}
+      body.labels-all #mainChartWrap{height:clamp(560px,72svh,760px)}
+      #goChartWrap.labels-all{height:clamp(460px,64svh,620px)}
+    }
+    .go-table{margin-top:12px}
+    .providers .toolbar>.switch-name{min-width:56px}
+  }
+  @media (max-width:360px){
+    header,main{padding-left:10px;padding-right:10px}
+    .panel{padding:10px}
+    h1{font-size:21px}
+    .switch.labels .switch-opt{width:64px}
+    .stat b{font-size:15px}
+  }
+  @media (pointer:coarse){
+    .tab,.act,.chip,.hide-btn,.switch-opt,summary{touch-action:manipulation}
+    tr:hover{background:transparent}
+    tr.selected{background:rgba(255,255,255,.07)}
+  }
 </style>
 </head>
 <body>
@@ -120,38 +311,53 @@
   </div>
 </header>
 <main>
-  <div class="panel">
+  <div class="panel" id="statsPanel">
     <div class="stats">
-      <div class="stat">Models (scored)<b id="n">—</b></div>
+      <div class="stat">Rows (scored)<b id="n">—</b></div>
       <div class="stat">Go models<b id="ngo">—</b></div>
+      <div class="stat">DeepSeek variants<b id="nds">—</b></div>
       <div class="stat">Plan price<b>$10 / mo</b></div>
     </div>
   </div>
 
-  <div class="panel">
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab on" id="tab-chart" data-tab="chart" role="tab" aria-controls="chartPanel modelsPanel" title="AA Intelligence Index vs. cost per task: chart and model table">Per task</button>
+    <button class="tab" id="tab-go" data-tab="go" role="tab" aria-controls="goCostsPanel" title="Go per-1M token prices: workload calculator, chart and table">Per 1M tokens</button>
+  </div>
+
+  <div class="panel" id="chartPanel" data-tab-panel="chart" role="tabpanel" aria-labelledby="tab-chart">
     <div class="panel-head">
-      <h2>Intelligence Index vs. Cost / Task — Pareto frontier</h2>
-      <div id="priceSwitch" class="switch hero" data-switch data-count="2" data-index="0" role="group" aria-label="Pricing mode" tabindex="0">
-        <span class="switch-thumb" aria-hidden="true"></span>
-        <button id="priceGo" class="switch-opt on" data-opt>Go price</button>
-        <button id="priceOriginal" class="switch-opt" data-opt>Original price</button>
+      <h2 id="chartTitle">Per task · Intelligence Index vs. cost / task</h2>
+      <div class="switch-row">
+        <div id="priceSwitch" class="switch hero" data-switch data-count="2" data-index="0" role="group" aria-label="Pricing mode" tabindex="0">
+          <span class="switch-thumb" aria-hidden="true"></span>
+          <button id="priceGo" class="switch-opt on" data-opt>Go price</button>
+          <button id="priceOriginal" class="switch-opt" data-opt>Original price</button>
+        </div>
+        <div class="zoom-btns">
+          <button class="act" id="zoomOut" type="button" title="Zoom out">−</button>
+          <button class="act" id="zoomIn" type="button" title="Zoom in">+</button>
+          <button class="act" id="zoomReset" type="button" title="Reset zoom">Reset</button>
+          <span class="zoom-hint">Pinch to zoom</span>
+        </div>
       </div>
     </div>
-    <div class="chart-wrap"><canvas id="chart"></canvas><div id="chartEmpty" class="chart-empty" hidden>No models visible</div></div>
+    <div class="chart-wrap" id="mainChartWrap"><canvas id="chart"></canvas><div id="chartEmpty" class="chart-empty" hidden>No models visible</div></div>
     <div class="toolbar">
       <div id="filterSwitch" class="switch compact" data-switch data-count="3" data-index="0" role="group" aria-label="Model filter" tabindex="0">
         <span class="switch-thumb" aria-hidden="true"></span>
-        <button id="filterAll" class="switch-opt on" data-opt>All</button>
-        <button id="filterGo" class="switch-opt" data-opt><i class="shape shape-square" aria-hidden="true"></i>Go</button>
+        <button id="filterGo" class="switch-opt on" data-opt><i class="shape shape-square" aria-hidden="true"></i>Go</button>
+        <button id="filterAll" class="switch-opt" data-opt>All</button>
         <button id="filterAA" class="switch-opt" data-opt><i class="shape shape-circle" aria-hidden="true"></i>AA provider</button>
       </div>
       <span id="hiddenCount" class="note"></span>
       <div class="toggle-row">
         <span class="switch-name">Labels</span>
-        <div id="labelSwitch" class="switch compact labels" data-switch data-count="2" data-index="1" role="group" aria-label="Labels" tabindex="0">
+        <div id="labelSwitch" class="switch compact labels" data-switch data-count="3" data-index="1" role="group" aria-label="Labels" tabindex="0">
           <span class="switch-thumb" aria-hidden="true"></span>
           <button id="labelOff" class="switch-opt" data-opt>Off</button>
-          <button id="labelOn" class="switch-opt on" data-opt>On</button>
+          <button id="labelOn" class="switch-opt on" data-opt>Auto</button>
+          <button id="labelAll" class="switch-opt" data-opt>All</button>
         </div>
       </div>
     </div>
@@ -159,19 +365,32 @@
       <div class="toolbar">
         <span class="switch-name">Vendors</span>
         <div class="toggle-row">
-          <button id="vendorsNone" class="act" title="Hide every vendor in the current filter">Hide all</button>
-          <button id="vendorsAll" class="act" title="Show every vendor and every individually hidden model">Show all</button>
+          <button id="vendorsNone" class="act" data-vendors-none title="Hide every vendor in the current filter">Hide all</button>
+          <button id="vendorsAll" class="act" data-vendors-all title="Show every vendor and every individually hidden model">Show all</button>
+          <button class="switch zdr" data-zdr type="button" aria-pressed="false" aria-label="ZDR only" title="Hide Go models the endpoint marks as not zero-data-retention. Models without a ZDR flag (AA providers) stay."><span class="switch-thumb" aria-hidden="true"></span><span class="switch-opt" data-opt>ZDR only</span></button>
         </div>
       </div>
-      <div id="companyLegend" class="toolbar"></div>
-      <div id="modelLegend" class="toolbar"></div>
-      <div class="legend">Color = vendor · Scroll to zoom · Drag to pan</div>
+      <div id="companyLegend" class="toolbar" data-company-legend></div>
+      <div id="modelLegend" class="toolbar" data-model-legend></div>
+      <div class="toolbar" id="reasoningBar">
+        <span class="switch-name">Models</span>
+        <div class="toggle-row">
+          <button id="reasoningAll" class="act" data-reasoning-all type="button" title="Show every model and every reasoning variant">Enable all</button>
+          <button id="reasoningNone" class="act" data-reasoning-none type="button" title="Hide every model in the current filter">Disable all</button>
+          <button id="reasoningAuto" class="act on" data-reasoning-auto type="button" aria-pressed="true" title="Hide models and variants another model beats on both intelligence and cost">Auto</button>
+        </div>
+      </div>
+      <details class="reasoning-models" id="reasoningModels" data-reasoning-models>
+        <summary><span>Per-model variants</span><span id="reasoningSummary" class="note" data-reasoning-summary></span></summary>
+        <div id="reasoningLegend" class="reasoning-grid" data-reasoning-legend role="group" aria-label="Models and reasoning effort levels"></div>
+      </details>
+      <div id="chartNote" class="legend"></div>
     </div>
   </div>
 
-  <div class="panel">
+  <div class="panel" id="modelsPanel" data-tab-panel="chart" role="tabpanel" aria-labelledby="tab-chart">
     <div class="panel-head">
-      <h2>Models by cost / task</h2>
+      <h2 id="tableTitle">Per task · model table</h2>
       <div class="table-tools">
         <label class="search">
           <input id="modelSearch" type="search" placeholder="Search models" autocomplete="off" spellcheck="false" aria-label="Search models by name, vendor or slug">
@@ -181,6 +400,7 @@
         <span class="legend-frontier">Orange = on the frontier</span>
       </div>
     </div>
+    <div class="table-wrap">
     <table id="tbl">
       <thead><tr>
         <th data-k="rank">#</th>
@@ -192,13 +412,101 @@
       </tr></thead>
       <tbody></tbody>
     </table>
+    </div>
+  </div>
+
+  <div class="panel" id="goCostsPanel" data-tab-panel="go" role="tabpanel" aria-labelledby="tab-go">
+    <div class="panel-head">
+      <h2 id="goTitle">Per 1M tokens · Go workload calculator</h2>
+      <div class="switch-row">
+        <span class="switch-name">Go $10</span>
+        <div class="zoom-btns">
+          <button class="act" id="goZoomOut" type="button" title="Zoom out">−</button>
+          <button class="act" id="goZoomIn" type="button" title="Zoom in">+</button>
+          <button class="act" id="goZoomReset" type="button" title="Reset zoom">Reset</button>
+          <span class="zoom-hint">Pinch to zoom</span>
+        </div>
+      </div>
+    </div>
+    <div class="calc">
+      <label class="calc-field">Total tokens (M)<input id="calcTokens" type="number" value="100" min="1" step="1"></label>
+      <label class="calc-field">Cache hit %<input id="calcHit" type="number" value="97" min="0" max="99.9" step="0.5"></label>
+      <label class="calc-field">Output %<input id="calcOut" type="number" value="0.8" min="0" max="90" step="0.1"></label>
+      <label class="calc-check"><input id="calcFree" type="checkbox" checked>Free models</label>
+      <div class="toggle-row source-row">
+        <span class="switch-name">Prices</span>
+        <span id="goLiveBadge" class="badge">Loading…</span>
+        <button id="goRefresh" class="act" type="button" title="Fetch prices and allowances from opencode.ai">Refresh</button>
+      </div>
+    </div>
+    <div class="chart-wrap go-chart" id="goChartWrap"><canvas id="goChart"></canvas><div id="goChartEmpty" class="chart-empty" hidden>Loading Go prices…</div></div>
+    <div class="toolbar">
+      <label class="search">
+        <input id="goSearch" type="search" placeholder="Search Go models" autocomplete="off" spellcheck="false" aria-label="Search Go models">
+        <button id="goSearchClear" class="search-clear" type="button" title="Clear search" aria-label="Clear search" hidden>×</button>
+      </label>
+      <div class="toggle-row">
+        <span class="switch-name">Labels</span>
+        <div id="goLabelSwitch" class="switch compact labels" data-switch data-count="3" data-index="1" role="group" aria-label="Go chart labels" tabindex="0">
+          <span class="switch-thumb" aria-hidden="true"></span>
+          <button id="goLabelOff" class="switch-opt" data-opt>Off</button>
+          <button id="goLabelOn" class="switch-opt on" data-opt>Auto</button>
+          <button id="goLabelAll" class="switch-opt" data-opt>All</button>
+        </div>
+      </div>
+    </div>
+    <div class="providers">
+      <div class="toolbar">
+        <span class="switch-name">Vendors</span>
+        <div class="toggle-row">
+          <button class="act" data-vendors-none title="Hide every vendor in the current filter">Hide all</button>
+          <button class="act" data-vendors-all title="Show every vendor and every individually hidden model">Show all</button>
+          <button class="switch zdr" data-zdr type="button" aria-pressed="false" aria-label="ZDR only" title="Hide Go models the endpoint marks as not zero-data-retention. Models without a ZDR flag (AA providers) stay."><span class="switch-thumb" aria-hidden="true"></span><span class="switch-opt" data-opt>ZDR only</span></button>
+        </div>
+      </div>
+      <div class="toolbar" data-company-legend></div>
+      <div class="toolbar" data-model-legend></div>
+      <div class="toolbar">
+        <span class="switch-name">Models</span>
+        <div class="toggle-row">
+          <button class="act" data-reasoning-all type="button" title="Show every model and every reasoning variant">Enable all</button>
+          <button class="act" data-reasoning-none type="button" title="Hide every model in the current filter">Disable all</button>
+          <button class="act on" data-reasoning-auto type="button" aria-pressed="true" title="Hide models and variants another model beats on both intelligence and cost">Auto</button>
+        </div>
+      </div>
+      <details class="reasoning-models" data-reasoning-models>
+        <summary><span>Per-model variants</span><span class="note" data-reasoning-summary></span></summary>
+        <div class="reasoning-grid" data-reasoning-legend role="group" aria-label="Models and reasoning effort levels"></div>
+      </details>
+      <div id="goSummary" class="note go-summary"></div>
+      <div class="legend" id="goChartNote"></div>
+    </div>
+    <div class="table-wrap go-table">
+      <table id="goTbl">
+        <thead><tr>
+          <th data-gk="name">Model</th>
+          <th data-gk="blend">$/1M at your mix</th>
+          <th data-gk="cost">Workload cost</th>
+          <th data-gk="subcost">Sub cost</th>
+          <th data-gk="allowPct">% of allowance</th>
+          <th data-gk="blocks">Blocks / sub</th>
+          <th data-gk="maxTok">Max tokens / sub</th>
+          <th data-gk="input">Input $/1M</th>
+          <th data-gk="cached">Cache read $/1M</th>
+          <th data-gk="output">Output $/1M</th>
+          <th data-gk="limit">Allowance</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="legend">Total tokens split by output %; input is split by cache hit % · cost = fresh input + cached input + output · allowance = the plan's monthly allowance for that model</div>
   </div>
 
   <div class="foot">
-    Go $/task = AA $/task × $10 / monthly limit; non-Go models at AA list price.<br/>
-    Muse Spark appears twice: Meta standard at AA list price, and Go's Contributor price for the same model and Intelligence Index. AA's score is the Max effort run; the Contributor variant Go sells cannot use Max.<br/>
-    Beam appears twice: AA list price and Go's free tier ($0/task, no monthly allowance, limited regions and limited time). The free tier has daily request limits; it is shown at the left edge of the log-scale chart.<br/>
-    Static snapshot (not live) · <a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">AA Intelligence Index</a> · <a href="https://opencode.ai/console/go">Go pricing</a> · unofficial, not affiliated with OpenCode / SST.
+    <div>Go $/task = AA $/task × $10 ÷ the model's monthly Go allowance; Go free-tier rows are $0/task; models not on Go use AA list price.</div>
+    <div><b>Per 1M tokens (Go calculator):</b> prices and allowances live from <a href="https://opencode.ai/inference/go/v1/models">the Go models endpoint</a>; cost = fresh input + cached input + output; sub cost = workload cost ÷ allowance × plan price. Peak rows use the endpoint's multipliers.</div>
+    <div id="footNotes"></div>
+    <div id="footMeta"></div>
   </div>
 </main>
 
@@ -208,6 +516,45 @@
 <script>
 if (window.ChartZoom) Chart.register(window.ChartZoom);
 else if (window.chartjsPluginZoom) Chart.register(window.chartjsPluginZoom);
+
+// Touch: Hammer would otherwise lock the whole canvas to touch-action:none, so a
+// finger on the chart could never scroll the page. Start with pan-y (vertical
+// swipes scroll the page, pinch still zooms) and lock the canvas only while the
+// chart is zoomed in, so dragging pans it. Reset hands scrolling back.
+if (window.Hammer && Hammer.defaults) Hammer.defaults.touchAction = 'pan-y';
+const touchPlugin = {
+  id:'touchScroll',
+  afterUpdate(chart){
+    let zoomed = false;
+    try{ zoomed = !!(chart.isZoomedOrPanned && chart.isZoomedOrPanned()); }catch(e){}
+    chart.canvas.style.touchAction = zoomed ? 'none' : 'pan-y';
+  }
+};
+const COARSE = window.matchMedia('(pointer:coarse)').matches;
+// Chart.js tooltips don't wrap: on a narrow canvas break long " · " lines so they stay on screen.
+function tipLines(chart, text){
+  const max = Math.max(18, Math.floor((chart.width - 28) / 6.2));
+  const parts = String(text).split(' · '), out = [];
+  let cur = '';
+  for(const p of parts){
+    const next = cur ? cur + ' · ' + p : p;
+    if(cur && next.length > max){ out.push(cur); cur = p; } else cur = next;
+  }
+  if(cur) out.push(cur);
+  return out.length > 1 ? out : out[0] || '';
+}
+// Same idea for a long sentence: wrap on spaces, capped at 56 chars so it stays readable on wide charts too.
+function tipWrap(chart, text){
+  const max = Math.max(18, Math.min(56, Math.floor((chart.width - 28) / 6.2)));
+  const out = [];
+  let cur = '';
+  for(const w of String(text).split(' ')){
+    const next = cur ? cur + ' ' + w : w;
+    if(cur && next.length > max){ out.push(cur); cur = w; } else cur = next;
+  }
+  if(cur) out.push(cur);
+  return out;
+}
 
 const COMPANY_RULES = [
   ['OpenAI',      /^gpt-/],
@@ -245,8 +592,16 @@ const COLORS = {
   Inkling:'#6BB6C7', Other:'#8A8F98'
 };
 
-let data = null, filter = 'all', priceMode = 'go', sortKey = 'cost', sortAsc = true, priceAnimTimer = null, selectedSlug = null, showLabels = true, searchQuery = '';
+let data = null, filter = 'go', priceMode = 'go', sortKey = 'cost', sortAsc = true, priceAnimTimer = null, selectedSlug = null, labelMode = 'auto', searchQuery = '', pendingModelsScroll = false;
 const hiddenCompanies = new Set(), hiddenModels = new Set();
+const EFFORT_LEVELS = ['non-reasoning','reasoning','low','medium','high','xhigh','max'];
+const EFFORT_LABEL = { 'non-reasoning':'Non-reasoning', reasoning:'Reasoning', low:'Low', medium:'Medium', high:'High', xhigh:'Xhigh', max:'Max' };
+let autoHidden = new Set(), reasoningAuto = true;
+// Rows the user hid on purpose (chips or Disable all). Auto's own hides are kept
+// apart in autoHidden so the frontier and the Go lookup can ignore view-only hides.
+let manualReason = new Set();
+let zdrOnly = false;
+let disableAllModels = false;   // Disable all also hides Go rows without an AA score
 
 const MONO = { family:'"OpenTUI Mono","JetBrains Mono",monospace', size:10 };
 const T = {
@@ -266,14 +621,32 @@ swatchCSS.textContent = Object.entries(COLORS).map(([co,c])=>`.${vendorClass(co)
 document.head.appendChild(swatchCSS);
 const isGo = r => r.cost_source.startsWith('Go');
 const costKey = () => priceMode === 'go' ? 'go_effective_cost_per_task' : 'aa_cost_per_task_used';
+const fmtMoney = v => v == null ? '—' : '$' + v.toFixed(4);
 function chartBounds(ck){
-  const allX = data.rows.map(r=>r[ck]).filter(v=>v>0 && isFinite(v));
-  const allY = data.rows.map(r=>r.intelligence_index).filter(v=>isFinite(v));
+  // Fit the axis to the source being shown, not to all 148 rows: with Go only the
+  // old 0–100 axis left two thirds of the plot empty.
+  const src = sourceFilterRows();
+  const rows = src.length ? src : data.rows;
+  const allX = rows.map(r=>r[ck]).filter(v=>v>0 && isFinite(v));
+  const allY = rows.map(r=>r.intelligence_index).filter(v=>isFinite(v));
   return {
     xLo: Math.pow(10, Math.floor(Math.log10(Math.min(...allX)))),
     xHi: Math.pow(10, Math.ceil(Math.log10(Math.max(...allX)))),
     yHi: Math.ceil(Math.max(...allY)/10)*10 + 10
   };
+}
+// Re-fit the axes to the current source and price mode, clearing any zoom that
+// belonged to the previous scale.
+function rebaseChart(){
+  const c = window._chart;
+  if(!c) return;
+  const b = chartBounds(costKey());
+  c.options.scales.x.min = b.xLo; c.options.scales.x.max = b.xHi;
+  c.options.scales.y.min = 0;     c.options.scales.y.max = b.yHi;
+  c.options.plugins.zoom.limits = {
+    x:{ min:b.xLo, max:b.xHi, minRange:0.0002 }, y:{ min:0, max:b.yHi, minRange:2 }
+  };
+  c.update('none');
 }
 
 function companyOf(r){
@@ -283,13 +656,65 @@ function companyOf(r){
   return 'Other';
 }
 
-function sourceRows(){
+function baseName(name){
+  return String(name || '').replace(/\s*\(([^()]*)\)\s*$/, '').trim();
+}
+function effortOf(r){
+  const m = /\s*\(([^()]*)\)\s*$/.exec(r.name || '');
+  if(!m) return null;
+  const tag = m[1].split(',')[0].trim().toLowerCase();
+  return EFFORT_LEVELS.includes(tag) ? tag : null;
+}
+function reasoningHides(r){
+  return manualReason.has(r.slug) || (reasoningAuto && autoHidden.has(r.slug));
+}
+function zdrHides(r){ return zdrOnly && rowZdr(r) === false; }
+// The working set is the source minus the two filters that actually remove rows:
+// hidden vendors and the ZDR filter. Auto and hand-hidden rows are left in, so the
+// frontier line and Auto's rule never depend on their own output.
+function basisRows(){
+  return sourceFilterRows().filter(r=>!hiddenCompanies.has(r.company) && !zdrHides(r));
+}
+// Auto keeps the most intelligent run of every model plus every run on the frontier
+// of the basis, and hides the rest. Ties on intelligence go to the cheaper row, and
+// a model with a single row is never hidden. Peak/off-peak twins share a base name,
+// so no special cases. No separate dominance scan across models: each model keeps
+// exactly one point (plus any frontier points it may own).
+function computeAutoHidden(){
+  const ck = costKey(), hidden = new Set();
+  const basis = basisRows();
+  const frontier = new Set(pareto(basis, ck).map(r=>r.slug));
+  const groups = new Map();
+  for(const r of basis){
+    if(!isFinite(r[ck]) || !isFinite(r.intelligence_index)) continue;
+    const key = baseName(r.name);
+    if(!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(r);
+  }
+  for(const rows of groups.values()){
+    if(rows.length < 2) continue;
+    let keep = rows[0];
+    for(const r of rows){
+      if(r.intelligence_index > keep.intelligence_index ||
+         (r.intelligence_index === keep.intelligence_index && r[ck] < keep[ck])) keep = r;
+    }
+    for(const r of rows){
+      if(r !== keep && !frontier.has(r.slug)) hidden.add(r.slug);
+    }
+  }
+  return hidden;
+}
+
+function sourceFilterRows(){
   if(filter === 'go') return data.rows.filter(isGo);
   if(filter === 'aa') return data.rows.filter(r=>!isGo(r));
   return data.rows;
 }
+function sourceRows(){
+  return basisRows().filter(r=>!reasoningHides(r));
+}
 function visibleRows(){
-  return sourceRows().filter(r=>!hiddenModels.has(r.slug) && !hiddenCompanies.has(r.company));
+  return sourceRows().filter(r=>!hiddenModels.has(r.slug));
 }
 function filteredRows(){ return visibleRows(); }
 function tableRows(){
@@ -297,6 +722,7 @@ function tableRows(){
   const q = searchQuery.toLowerCase();
   return filteredRows().filter(r=>
     (r.name||'').toLowerCase().includes(q) ||
+    (r.label||'').toLowerCase().includes(q) ||
     (r.slug||'').toLowerCase().includes(q) ||
     (r.company||'').toLowerCase().includes(q)
   );
@@ -309,19 +735,27 @@ function pareto(rows, ck){
 }
 const fmtTick = v => v >= 1 ? String(+v.toFixed(2)) : String(+v.toPrecision(1));
 
-const LABEL_FONT = '500 10px "OpenTUI Mono","JetBrains Mono",monospace';
-const LABEL_MAX = 200;  // safety ceiling only — free space decides the real count
-const LABEL_GAP = 3;
-const LABEL_DENSITY = 0.5; // keep half of the labels that would otherwise fit
+const LABEL_STYLES = {
+  auto: { font:'500 10px "OpenTUI Mono","JetBrains Mono",monospace', max:200,  gap:3, density:0.5, height:14 },
+  all:  { font:'500 9px "OpenTUI Mono","JetBrains Mono",monospace',  max:1200, gap:2, density:1,   height:13 }
+};
+const MAIN_NOTE = 'Color = vendor · square = Go · circle = AA provider · dashed orange line = Pareto frontier';
+const GO_NOTE = 'Color = vendor · orange ring = over allowance · dashed orange line = Pareto frontier';
+const chartNote = (mode, base) => base + (mode === 'all'
+  ? ' · all labels = every name that fits without overlap; zoom in for the rest'
+  : ' · pinch or scroll to zoom, drag to pan');
 const LABEL_SETTLE = 64;   // px panned before labels are re-laid out
 let labelEpoch = 0;        // bumped when the data or chart changes
 const labelCache = {sig:null, labels:null, xspan:0, yspan:0, refX:0, refY:0};
 function shortName(name){
-  const tier = /contributor/i.test(name) ? ' ·Contrib' : '';
-  const m = /^(.*?)\s*\(([^)]*)\)/.exec(name);
-  if(!m) return name + tier;
+  const m = /^(.*?)\s*\(([^)]*)\)(.*)$/.exec(name);
+  if(!m) return name;
   const base = m[1].trim(), tag = m[2].split(',')[0].trim();
-  return (/^(low|medium|high|xhigh|max)$/i.test(tag) ? base+' ·'+tag : base) + tier;
+  let tail = m[3].replace(/^[\s·]+/, '').trim();
+  if(/^contributor$/i.test(tail)) tail = 'Contrib';
+  return base
+    + (/^(low|medium|high|xhigh|max)$/i.test(tag) ? ' ·'+tag : '')
+    + (tail ? ' ·'+tail : '');
 }
 function notablePoints(cands, ck){
   const chosen = new Map();
@@ -355,27 +789,27 @@ function roundRectPath(ctx,x,y,w,h,r){
   ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
   ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
 }
-function layoutLabels(ctx, cands, ck, area){
+function layoutLabels(ctx, cands, ck, area, style){
   const placed = [], labels = [], maxW = area.right - area.left;
   ctx.save();
-  ctx.font = LABEL_FONT;
+  ctx.font = style.font;
   for(const c of labelOrder(cands, ck)){
-    if(placed.length >= LABEL_MAX) break;
+    if(placed.length >= style.max) break;
     const text = shortName(c.r.label || c.r.name);
     const tw = ctx.measureText(text).width;
     if(tw + 8 > maxW) continue;
-    const w = tw + 8, h = 14, off = Math.max(8, c.rad + 4);
+    const w = tw + 8, h = style.height, off = Math.max(8, c.rad + 4);
     const opts = [[off,-h/2],[-off-w,-h/2],[-w/2,-off-h],[-w/2,off],
                   [off,-off-h],[-off-w,-off-h],[off,off],[-off-w,off]];
     let box = null;
     for(const [dx,dy] of opts){
       const b = {x:c.x+dx, y:c.y+dy, w, h};
-      const inside = b.x >= area.left+LABEL_GAP && b.x+b.w <= area.right-LABEL_GAP
-                  && b.y >= area.top+LABEL_GAP && b.y+b.h <= area.bottom-LABEL_GAP;
+      const inside = b.x >= area.left+style.gap && b.x+b.w <= area.right-style.gap
+                  && b.y >= area.top+style.gap && b.y+b.h <= area.bottom-style.gap;
       if(!inside) continue;
       const hitLabel = placed.some(p=>
-        b.x < p.x+p.w+LABEL_GAP && b.x+b.w+LABEL_GAP > p.x &&
-        b.y < p.y+p.h+LABEL_GAP && b.y+b.h+LABEL_GAP > p.y);
+        b.x < p.x+p.w+style.gap && b.x+b.w+style.gap > p.x &&
+        b.y < p.y+p.h+style.gap && b.y+b.h+style.gap > p.y);
       if(hitLabel) continue;
       const hitDot = cands.some(d=>
         b.x < d.x+d.rad+2 && b.x+b.w+2 > d.x-d.rad &&
@@ -388,10 +822,11 @@ function layoutLabels(ctx, cands, ck, area){
     labels.push({el:c.el, ax:c.x, ay:c.y, dx:box.x-c.x, dy:box.y-c.y, w, h, text});
   }
   ctx.restore();
+  if(style.density >= 1) return labels;
   // Thin out: keep the highest-priority label in each grid cell, so labels
   // stay spread over the plot instead of bunching in the smartest corner
   const target = labels.length <= 6 ? labels.length
-               : Math.ceil(labels.length * LABEL_DENSITY);
+               : Math.ceil(labels.length * style.density);
   const W = area.right - area.left, H = area.bottom - area.top;
   const cols = Math.max(1, Math.round(Math.sqrt(target * W / H)));
   const rows = Math.max(1, Math.ceil(target / cols));
@@ -406,58 +841,94 @@ function layoutLabels(ctx, cands, ck, area){
   }
   return keep;
 }
+// Shared by both charts: each passes its own label mode, cost key, layout cache and epoch.
+function drawModelLabels(chart, mode, ck, cache, epoch){
+  if(mode === 'off') return;
+  const style = LABEL_STYLES[mode] || LABEL_STYLES.auto;
+  const ctx = chart.ctx, area = chart.chartArea;
+  if(!area) return;
+  const xs = chart.scales.x, ys = chart.scales.y;
+  if(!xs || !ys) return;
+  const cands = [];
+  chart.data.datasets.forEach((ds,di)=>{
+    if(ds.type === 'line') return;
+    const meta = chart.getDatasetMeta(di);
+    if(meta.hidden) return;
+    meta.data.forEach((el,i)=>{
+      const r = ds.data[i] && ds.data[i].r;
+      if(!r || !el || el.skip || !isFinite(el.x) || !isFinite(el.y)) return;
+      if(el.x < area.left || el.x > area.right || el.y < area.top || el.y > area.bottom) return;
+      cands.push({r, el, x:el.x, y:el.y, rad:Math.max(3, +el.options.radius || 4)});
+    });
+  });
+  if(!cands.length) return;
+  const W = area.right - area.left, H = area.bottom - area.top;
+  const xspan = xs.max > xs.min ? Math.log10(xs.max/xs.min) : 1;
+  const yspan = ys.max - ys.min || 1;
+  const sig = [epoch, ck, mode, selectedSlug, Math.round(W), Math.round(H)].join('|');
+  const refX = xs.getPixelForValue(1), refY = ys.getPixelForValue(50);
+  const c = cache;
+  const sameView = c.labels && c.sig === sig
+    && Math.abs(xspan - c.xspan) <= c.xspan*0.02
+    && Math.abs(yspan - c.yspan) <= c.yspan*0.02;
+  const moved = sameView ? Math.max(Math.abs(refX - c.refX), Math.abs(refY - c.refY)) : Infinity;
+  // Pan within LABEL_SETTLE keeps the previous layout: labels follow their dots
+  // and are only recalculated once the view has moved far enough (or zoomed).
+  if(!sameView || moved >= LABEL_SETTLE){
+    c.sig = sig; c.xspan = xspan; c.yspan = yspan;
+    c.refX = refX; c.refY = refY;
+    c.labels = layoutLabels(ctx, cands, ck, area, style);
+  }
+  ctx.save();
+  ctx.beginPath(); ctx.rect(area.left, area.top, W, H); ctx.clip();
+  ctx.font = style.font;
+  for(const l of c.labels){
+    const el = l.el;
+    if(!el || el.skip || !isFinite(el.x) || !isFinite(el.y)) continue;
+    const bx = el.x + l.dx, by = el.y + l.dy;
+    // Leader line when the label sits farther than its own gap.
+    const lx = Math.max(bx, Math.min(el.x, bx + l.w));
+    const ly = Math.max(by, Math.min(el.y, by + l.h));
+    if(Math.hypot(lx - el.x, ly - el.y) > 7){
+      ctx.strokeStyle = rgba(T.text,.18); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(el.x, el.y); ctx.lineTo(lx, ly); ctx.stroke();
+    }
+    ctx.fillStyle = rgba(T.bg,.86);
+    roundRectPath(ctx,bx,by,l.w,l.h,3); ctx.fill();
+    ctx.strokeStyle = T.stroke; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = T.text; ctx.textBaseline = 'middle';
+    ctx.fillText(l.text, bx+4, by+l.h/2+0.5);
+  }
+  ctx.restore();
+}
 const labelPlugin = {
   id:'modelLabels',
+  afterDatasetsDraw(chart){ drawModelLabels(chart, labelMode, costKey(), labelCache, labelEpoch); }
+};
+// The frontier line stays on the chart even when its runs are hidden, so it
+// carries its own label instead of relying on the legend. Drawn at the top-left
+// of the plot, where the label chips never reach.
+const paretoLabelPlugin = {
+  id:'paretoLabel',
   afterDatasetsDraw(chart){
-    if(!showLabels) return;
-    const ctx = chart.ctx, area = chart.chartArea;
-    if(!area) return;
-    const xs = chart.scales.x, ys = chart.scales.y;
-    if(!xs || !ys) return;
-    const cands = [];
-    chart.data.datasets.forEach((ds,di)=>{
-      if(ds.type === 'line') return;
-      const meta = chart.getDatasetMeta(di);
-      if(meta.hidden) return;
-      meta.data.forEach((el,i)=>{
-        const r = ds.data[i] && ds.data[i].r;
-        if(!r || !el || el.skip || !isFinite(el.x) || !isFinite(el.y)) return;
-        if(el.x < area.left || el.x > area.right || el.y < area.top || el.y > area.bottom) return;
-        cands.push({r, el, x:el.x, y:el.y, rad:Math.max(3, +el.options.radius || 4)});
-      });
-    });
-    if(!cands.length) return;
-    const ck = costKey();
-    const W = area.right - area.left, H = area.bottom - area.top;
-    const xspan = xs.max > xs.min ? Math.log10(xs.max/xs.min) : 1;
-    const yspan = ys.max - ys.min || 1;
-    const sig = [labelEpoch, ck, selectedSlug, Math.round(W), Math.round(H)].join('|');
-    const refX = xs.getPixelForValue(1), refY = ys.getPixelForValue(50);
-    const c = labelCache;
-    const sameView = c.labels && c.sig === sig
-      && Math.abs(xspan - c.xspan) <= c.xspan*0.02
-      && Math.abs(yspan - c.yspan) <= c.yspan*0.02;
-    const moved = sameView ? Math.max(Math.abs(refX - c.refX), Math.abs(refY - c.refY)) : Infinity;
-    // Pan within LABEL_SETTLE keeps the previous layout: labels follow their dots
-    // and are only recalculated once the view has moved far enough (or zoomed).
-    if(!sameView || moved >= LABEL_SETTLE){
-      c.sig = sig; c.xspan = xspan; c.yspan = yspan;
-      c.refX = refX; c.refY = refY;
-      c.labels = layoutLabels(ctx, cands, ck, area);
-    }
+    const di = chart.data.datasets.findIndex(d=>d.label === 'Pareto frontier');
+    if(di < 0) return;
+    const pts = chart.getDatasetMeta(di).data || [];
+    const area = chart.chartArea;
+    if(!pts.length || !area) return;
+    const ctx = chart.ctx;
+    const x = area.left + 10, y = area.top + 14;
     ctx.save();
-    ctx.beginPath(); ctx.rect(area.left, area.top, W, H); ctx.clip();
-    ctx.font = LABEL_FONT;
-    for(const l of c.labels){
-      const el = l.el;
-      if(!el || el.skip || !isFinite(el.x) || !isFinite(el.y)) continue;
-      const bx = el.x + l.dx, by = el.y + l.dy;
-      ctx.fillStyle = rgba(T.bg,.86);
-      roundRectPath(ctx,bx,by,l.w,l.h,3); ctx.fill();
-      ctx.strokeStyle = T.stroke; ctx.lineWidth = 1; ctx.stroke();
-      ctx.fillStyle = T.text; ctx.textBaseline = 'middle';
-      ctx.fillText(l.text, bx+4, by+l.h/2+0.5);
-    }
+    ctx.strokeStyle = rgba(T.warning,.75);
+    ctx.lineWidth = 1;
+    ctx.setLineDash([6,4]);
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 20, y); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font = '500 10px ' + MONO.family;
+    ctx.fillStyle = T.warning;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Pareto frontier', x + 26, y);
     ctx.restore();
   }
 };
@@ -491,10 +962,8 @@ function setSelected(slug, from){
   document.querySelectorAll('#tbl tbody tr[data-slug]').forEach(tr=>{
     tr.classList.toggle('selected', tr.dataset.slug === selectedSlug);
   });
-  if(selectedSlug && from === 'chart'){
-    const tr = document.querySelector(`#tbl tbody tr[data-slug="${selectedSlug}"]`);
-    if(tr) tr.scrollIntoView({block:'nearest'});
-  }
+  // The table now sits below the chart in the same tab: highlight the row,
+  // but don't scroll the page away from the chart on a chart click.
 }
 
 async function init(){
@@ -508,14 +977,31 @@ async function init(){
     return;
   }
   data.rows.forEach(r=>{ r.company = companyOf(r); });
+  if(goData) applyGoAllowances();
+  if(reasoningAuto) autoHidden = computeAutoHidden();
   document.getElementById('ver').textContent = data.intelligence_index_version;
   document.getElementById('snap').textContent = data.snapshot_date || '—';
   document.getElementById('built').textContent = data.build_date || '—';
   document.getElementById('n').textContent = data.rows.length;
   document.getElementById('ngo').textContent = data.rows.filter(isGo).length;
+  document.getElementById('nds').textContent = data.rows.filter(r=>r.deepseek_variant).length;
+  document.getElementById('chartNote').textContent = chartNote(labelMode, MAIN_NOTE);
+  renderFoot();
   renderLegend();
   renderChart(filteredRows());
   renderTable();
+  if(document.getElementById('goTbl')) renderGoTable();
+  if(pendingModelsScroll){
+    pendingModelsScroll = false;
+    requestAnimationFrame(()=>{
+      const bar = document.querySelector('.tabs');
+      const panel = document.getElementById('modelsPanel');
+      if(bar && panel){
+        const y = panel.getBoundingClientRect().top + window.scrollY - bar.offsetHeight - 16;
+        window.scrollTo(0, Math.max(0, y));
+      }
+    });
+  }
 
   const canvas = document.getElementById('chart');
   let downPt = null;
@@ -534,11 +1020,13 @@ async function init(){
   });
 
   const filterSwitch = document.getElementById('filterSwitch');
-  const FILTER_INDEX = {all:0, go:1, aa:2};
+  const FILTER_INDEX = {go:0, all:1, aa:2};
   const setFilter = name => {
     filter = name;
     setSwitch(filterSwitch, FILTER_INDEX[name]);
+    recomputeAuto();
     refresh();
+    rebaseChart();
   };
   document.getElementById('filterAll').addEventListener('click', ()=>setFilter('all'));
   document.getElementById('filterGo').addEventListener('click', ()=>setFilter('go'));
@@ -548,6 +1036,11 @@ async function init(){
     if(mode === priceMode) return;
     priceMode = mode;
     setSwitch(priceSwitch, mode === 'go' ? 0 : 1);
+    if(reasoningAuto){
+      autoHidden = computeAutoHidden();   // dominance depends on the displayed cost
+      renderLegend();
+      renderGoTable();
+    }
     renderTable();
     const c = window._chart;
     if(!c){ refresh(); return; }
@@ -575,7 +1068,7 @@ async function init(){
     });
     let pfAnim = null;
     if(pfSet){
-      const pfTo = pareto(rows, ck).map(r=>({x:px(r[ck]), y:r.intelligence_index, r}));
+      const pfTo = pareto(basisRows(), ck).map(r=>({x:px(r[ck]), y:r.intelligence_index, r}));
       pfAnim = pfTo.map(p=>({
         p,
         to: p.x,
@@ -598,7 +1091,7 @@ async function init(){
         c.options.scales.x.min = saved.xmin; c.options.scales.x.max = saved.xmax;
         c.options.scales.y.min = saved.ymin; c.options.scales.y.max = saved.ymax;
       }
-      if(k >= 1) labelEpoch++;   // re-lay out labels once the price animation settles
+      if(k >= 1){ labelEpoch++; rebaseChart(); }   // re-fit the axes and re-lay out labels once the animation settles
       c.update('none');
       priceAnimTimer = k < 1 ? setTimeout(step, 16) : null;
     };
@@ -606,14 +1099,33 @@ async function init(){
   };
   document.getElementById('priceGo').addEventListener('click', ()=>setPrice('go'));
   document.getElementById('priceOriginal').addEventListener('click', ()=>setPrice('original'));
-  const labelSwitch = document.getElementById('labelSwitch');
-  const setLabels = show => {
-    showLabels = show;
-    setSwitch(labelSwitch, show ? 1 : 0);
-    if(window._chart) window._chart.update();
+  const zoomBy = f => {
+    if(!window._chart) return;
+    window._chart.zoom(f);
+    labelEpoch++;
+    window._chart.update('none');
   };
-  document.getElementById('labelOff').addEventListener('click', ()=>setLabels(false));
-  document.getElementById('labelOn').addEventListener('click', ()=>setLabels(true));
+  document.getElementById('zoomIn').addEventListener('click', ()=>zoomBy(1.5));
+  document.getElementById('zoomOut').addEventListener('click', ()=>zoomBy(1/1.5));
+  document.getElementById('zoomReset').addEventListener('click', ()=>{
+    if(!window._chart) return;
+    window._chart.resetZoom();
+    labelEpoch++;
+    window._chart.update('none');
+  });
+  const labelSwitch = document.getElementById('labelSwitch');
+  const setLabels = mode => {
+    labelMode = mode;
+    setSwitch(labelSwitch, {off:0, auto:1, all:2}[mode]);
+    document.body.classList.toggle('labels-all', mode === 'all');
+    document.getElementById('chartNote').textContent = chartNote(mode, MAIN_NOTE);
+    labelCache.labels = null;
+    labelEpoch++;
+    if(window._chart){ window._chart.resize(); window._chart.update('none'); }
+  };
+  document.getElementById('labelOff').addEventListener('click', ()=>setLabels('off'));
+  document.getElementById('labelOn').addEventListener('click', ()=>setLabels('auto'));
+  document.getElementById('labelAll').addEventListener('click', ()=>setLabels('all'));
   document.querySelectorAll('[data-switch]').forEach(sw=>{
     sw.addEventListener('keydown', e=>{
       if(e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
@@ -625,25 +1137,79 @@ async function init(){
     });
   });
 
-  document.getElementById('companyLegend').addEventListener('click', e=>{
-    const b = e.target.closest('button[data-company]'); if(!b) return;
-    const co = b.dataset.company;
-    hiddenCompanies.has(co) ? hiddenCompanies.delete(co) : hiddenCompanies.add(co);
+  const recomputeAuto = () => { if(reasoningAuto) autoHidden = computeAutoHidden(); };
+  const setZdr = on => {
+    zdrOnly = !!on;
+    document.querySelectorAll('[data-zdr]').forEach(b=>{
+      b.setAttribute('aria-pressed', String(zdrOnly));
+      b.classList.toggle('on', zdrOnly);
+    });
+    recomputeAuto();
     refresh();
-  });
-  document.getElementById('vendorsNone').addEventListener('click', ()=>{
-    sourceRows().forEach(r=>hiddenCompanies.add(r.company));
-    refresh();
-  });
-  document.getElementById('vendorsAll').addEventListener('click', ()=>{
-    hiddenCompanies.clear();
-    hiddenModels.clear();
-    refresh();
-  });
-  document.getElementById('modelLegend').addEventListener('click', e=>{
-    const b = e.target.closest('button[data-unhide]'); if(!b) return;
-    hiddenModels.delete(b.dataset.unhide);
-    refresh();
+  };
+  document.addEventListener('click', e=>{
+    const company = e.target.closest('button[data-company]');
+    if(company){
+      const co = company.dataset.company;
+      hiddenCompanies.has(co) ? hiddenCompanies.delete(co) : hiddenCompanies.add(co);
+      recomputeAuto();
+      refresh();
+      return;
+    }
+    if(e.target.closest('[data-vendors-none]')){
+      sourceFilterRows().filter(r=>!reasoningHides(r)).forEach(r=>hiddenCompanies.add(r.company));
+      recomputeAuto();
+      refresh();
+      return;
+    }
+    if(e.target.closest('[data-vendors-all]')){
+      hiddenCompanies.clear();
+      hiddenModels.clear();
+      recomputeAuto();
+      refresh();
+      return;
+    }
+    const chip = e.target.closest('button[data-row]');
+    if(chip){
+      if(reasoningAuto){
+        manualReason = new Set([...manualReason, ...autoHidden]);   // keep Auto's choices, then tweak this row
+        autoHidden.clear();
+        reasoningAuto = false;
+      }
+      disableAllModels = false;
+      const slug = chip.dataset.row;
+      if(manualReason.has(slug)) manualReason.delete(slug);
+      else manualReason.add(slug);
+      refresh();
+      return;
+    }
+    if(e.target.closest('[data-reasoning-all]')){
+      reasoningAuto = false;
+      disableAllModels = false;
+      autoHidden.clear();
+      manualReason.clear();
+      refresh();
+      return;
+    }
+    if(e.target.closest('[data-reasoning-none]')){
+      reasoningAuto = false;
+      autoHidden.clear();
+      disableAllModels = true;
+      manualReason = new Set(sourceFilterRows().map(r=>r.slug));
+      refresh();
+      return;
+    }
+    if(e.target.closest('[data-reasoning-auto]')){
+      reasoningAuto = true;
+      disableAllModels = false;
+      manualReason.clear();
+      autoHidden = computeAutoHidden();
+      refresh();
+      return;
+    }
+    if(e.target.closest('[data-zdr]')){ setZdr(!zdrOnly); return; }
+    const unhide = e.target.closest('button[data-unhide]');
+    if(unhide){ hiddenModels.delete(unhide.dataset.unhide); refresh(); return; }
   });
   document.querySelector('#tbl tbody').addEventListener('click', e=>{
     if(e.target.closest('[data-show-all]')){
@@ -678,11 +1244,13 @@ async function init(){
 
 function refresh(){
   renderLegend();
-  syncChartData(filteredRows());
+  const rows = filteredRows();
+  syncChartData(rows);
   if(selectedSlug && !filteredRows().some(r=>r.slug === selectedSlug)) selectedSlug = null;
   renderTable();
-  document.getElementById('chartEmpty').hidden = filteredRows().length > 0;
+  document.getElementById('chartEmpty').hidden = rows.length > 0 || pareto(basisRows(), costKey()).length > 0;
   pinSelection(window._chart, selectedSlug);
+  if(goData) renderGoTable();
 }
 
 function setSearch(value){
@@ -696,23 +1264,108 @@ function clearSearch(){
   setSearch('');
 }
 
+function variantTag(r){
+  const m = /\(([^()]*)\)(.*)$/.exec(r.label || r.name || '');
+  return m ? m[2].replace(/^[\s·]+/, '').trim() : '';
+}
+function displayBase(r){
+  const name = r.name || '';
+  const m = /\s*\(([^()]*)\)\s*$/.exec(name);
+  if(!m) return name;
+  const tag = m[1].split(',')[0].trim().toLowerCase();
+  return EFFORT_LEVELS.includes(tag) ? baseName(name) : name;
+}
+function effortTitle(e){
+  const k = String(e || '').toLowerCase();
+  return EFFORT_LABEL[k] || (k ? k.charAt(0).toUpperCase() + k.slice(1) : '');
+}
+function upperBoundNote(r){
+  if(!r || !r.score_upper_bound) return '';
+  return `Upper bound: AA scored the ${effortTitle(r.score_effort)} run; Go sells this model up to ${effortTitle(r.go_max_effort)}. Switches automatically when AA scores that run.`;
+}
+function tableModelName(r){
+  return r.score_upper_bound ? displayBase(r) : r.name;
+}
+function contributorTitle(r){
+  return "Go sells this model's Contributor mode: prompts and responses may be used for training. Priced at the Go Contributor rate."
+    + (r.score_upper_bound ? ' ' + upperBoundNote(r) : '');
+}
+function allowanceTitle(r){
+  if(!r || !r.go_model || (r.pricing_mode !== 'go-standard' && r.pricing_mode !== 'go-contributor')) return '';
+  const limit = r.go_monthly_limit == null ? '—' : '$' + r.go_monthly_limit + '/mo';
+  return `Go allowance: ${limit} · ${r.go_limit_source === 'live' ? 'live' : 'snapshot'}`;
+}
+function variantLabel(r){
+  const level = effortOf(r), tag = variantTag(r);
+  if(level) return EFFORT_LABEL[level] + (tag ? ' · ' + tag : '');
+  if(tag) return tag;
+  if(isGo(r)) return r.pricing_mode === 'go-free' ? 'Go free' : 'Go';
+  return 'AA';
+}
+function reasoningGroups(){
+  const groups = new Map();
+  for(const r of sourceFilterRows()){
+    const key = baseName(r.name);
+    if(!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(r);
+  }
+  return [...groups.values()].sort((a,b)=>displayBase(a[0]).localeCompare(displayBase(b[0])));
+}
+function renderReasoningLegend(){
+  const ck = costKey();
+  const groups = reasoningGroups();
+  const html = groups.map(rows=>{
+    const base = displayBase(rows[0]);
+    const sorted = rows.slice().sort((a,b)=>{
+      const ea = effortOf(a) ? EFFORT_LEVELS.indexOf(effortOf(a)) : EFFORT_LEVELS.length;
+      const eb = effortOf(b) ? EFFORT_LEVELS.indexOf(effortOf(b)) : EFFORT_LEVELS.length;
+      return ea - eb || (a[ck] ?? Infinity) - (b[ck] ?? Infinity);
+    });
+    const chips = sorted.map(r=>{
+      const off = reasoningHides(r);
+      return `<button class="chip ${off?'off':''}" data-row="${r.slug}" aria-pressed="${!off}" title="${esc(r.label || r.name)}">${esc(variantLabel(r))}</button>`;
+    }).join('');
+    const co = rows[0].company;
+    return `<div class="reason-group" role="group" aria-label="${esc(base)}">
+      <span class="reason-group-name"><i class="swatch ${vendorClass(COLORS[co]?co:'Other')}"></i><span title="${esc(base)}">${esc(base)}</span></span>
+      <div class="reason-chips">${chips}</div>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('[data-reasoning-legend]').forEach(el=>{ el.innerHTML = html; });
+  document.querySelectorAll('[data-reasoning-auto]').forEach(b=>{
+    b.classList.toggle('on', reasoningAuto);
+    b.setAttribute('aria-pressed', String(reasoningAuto));
+  });
+  const sourceTotal = basisRows().length, shown = visibleRows().length;
+  document.querySelectorAll('[data-reasoning-all]').forEach(b=>{ b.disabled = !reasoningAuto && manualReason.size === 0; });
+  document.querySelectorAll('[data-reasoning-none]').forEach(b=>{ b.disabled = sourceFilterRows().length > 0 && shown === 0; });
+  const summary = sourceTotal ? `${shown} of ${sourceTotal} shown${reasoningAuto ? ' · auto' : ''}` : '';
+  document.querySelectorAll('[data-reasoning-summary]').forEach(el=>{ el.textContent = summary; });
+}
+
 function renderLegend(){
-  const companies = [...new Set(sourceRows().map(r=>r.company))].sort();
-  document.getElementById('companyLegend').innerHTML = companies.map(co=>
+  renderReasoningLegend();
+  const legendRows = sourceFilterRows().filter(r=>!reasoningHides(r) && !zdrHides(r));
+  const companies = [...new Set(legendRows.map(r=>r.company))].sort();
+  const companyHTML = companies.map(co=>
     `<button class="chip ${hiddenCompanies.has(co)?'off':''}" data-company="${co}" aria-pressed="${!hiddenCompanies.has(co)}"><i class="swatch ${vendorClass(COLORS[co]?co:'Other')}"></i>${co}</button>`
   ).join('');
+  document.querySelectorAll('[data-company-legend]').forEach(el=>{ el.innerHTML = companyHTML; });
   const hidden = [...hiddenModels].map(slug=>data.rows.find(r=>r.slug===slug)).filter(Boolean);
-  document.getElementById('modelLegend').innerHTML = hidden.map(r=>
+  const hiddenHTML = hidden.map(r=>
     `<button class="chip" data-unhide="${r.slug}" title="Restore">+ ${r.label || r.name}</button>`
   ).join('');
-  const total = data.rows.length, shown = visibleRows().length;
-  document.getElementById('hiddenCount').textContent = shown === total ? '' : `${total-shown} / ${total} models hidden`;
-  document.getElementById('vendorsAll').disabled = hiddenCompanies.size === 0 && hiddenModels.size === 0;
-  document.getElementById('vendorsNone').disabled = companies.length > 0 && companies.every(co=>hiddenCompanies.has(co));
+  document.querySelectorAll('[data-model-legend]').forEach(el=>{ el.innerHTML = hiddenHTML; });
+  const total = basisRows().length, shown = visibleRows().length;
+  const label = filter === 'all' ? 'models' : filter === 'go' ? 'Go models' : 'AA models';
+  document.getElementById('hiddenCount').textContent = total ? `${total-shown} / ${total} ${label} hidden` : '';
+  document.querySelectorAll('[data-vendors-all]').forEach(b=>{ b.disabled = hiddenCompanies.size === 0 && hiddenModels.size === 0; });
+  document.querySelectorAll('[data-vendors-none]').forEach(b=>{ b.disabled = companies.length > 0 && companies.every(co=>hiddenCompanies.has(co)); });
 }
 
 function companyStyle(){
   return {
+    clip: 8,
     backgroundColor: ctx=>rgba(COLORS[ctx.raw?.r?.company]||COLORS.Other, .72),
     borderColor: ctx=>{
       const r=ctx.raw?.r; if(!r) return T.transparent;
@@ -758,7 +1411,7 @@ function renderChart(rows){
   });
   datasets.push({
     label:'Pareto frontier',
-    data: pareto(rows, ck).map(r=>({x:px(r[ck]), y:r.intelligence_index})),
+    data: pareto(basisRows(), ck).map(r=>({x:px(r[ck]), y:r.intelligence_index})),
     type:'line', borderColor:rgba(T.warning,.6), borderWidth:1, borderDash:[6,4],
     pointRadius:0, tension:.2, fill:false
   });
@@ -766,10 +1419,11 @@ function renderChart(rows){
   window._chart = new Chart(canvas, {
     type:'scatter',
     data:{ datasets },
-    plugins:[labelPlugin],
+    plugins:[labelPlugin, paretoLabelPlugin, touchPlugin],
     options:{
       responsive:true, maintainAspectRatio:false, animation:false,
       interaction:{ mode:'nearest', intersect:true },
+      elements:{ point:{ hitRadius: COARSE ? 12 : 3 } },
       onHover:(evt, elements, chart)=>{
         if(elements.length || !selectedSlug) return;
         const f = findPoint(chart, selectedSlug); if(!f) return;
@@ -783,7 +1437,7 @@ function renderChart(rows){
         x:{
           type:'logarithmic',
           title:{display:true,text:'COST / TASK ($) — '+(priceMode==='go'?'GO':'ORIGINAL'),color:T.faint,font:{family:MONO.family,size:10,weight:'500'}},
-          ticks:{color:T.faint,font:MONO,maxRotation:0,callback:v=>'$'+fmtTick(v)},
+          ticks:{color:T.faint,font:MONO,maxRotation:0,autoSkipPadding:10,callback:v=>'$'+fmtTick(v)},
           grid:{color:T.grid,lineWidth:.5,drawTicks:false},
           border:{display:false},
           afterBuildTicks(s){
@@ -814,10 +1468,15 @@ function renderChart(rows){
           titleColor:T.text, bodyColor:T.muted, titleFont:{family:MONO.family,size:12},
           bodyFont:{family:MONO.family,size:10}, padding:8, cornerRadius:4, displayColors:false,
           callbacks:{
-            title:items=>items[0] && items[0].raw.r ? (items[0].raw.r.label || items[0].raw.r.name) : '',
+            title:items=>{
+              const r = items[0] && items[0].raw.r;
+              if(!r) return '';
+              return r.score_upper_bound ? (r.label || displayBase(r)) : (r.label || r.name);
+            },
             label:c=>{
               const r=c.raw.r; if(!r) return '';
-              return `${r.company} · II ${r.intelligence_index} · $${r[costKey()].toFixed(4)}/task`;
+              const line = tipLines(c.chart, `${r.company} · II ${r.score_upper_bound ? '≤ ' : ''}${r.intelligence_index} · $${r[costKey()].toFixed(4)}/task`);
+              return r.score_upper_bound ? [].concat(line, tipWrap(c.chart, upperBoundNote(r))) : line;
             }
           }
         },
@@ -864,7 +1523,7 @@ function syncChartData(rows){
            borderWidth:1, borderDash:[6,4], pointRadius:0, tension:.2, fill:false };
     c.data.datasets.push(pf);
   }
-  pf.data = pareto(rows, ck).map(r=>({x:px(r[ck]), y:r.intelligence_index}));
+  pf.data = pareto(basisRows(), ck).map(r=>({x:px(r[ck]), y:r.intelligence_index}));
   c.update('none');
   if(saved.xmin !== undefined){
     c.options.scales.x.min = saved.xmin; c.options.scales.x.max = saved.xmax;
@@ -876,7 +1535,7 @@ function syncChartData(rows){
 function renderTable(){
   const ck = costKey();
   document.querySelector('th[data-k="cost"]').textContent = priceMode === 'go' ? 'Go $/task' : 'AA $/task';
-  const frontier = new Set(pareto(filteredRows(), ck).map(r=>r.slug));
+  const frontier = new Set(pareto(basisRows(), ck).map(r=>r.slug));
   const rows = tableRows().slice().sort((a,b)=>{
     let va=a[sortKey], vb=b[sortKey];
     if(sortKey === 'name'){ va=a.name; vb=b.name; }
@@ -886,21 +1545,696 @@ function renderTable(){
     if(va > vb) return sortAsc ? 1 : -1;
     return 0;
   });
-  document.querySelector('#tbl tbody').innerHTML = rows.length ? rows.map((r,i)=>
-    `<tr data-slug="${r.slug}" class="${r.slug === selectedSlug ? 'selected' : ''} ${frontier.has(r.slug) ? 'frontier' : ''}">
+  document.querySelector('#tbl tbody').innerHTML = rows.length ? rows.map((r,i)=>{
+    const ub = !!r.score_upper_bound;
+    const allow = allowanceTitle(r);
+    return `<tr data-slug="${r.slug}" class="${r.slug === selectedSlug ? 'selected' : ''} ${frontier.has(r.slug) ? 'frontier' : ''}">
       <td class="rank">${i+1}</td>
-      <td class="name">${r.name}${isGo(r) ? '<span class="go-badge">Go</span>' : ''}${r.pricing_mode === 'go-contributor' ? '<span class="go-badge contrib" title="Go sells Meta Contributor mode: prompts and responses may be used to train Meta models. Priced at the Go Contributor rate; the Intelligence Index is from a Max-effort run this variant cannot use.">Contributor</span>' : ''}${r.pricing_mode === 'go-free' ? '<span class="go-badge" title="Go free tier: $0/task, no monthly allowance; limited regions and limited time, with a daily request cap.">Free</span>' : ''}</td>
+      <td class="name">${tableModelName(r)}${isGo(r) ? '<span class="go-badge">Go</span>' : ''}${r.deepseek_variant ? `<span class="go-badge ${r.deepseek_variant === 'peak' ? 'peak' : 'offpeak'}" title="${r.deepseek_variant === 'peak' ? 'DeepSeek peak rate (AA prices DeepSeek at peak)' : 'DeepSeek off-peak rate: half of peak'}">${r.deepseek_variant === 'peak' ? 'Peak' : 'Off-peak'}</span>` : ''}${r.pricing_mode === 'go-contributor' ? `<span class="go-badge contrib" title="${esc(contributorTitle(r))}">Contributor</span>` : ''}${r.pricing_mode === 'go-free' ? '<span class="go-badge" title="Go free tier: $0/task, no monthly allowance; limited regions and limited time, with a daily request cap.">Free</span>' : ''}<span class="vsub" aria-hidden="true"><i class="swatch ${vendorClass(COLORS[r.company]?r.company:'Other')}"></i>${r.company}</span></td>
       <td class="name"><i class="swatch table-swatch ${vendorClass(COLORS[r.company]?r.company:'Other')}"></i>${r.company}</td>
-      <td class="num">${r.intelligence_index}</td>
-      <td class="num">${r[ck] != null ? '$'+r[ck].toFixed(4) : '—'}</td>
+      <td class="num"${ub ? ` title="${esc(upperBoundNote(r))}"` : ''}>${ub ? '≤ ' : ''}${r.intelligence_index}</td>
+      <td class="num"${allow ? ` title="${esc(allow)}"` : ''}>${fmtMoney(r[ck])}</td>
       <td><button class="hide-btn" data-hide="${r.slug}" title="Hide model">×</button></td>
-    </tr>`
-  ).join('') : searchQuery
+    </tr>`;
+  }).join('') : searchQuery
     ? `<tr><td class="empty" colspan="6">No models match “${esc(searchQuery)}” — <button class="act" data-clear-search>Clear search</button></td></tr>`
     : `<tr><td class="empty" colspan="6">Nothing visible — <button class="act" data-show-all>Show all</button></td></tr>`;
   document.getElementById('searchCount').textContent = searchQuery ? `${rows.length} / ${filteredRows().length} models` : '';
+  document.querySelectorAll('#tbl th[data-k]').forEach(th=>{
+    const active = th.dataset.k === sortKey;
+    th.textContent = th.textContent.replace(/ [▲▼]$/, '') + (active ? (sortAsc ? ' ▲' : ' ▼') : '');
+    th.classList.toggle('sorted', active);
+  });
 }
+// ---- Go costs & workload calculator -------------------------------------
+const GO_MODELS_URL = 'https://opencode.ai/inference/go/v1/models';
+const GO_CACHE_KEY = 'go-costs-v2';
+const GO_CACHE_TTL = 60 * 60 * 1000;
+const GO_PLANS = {
+  go: { key:'go', price:10, label:'Go ($10)' }
+};
+let goData = null, goPlan = 'go', goSortKey = 'maxTok', goSortAsc = false, goChart = null;
+let goLabelMode = 'auto', goLabelEpoch = 0;
+let goPriceSource = 'loading';   // live | snapshot | loading
+const goLabelCache = {sig:null, labels:null, xspan:0, yspan:0, refX:0, refY:0};
+
+function goNum(v){ const n = Number(v); return isFinite(n) && n >= 0 ? n : 0; }
+function fmtRate(v){ return v == null ? '—' : '$' + (v >= 1 ? v.toFixed(2) : v.toFixed(3)); }
+function fmtCost(v){ return v == null ? '—' : '$' + (v >= 1 ? v.toFixed(2) : v.toFixed(4)); }
+function fmtTokens(n){
+  if(n == null || !isFinite(n)) return '—';
+  if(n >= 1e9) return (n/1e9).toFixed(2) + 'B';
+  const m = n/1e6;
+  if(m >= 100) return m.toFixed(0) + 'M';
+  if(m >= 10) return m.toFixed(1) + 'M';
+  if(m >= 1) return m.toFixed(2) + 'M';
+  return (n/1e3).toFixed(0) + 'K';
+}
+function parseGoModels(body){
+  const list = Array.isArray(body) ? body : (body && Array.isArray(body.data) ? body.data : []);
+  const today = new Date().toISOString().slice(0,10);
+  const rows = [];
+  for(const m of list){
+    if(!m || (m.type && m.type !== 'chat')) continue;
+    const t = (m.cost && m.cost.text) || {};
+    const inp = t.input || {}, out = t.output || {};
+    if(inp.price == null || out.price == null) continue;
+    const baseInput = goNum(inp.price);
+    const baseCached = goNum(inp.cache && inp.cache.read);
+    const baseOutput = goNum(out.price);
+    const usage = (m.go && m.go.monthly_usage) || null;
+    const peakFactors = [];
+    let peakRule = null;
+    let dateFactor = 1, note = null;
+    for(const rule of (m.cost && m.cost.multipliers) || []){
+      const f = goNum(rule.factor);
+      if(!f || f === 1) continue;
+      const when = rule.when || {};
+      if(when.date){
+        const gte = when.date.gte, lt = when.date.lt;
+        const active = (!gte || today >= gte) && (!lt || today < lt);
+        if(active) dateFactor *= f;
+        else if(gte) note = f + '× from ' + gte;
+        continue;
+      }
+      if(!peakRule) peakRule = { when, factor: f };
+      peakFactors.push(f);
+    }
+    const factors = peakFactors.length ? [1, ...new Set(peakFactors)] : [1];
+    for(const f of factors){
+      const factor = f * dateFactor;
+      const variant = peakFactors.length ? (f === 1 ? 'Off-peak' : 'Peak') : null;
+      rows.push({
+        id: m.id, name: m.name || m.id,
+        canonical_id: m.canonical_id || null,
+        input: baseInput * factor, cached: baseCached * factor, output: baseOutput * factor,
+        usage, free: baseInput === 0 && baseOutput === 0, variant, note,
+        zdr: m.go && typeof m.go.zdr === 'boolean' ? m.go.zdr : null,
+        peak: peakRule
+      });
+    }
+  }
+  return rows;
+}
+function readGoCache(){
+  try{
+    const p = JSON.parse(localStorage.getItem(GO_CACHE_KEY) || 'null');
+    if(p && p.body && Date.now() - p.t < GO_CACHE_TTL) return p;
+  }catch{}
+  return null;
+}
+function writeGoCache(body){
+  try{ localStorage.setItem(GO_CACHE_KEY, JSON.stringify({t: Date.now(), body})); }catch{}
+}
+function setGoBadge(state, text, title){
+  const b = document.getElementById('goLiveBadge');
+  b.className = 'badge ' + (state || '');
+  b.textContent = text;
+  b.title = title || text;
+}
+// New Go data can change the inherited ZDR flags of merged rows; re-render both
+// views when the ZDR filter is already on, otherwise only the Go table moves.
+function goDataChanged(){
+  const changed = applyGoAllowances();
+  if(data){
+    if(changed && reasoningAuto) autoHidden = computeAutoHidden();
+    if(changed){
+      refresh();
+      rebaseChart();
+    }else if(zdrOnly){
+      refresh();
+    }else{
+      renderTable();
+      renderGoTable();
+    }
+  }else{
+    renderGoTable();
+  }
+  renderFoot();
+}
+async function loadGoCosts(force){
+  const refreshBtn = document.getElementById('goRefresh');
+  if(refreshBtn) refreshBtn.disabled = true;
+  const cached = force ? null : readGoCache();
+  if(cached && !goData){
+    try{ goData = parseGoModels(cached.body); goPriceSource = 'live'; goDataChanged(); setGoBadge('', 'Cached · checking…'); }catch{}
+  }
+  try{
+    const res = await fetch(GO_MODELS_URL, {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const body = await res.json();
+    const parsed = parseGoModels(body);
+    if(!parsed.length) throw new Error('no models parsed');
+    goData = parsed;
+    goPriceSource = 'live';
+    writeGoCache(body);
+    goDataChanged();
+    setGoBadge('ok', 'Live', 'Prices and allowances live from opencode.ai');
+  }catch(err){
+    if(goData){
+      setGoBadge('warn', force ? 'Refresh failed' : 'Cached', 'Could not reach opencode.ai: ' + err.message);
+    }else{
+      try{
+        const res = await fetch('data/go-models.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('HTTP ' + res.status);
+        goData = parseGoModels(await res.json());
+        goPriceSource = 'snapshot';
+        goDataChanged();
+        setGoBadge('warn', 'Snapshot', 'Live source unreachable; using the committed snapshot');
+      }catch(e2){
+        goPriceSource = 'snapshot';
+        renderGoTable();
+        renderFoot();
+        setGoBadge('warn', 'Unavailable', 'Could not load Go prices: ' + e2.message);
+      }
+    }
+  }finally{
+    if(refreshBtn) refreshBtn.disabled = false;
+  }
+}
+function normKey(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,''); }
+// ZDR is only defined by the live/snapshot Go endpoint. Parsed Go rows carry it
+// directly; merged.json rows inherit it by matching go_model (or name) with normKey.
+// No entry, no flag: the row stays visible.
+let zdrMapCache = null, zdrMapFor = null;
+function goZdrMap(){
+  if(zdrMapFor === goData && zdrMapCache) return zdrMapCache;
+  const map = new Map();
+  for(const g of goData || []){
+    if(typeof g.zdr !== 'boolean') continue;
+    for(const k of [g.id, g.name]){
+      const key = normKey(k);
+      if(key) map.set(key, g.zdr);
+    }
+  }
+  zdrMapFor = goData; zdrMapCache = map;
+  return map;
+}
+function rowZdr(r){
+  if(typeof r.zdr === 'boolean') return r.zdr;
+  const map = goZdrMap();
+  for(const k of [r.go_model, r.name]){
+    const key = normKey(k);
+    if(key && map.has(key)) return map.get(key);
+  }
+  return null;
+}
+// Go's product names drop/keep suffixes the endpoint varies: "Hy4 New" vs "Hy4",
+// "Qwen4 Max New" vs "Qwen4 Max", "Muse Spark 1.3" vs "Muse Spark 1.3 Contributor".
+function trimGoTier(s){
+  return String(s || '').replace(/(?:\s+(?:new|contributor))+\s*$/i, '').trim();
+}
+function goEndpointFor(name){
+  const exact = normKey(name), loose = normKey(trimGoTier(name));
+  for(const g of goData || []){
+    if(normKey(g.name) === exact) return g;
+  }
+  for(const g of goData || []){
+    if(normKey(trimGoTier(g.name)) === loose) return g;
+  }
+  return null;
+}
+// The browser uses the endpoint's monthly allowance instead of the baked one when it
+// can match the row. Original merged values are kept so a later fallback can restore
+// them; the formula mirrors build.py's make_row/recompute exactly.
+function applyGoAllowances(){
+  if(!data) return false;
+  const planPrice = Number(data.plan_price) || 10;
+  const rows = data.rows.filter(r=>r.go_model && (r.pricing_mode === 'go-standard' || r.pricing_mode === 'go-contributor'));
+  for(const r of rows){
+    if(!r._goBase){
+      r._goBase = {
+        go_monthly_limit: r.go_monthly_limit,
+        go_effective_cost_per_task: r.go_effective_cost_per_task,
+        cost_per_intelligence_point: r.cost_per_intelligence_point,
+        intelligence_per_dollar: r.intelligence_per_dollar,
+        monthly_task_capacity: r.monthly_task_capacity
+      };
+    }
+    Object.assign(r, r._goBase);
+    r.go_limit_source = 'snapshot';
+  }
+  for(const r of rows){
+    const ep = goEndpointFor(r.go_model);
+    const usage = ep && ep.usage && ep.usage.go != null ? Number(ep.usage.go) : null;
+    if(!(usage > 0) || r.aa_cost_per_task_used == null) continue;
+    r.go_monthly_limit = usage;
+    r.go_effective_cost_per_task = r.aa_cost_per_task_used * (planPrice / usage);
+    r.cost_per_intelligence_point = r.intelligence_index ? r.go_effective_cost_per_task / r.intelligence_index : null;
+    r.intelligence_per_dollar = r.go_effective_cost_per_task && r.intelligence_index ? r.intelligence_index / r.go_effective_cost_per_task : null;
+    r.monthly_task_capacity = r.go_monthly_limit && r.go_effective_cost_per_task ? planPrice / r.go_effective_cost_per_task : null;
+    r.go_limit_source = goPriceSource === 'live' ? 'live' : 'snapshot';
+  }
+  let changed = false;
+  for(const r of rows){
+    const b = r._goBase;
+    if(r.go_monthly_limit !== b.go_monthly_limit ||
+       r.go_effective_cost_per_task !== b.go_effective_cost_per_task ||
+       r.cost_per_intelligence_point !== b.cost_per_intelligence_point ||
+       r.intelligence_per_dollar !== b.intelligence_per_dollar ||
+       r.monthly_task_capacity !== b.monthly_task_capacity){
+      changed = true;
+      break;
+    }
+  }
+  return changed;
+}
+const AA_URL = 'https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index';
+const GO_URL = 'https://opencode.ai/console/go';
+function uniqueBaseNames(rows){
+  const seen = new Set();
+  for(const r of rows){
+    const name = baseName(r.name);
+    if(name) seen.add(name);
+  }
+  return [...seen];
+}
+const DAY_NAMES = { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' };
+const DAY_ORDER = ['mon','tue','wed','thu','fri','sat','sun'];
+function formatUtcDays(days){
+  if(!Array.isArray(days) || !days.length) return '';
+  const idx = [...new Set(days.map(d=>DAY_ORDER.indexOf(String(d).toLowerCase())).filter(i=>i>=0))].sort((a,b)=>a-b);
+  if(!idx.length) return '';
+  if(idx.length === 1) return DAY_NAMES[DAY_ORDER[idx[0]]];
+  if(idx.every((v,i)=>i === 0 || v === idx[i-1] + 1)) return DAY_NAMES[DAY_ORDER[idx[0]]] + '–' + DAY_NAMES[DAY_ORDER[idx[idx.length-1]]];
+  const names = idx.map(i=>DAY_NAMES[DAY_ORDER[i]]);
+  return names.slice(0,-1).join(', ') + ' and ' + names[names.length-1];
+}
+function formatUtcRanges(any){
+  if(!Array.isArray(any)) return [];
+  const out = [];
+  for(const branch of any){
+    const parts = (branch && branch.all) || [];
+    const gte = parts.map(p=>p.utc_hours && p.utc_hours.gte).find(Boolean);
+    const lt = parts.map(p=>p.utc_hours && p.utc_hours.lt).find(Boolean);
+    if(gte && lt) out.push(gte + '–' + lt);
+  }
+  return out;
+}
+function renderFootNotes(){
+  const el = document.getElementById('footNotes');
+  if(!el) return;
+  if(!data){ el.innerHTML = ''; return; }
+  const notes = [];
+  const dsRows = data.rows.filter(r=>r.deepseek_variant);
+  if(dsRows.length){
+    const names = uniqueBaseNames(dsRows);
+    let rule = null;
+    for(const r of dsRows){
+      const ep = r.go_model ? goEndpointFor(r.go_model) : null;
+      if(ep && ep.peak){ rule = ep.peak; break; }
+    }
+    const factor = rule ? rule.factor : 2;
+    let hours = '';
+    if(rule && rule.when){
+      const days = formatUtcDays(rule.when.utc_days && rule.when.utc_days.in);
+      const ranges = formatUtcRanges(rule.when.any);
+      if(ranges.length) hours = ' Peak hours: ' + (days ? days + ' ' : '') + ranges.join(' and ') + ' UTC.';
+    }
+    notes.push(`<b>DeepSeek</b> (${names.map(esc).join(', ')}): shown at peak and off-peak; off-peak is 1/${factor} of peak.${hours} AA prices DeepSeek at peak, so the AA row is Peak; off-peak tasks also use half the Go allowance.`);
+  }
+  const contrib = data.rows.filter(r=>r.pricing_mode === 'go-contributor');
+  if(contrib.length){
+    notes.push(`<b>Contributor</b> (${uniqueBaseNames(contrib).map(esc).join(', ')}): listed twice — the vendor's standard price, and Go's Contributor price (prompts and responses may be used for training).`);
+  }
+  const free = data.rows.filter(r=>r.pricing_mode === 'go-free');
+  if(free.length){
+    notes.push(`<b>Go free tier</b> (${uniqueBaseNames(free).map(esc).join(', ')}): $0/task, no monthly allowance, limited regions and time, daily request cap; drawn at the left edge of the log-scale chart.`);
+  }
+  const upper = data.rows.filter(r=>r.score_upper_bound);
+  if(upper.length){
+    notes.push(`<b>≤ scores</b> (${uniqueBaseNames(upper).map(esc).join(', ')}): AA has only scored a higher effort than Go sells; the Intelligence Index is an upper bound until AA scores the allowed effort.`);
+  }
+  el.innerHTML = notes.map(t=>'<div>' + t + '</div>').join('');
+}
+function renderFootMeta(){
+  const el = document.getElementById('footMeta');
+  if(!el) return;
+  const snap = data ? (data.aa_snapshot_date || data.snapshot_date || '—') : '—';
+  const state = goPriceSource === 'live' ? 'live'
+    : goPriceSource === 'snapshot' ? 'snapshot (endpoint unavailable)' : 'loading…';
+  el.innerHTML = `AA scores: snapshot of ${esc(snap)} · Go prices and allowances: ${state} · <a href="${AA_URL}">AA Intelligence Index</a> · <a href="${GO_URL}">Go pricing</a> · unofficial, not affiliated with OpenCode / SST.`;
+}
+function renderFoot(){
+  renderFootNotes();
+  renderFootMeta();
+}
+function goIIMap(includeHidden){
+  const map = new Map();
+  if(!data) return map;
+  const add = (key, r) => {
+    if(!key) return;
+    const cur = map.get(key);
+    if(!cur || r.intelligence_index > cur.intelligence_index) map.set(key, r);
+  };
+  for(const r of data.rows){
+    if(!includeHidden && reasoningHides(r)) continue;   // final enabled set: hand-hidden rows and Auto
+    add(normKey(r.go_model), r);
+    add(normKey(trimGoTier(r.go_model)), r);   // go.md "Hy4 New" / endpoint "Hy4"
+    add(normKey((r.name || '').replace(/\s*\([^)]*\)\s*$/, '')), r);
+    add(normKey(r.slug), r);
+  }
+  return map;
+}
+function lookupGoII(lookup, name){
+  if(!lookup) return null;
+  let row = lookup.get(normKey(name)) || null;
+  if(!row) row = lookup.get(normKey(trimGoTier(name))) || null;
+  if(!row) row = lookup.get(normKey(name.replace(/\s*\([^)]*\)\s*$/, ''))) || null;
+  if(!row){
+    const k = normKey(name);
+    if(k.length >= 4){
+      for(const [key, v] of lookup){
+        if(key.length >= 4 && (key.endsWith(k) || k.endsWith(key))){ row = v; break; }
+      }
+    }
+  }
+  return row;
+}
+function goComputedRows(){
+  const plan = GO_PLANS[goPlan] || GO_PLANS.go;
+  const totalM = Math.max(1, Number(document.getElementById('calcTokens').value) || 100);
+  const hitRate = Math.min(0.9999, Math.max(0, (Number(document.getElementById('calcHit').value) || 0) / 100));
+  const outPct = Math.min(0.9, Math.max(0, (Number(document.getElementById('calcOut').value) || 0) / 100));
+  const inM = totalM * (1 - outPct), outM = totalM * outPct;
+  const freshM = inM * (1 - hitRate), cachedM = inM * hitRate;
+  const query = (document.getElementById('goSearch').value || '').trim().toLowerCase();
+  const showFree = document.getElementById('calcFree').checked;
+  const lookup = data ? goIIMap() : null;
+  const allLookup = data ? goIIMap(true) : null;
+  const rows = [];
+  for(const r of goData || []){
+    if(!showFree && r.free) continue;
+    if(zdrOnly && r.zdr === false) continue;
+    if(query && !r.name.toLowerCase().includes(query)) continue;
+    const limit = r.usage && r.usage.go != null ? r.usage.go : null;
+    const blend = (1 - outPct) * ((1 - hitRate) * r.input + hitRate * r.cached) + outPct * r.output;
+    const cost = freshM * r.input + cachedM * r.cached + outM * r.output;
+    const allowPct = limit ? cost / limit * 100 : null;
+    const blocks = limit && cost > 0 ? limit / cost : null;
+    const maxTok = limit && blend > 0 ? limit / blend * 1e6 : null;
+    const subCost = limit ? cost / limit * plan.price : null;
+    const iiRow = lookup ? lookupGoII(lookup, r.name) : null;
+    let unscored = false;
+    if(!iiRow){
+      if(!allLookup) continue;                         // merged AA data not loaded yet
+      if(lookupGoII(allLookup, r.name)) continue;      // has AA rows, but none enabled
+      if(disableAllModels) continue;                   // Disable all also hides unscored Go rows
+      unscored = true;
+    }
+    const company = iiRow
+      ? iiRow.company
+      : companyOf({ name: r.name, slug: r.canonical_id || r.id });
+    // A Go model is listed only while one of its AA variants is enabled, or with a
+    // dash when AA has no row at all; the vendor filter applies to both cases.
+    if(hiddenCompanies.has(company)) continue;
+    rows.push({
+      ...r, limit, blend, cost, subCost, allowPct, blocks, maxTok,
+      ii: iiRow ? iiRow.intelligence_index : null,
+      iiEffort: iiRow ? effortOf(iiRow) : null,
+      intelligence_index: iiRow ? iiRow.intelligence_index : null,
+      score_upper_bound: !!(iiRow && iiRow.score_upper_bound),
+      score_effort: iiRow ? iiRow.score_effort || null : null,
+      go_max_effort: iiRow ? iiRow.go_max_effort || null : null,
+      unscored,
+      company,
+      label: r.name + (r.variant ? ' · ' + r.variant : ''),
+      slug: iiRow ? iiRow.slug : r.id
+    });
+  }
+  return { plan, totalM, hitRate, outPct, inM, outM, freshM, cachedM, rows };
+}
+function goChartBounds(pts){
+  const xs = pts.map(r=>r.cost).filter(v=>v>0 && isFinite(v));
+  const ys = pts.map(r=>r.ii).filter(v=>isFinite(v));
+  const xLo = xs.length ? Math.pow(10, Math.floor(Math.log10(Math.min(...xs)))) : 0.001;
+  const xHi = xs.length ? Math.pow(10, Math.ceil(Math.log10(Math.max(...xs)))) : 1;
+  const yMin = Math.min(...ys), yMax = Math.max(...ys);
+  return { xLo, xHi, yLo: Math.max(0, Math.floor(yMin/10)*10 - 5), yHi: Math.ceil(yMax/10)*10 + 5 };
+}
+const goLabelPlugin = {
+  id:'goModelLabels',
+  afterDatasetsDraw(chart){ drawModelLabels(chart, goLabelMode, 'cost', goLabelCache, goLabelEpoch); }
+};
+function renderGoChart(rows){
+  const canvas = document.getElementById('goChart');
+  const empty = document.getElementById('goChartEmpty');
+  if(!canvas || !empty) return;
+  const pts = (rows || []).filter(r=>r.ii != null && isFinite(r.ii) && isFinite(r.cost));
+  const narrowed = reasoningAuto || manualReason.size > 0;
+  empty.textContent = !goData ? 'Loading Go prices…'
+    : !(rows || []).length ? 'No Go models match'
+    : narrowed ? 'No Go models with an AA score in the current model selection'
+    : 'No Go models with an AA score';
+  empty.hidden = pts.length > 0;
+  goLabelEpoch++;   // datasets are rebuilt: re-lay out labels
+  if(!pts.length){
+    if(goChart){ goChart.destroy(); goChart = null; }
+    return;
+  }
+  const b = goChartBounds(pts);
+  const px = v => (v > 0 && isFinite(v)) ? v : b.xLo;
+  const companies = [...new Set(pts.map(r=>r.company))].sort();
+  const datasets = companies.map(co=>{
+    const cr = pts.filter(r=>r.company === co);
+    return {
+      label: co,
+      data: cr.map(r=>({x:px(r.cost), y:r.ii, r})),
+      clip: 8,
+      backgroundColor: rgba(COLORS[co] || COLORS.Other, .72),
+      borderColor: ctx => {
+        const r = ctx.raw && ctx.raw.r;
+        return r && r.allowPct != null && r.allowPct > 100 ? T.warning : rgba(T.text,.55);
+      },
+      borderWidth: ctx => {
+        const r = ctx.raw && ctx.raw.r;
+        return r && r.allowPct != null && r.allowPct > 100 ? 2 : 1;
+      },
+      pointStyle: 'rect',
+      pointRadius: 4,
+      pointHoverRadius: 6
+    };
+  });
+  const pf = pareto(pts, 'cost').map(r=>({x:px(r.cost), y:r.ii}));
+  datasets.push({ label:'Pareto frontier', data:pf, type:'line', borderColor:rgba(T.warning,.6),
+    borderWidth:1, borderDash:[6,4], pointRadius:0, tension:.2, fill:false });
+  const xTicks = s => {
+    const out = [], lo = Math.floor(Math.log10(s.min)), hi = Math.ceil(Math.log10(s.max));
+    for(let e=lo;e<=hi;e++) for(const m of [1,2,5]){
+      const v = m*Math.pow(10,e);
+      if(v >= s.min*0.9999 && v <= s.max*1.0001) out.push({value:v});
+    }
+    s.ticks = out;
+  };
+  const yTicks = s => {
+    const out = [], step = 10;
+    for(let v=Math.ceil(s.min/step)*step; v<=s.max; v+=step) out.push({value:v});
+    s.ticks = out;
+  };
+  if(!goChart){
+    goChart = new Chart(canvas, {
+      type:'scatter',
+      data:{ datasets },
+      plugins:[goLabelPlugin, paretoLabelPlugin, touchPlugin],
+      options:{
+        responsive:true, maintainAspectRatio:false, animation:false,
+        interaction:{ mode:'nearest', intersect:true },
+        elements:{ point:{ hitRadius: COARSE ? 12 : 3 } },
+        scales:{
+          x:{
+            type:'logarithmic',
+            title:{display:true,text:'WORKLOAD COST ($)',color:T.faint,font:{family:MONO.family,size:10,weight:'500'}},
+            ticks:{color:T.faint,font:MONO,maxRotation:0,autoSkipPadding:10,callback:v=>'$'+fmtTick(v)},
+            grid:{color:T.grid,lineWidth:.5,drawTicks:false},
+            border:{display:false},
+            min:b.xLo, max:b.xHi,
+            afterBuildTicks:xTicks
+          },
+          y:{
+            title:{display:true,text:'INTELLIGENCE INDEX',color:T.faint,font:{family:MONO.family,size:10,weight:'500'}},
+            ticks:{color:T.faint,font:MONO},
+            grid:{color:T.grid,lineWidth:.5,drawTicks:false},
+            border:{display:false},
+            min:b.yLo, max:b.yHi,
+            afterBuildTicks:yTicks
+          }
+        },
+        plugins:{
+          legend:{display:false},
+          zoom:{
+            limits:{ x:{min:b.xLo,max:b.xHi,minRange:0.0002}, y:{min:b.yLo,max:b.yHi,minRange:2} },
+            zoom:{ wheel:{enabled:true}, pinch:{enabled:true}, mode:'xy' },
+            pan:{ enabled:true, mode:'xy' }
+          },
+          tooltip:{
+            backgroundColor:T.panel, borderColor:T.border, borderWidth:1,
+            titleColor:T.text, bodyColor:T.muted, titleFont:{family:MONO.family,size:12},
+            bodyFont:{family:MONO.family,size:10}, padding:8, cornerRadius:4, displayColors:false,
+            callbacks:{
+              title:items=>items[0] && items[0].raw.r ? items[0].raw.r.label : '',
+              label:c=>{
+                const r = c.raw.r; if(!r) return '';
+                const effort = r.iiEffort ? ' · ' + EFFORT_LABEL[r.iiEffort] + ' effort' : ' · no effort tag';
+                const line = tipLines(c.chart, `II ${r.score_upper_bound ? '≤ ' : ''}${r.ii}${effort} · ${fmtCost(r.cost)} workload · ${r.allowPct == null ? '—' : r.allowPct.toFixed(1)+'% allowance'} · ${fmtTokens(r.maxTok)} max`);
+                return r.score_upper_bound ? [].concat(line, tipWrap(c.chart, upperBoundNote(r))) : line;
+              }
+            }
+          }
+        }
+      }
+    });
+  }else{
+    goChart.data.datasets = datasets;
+    goChart.options.scales.x.min = b.xLo; goChart.options.scales.x.max = b.xHi;
+    goChart.options.scales.y.min = b.yLo; goChart.options.scales.y.max = b.yHi;
+    goChart.update('none');
+  }
+}
+function renderGoTable(){
+  const tbody = document.querySelector('#goTbl tbody');
+  if(!goData){
+    tbody.innerHTML = '<tr><td class="empty" colspan="11">Loading Go prices…</td></tr>';
+    renderGoChart([]);
+    return;
+  }
+  const { plan, totalM, hitRate, inM, outM, freshM, cachedM, rows } = goComputedRows();
+  const sorted = rows.slice().sort((a,b)=>{
+    let va = a[goSortKey], vb = b[goSortKey];
+    if(goSortKey === 'name'){ va = a.name.toLowerCase(); vb = b.name.toLowerCase(); }
+    if(va == null) return 1;
+    if(vb == null) return -1;
+    if(va < vb) return goSortAsc ? -1 : 1;
+    if(va > vb) return goSortAsc ? 1 : -1;
+    return 0;
+  });
+  tbody.innerHTML = sorted.length ? sorted.map(r=>{
+    const pct = r.allowPct == null ? '—' : r.allowPct.toFixed(1) + '%';
+    const barW = r.allowPct == null ? 0 : Math.min(100, r.allowPct);
+    const variant = r.variant ? `<span class="go-badge ${r.variant === 'Peak' ? 'peak' : 'offpeak'}">${r.variant}</span>` : '';
+    const note = r.note ? `<span class="go-badge" title="Scheduled price change">${esc(r.note)}</span>` : '';
+    const upper = r.score_upper_bound
+      ? `<span class="go-badge upper" title="${esc('II ≤ ' + r.ii + '. ' + upperBoundNote(r))}">≤ ${r.ii}</span>` : '';
+    const unscored = r.unscored
+      ? '<span class="go-badge unscored" title="Not scored by Artificial Analysis yet">— II</span>' : '';
+    const allowTitle = goPriceSource === 'live' ? 'Live from the Go endpoint' : 'Snapshot fallback';
+    return `<tr>
+      <td class="name">${esc(r.name)}${variant}${r.free ? '<span class="go-badge">Free</span>' : ''}${note}${upper}${unscored}</td>
+      <td class="num">${fmtRate(r.blend)}</td>
+      <td class="num">${fmtCost(r.cost)}</td>
+      <td class="num">${fmtCost(r.subCost)}</td>
+      <td class="num">${pct}${r.allowPct == null ? '' : `<div class="allowbar${r.allowPct >= 100 ? ' over' : ''}"><span style="width:${barW}%"></span></div>`}</td>
+      <td class="num">${r.blocks == null ? '—' : r.blocks.toFixed(1) + '×'}</td>
+      <td class="num">${fmtTokens(r.maxTok)}</td>
+      <td class="num">${fmtRate(r.input)}</td>
+      <td class="num">${fmtRate(r.cached)}</td>
+      <td class="num">${fmtRate(r.output)}</td>
+      <td class="num" title="${allowTitle}">${r.limit == null ? (r.free ? 'Free' : '—') : '$' + r.limit}</td>
+    </tr>`;
+  }).join('') : (document.getElementById('goSearch').value || '').trim()
+    ? `<tr><td class="empty" colspan="11">No Go models match “${esc(document.getElementById('goSearch').value.trim())}” — <button class="act" data-clear-go-search>Clear search</button></td></tr>`
+    : `<tr><td class="empty" colspan="11">No Go models to show</td></tr>`;
+  document.querySelectorAll('#goTbl th[data-gk]').forEach(th=>{
+    const active = th.dataset.gk === goSortKey;
+    th.textContent = th.textContent.replace(/ [▲▼]$/, '') + (active ? (goSortAsc ? ' ▲' : ' ▼') : '');
+    th.classList.toggle('sorted', active);
+  });
+  const r1 = x => Math.round(x * 10) / 10;
+  document.getElementById('goSummary').textContent =
+    `${rows.length} models · ${plan.label} · ${totalM}M total (${r1(inM)}M in + ${r1(outM)}M out) @ ${(hitRate*100).toFixed(1)}% hit · ${r1(freshM)}M fresh + ${r1(cachedM)}M cached`;
+  renderGoChart(rows);
+}
+function initGoCosts(){
+  const el = id => document.getElementById(id);
+  ['calcTokens','calcHit','calcOut'].forEach(id=>el(id).addEventListener('input', renderGoTable));
+  el('calcFree').addEventListener('change', renderGoTable);
+  const goSearch = el('goSearch'), goSearchClear = el('goSearchClear');
+  const onGoSearch = () => { goSearchClear.hidden = !goSearch.value.trim(); renderGoTable(); };
+  const clearGoSearch = () => { goSearch.value = ''; onGoSearch(); };
+  goSearch.addEventListener('input', onGoSearch);
+  goSearch.addEventListener('keydown', e=>{
+    if(e.key === 'Escape' && goSearch.value){ e.preventDefault(); clearGoSearch(); }
+  });
+  goSearchClear.addEventListener('click', ()=>{ clearGoSearch(); goSearch.focus(); });
+  document.querySelector('#goTbl tbody').addEventListener('click', e=>{
+    if(e.target.closest('[data-clear-go-search]')) clearGoSearch();
+  });
+  el('goRefresh').addEventListener('click', ()=>loadGoCosts(true));
+  const goZoom = f => { if(!goChart) return; goChart.zoom(f); goLabelEpoch++; goChart.update('none'); };
+  el('goZoomIn').addEventListener('click', ()=>goZoom(1.5));
+  el('goZoomOut').addEventListener('click', ()=>goZoom(1/1.5));
+  el('goZoomReset').addEventListener('click', ()=>{
+    if(!goChart) return;
+    goChart.resetZoom(); goLabelEpoch++; goChart.update('none');
+  });
+  const goLabelSwitch = el('goLabelSwitch');
+  const setGoLabels = mode => {
+    goLabelMode = mode;
+    setSwitch(goLabelSwitch, {off:0, auto:1, all:2}[mode]);
+    el('goChartWrap').classList.toggle('labels-all', mode === 'all');
+    el('goChartNote').textContent = chartNote(mode, GO_NOTE);
+    goLabelCache.labels = null;
+    goLabelEpoch++;
+    if(goChart){ goChart.resize(); goChart.update('none'); }
+  };
+  el('goLabelOff').addEventListener('click', ()=>setGoLabels('off'));
+  el('goLabelOn').addEventListener('click', ()=>setGoLabels('auto'));
+  el('goLabelAll').addEventListener('click', ()=>setGoLabels('all'));
+  el('goChartNote').textContent = chartNote(goLabelMode, GO_NOTE);
+  document.querySelectorAll('#goTbl th[data-gk]').forEach(th=>{
+    th.addEventListener('click', ()=>{
+      const k = th.dataset.gk;
+      if(goSortKey === k) goSortAsc = !goSortAsc;
+      else { goSortKey = k; goSortAsc = k === 'name'; }
+      renderGoTable();
+    });
+  });
+  renderGoTable();
+  loadGoCosts(false);
+}
+
+// ---- Tabs -----------------------------------------------------------------
+function showTab(name, scroll){
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('[data-tab-panel]')];
+  if(name === 'models'){ name = 'chart'; pendingModelsScroll = true; }  // old #models link
+  if(!panels.some(p=>p.dataset.tabPanel === name)) name = 'chart';
+  tabs.forEach(t=>{
+    const on = t.dataset.tab === name;
+    t.classList.toggle('on', on);
+    t.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  panels.forEach(p=>{ p.hidden = p.dataset.tabPanel !== name; });
+  if(name === 'chart'){
+    requestAnimationFrame(()=>{
+      if(window._chart){ window._chart.resize(); labelEpoch++; window._chart.update('none'); }
+    });
+  }
+  if(name === 'go'){
+    requestAnimationFrame(()=>{
+      if(goChart){ goChart.resize(); goLabelEpoch++; goChart.update('none'); }
+    });
+  }
+  if(scroll){
+    requestAnimationFrame(()=>{
+      const bar = document.querySelector('.tabs');
+      const panel = panels.find(p=>p.dataset.tabPanel === name);
+      if(bar && panel){
+        const y = panel.getBoundingClientRect().top + window.scrollY - bar.offsetHeight - 16;
+        window.scrollTo(0, Math.max(0, y));
+      }
+    });
+  }
+  try{ history.replaceState(null, '', '#' + name); }catch{}
+}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>showTab(t.dataset.tab, true)));
+
+// Desktop shows the per-model list straight away; phones keep it collapsed so
+// the chart and table stay close together.
+document.querySelectorAll('[data-reasoning-models]').forEach(d=>{ d.open = window.matchMedia('(min-width: 721px)').matches; });
+
 init();
+initGoCosts();
+showTab((location.hash || '#chart').slice(1), false);
 </script>
 </body>
 </html>
