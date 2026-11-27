@@ -29,8 +29,8 @@
       "name": "Agnes 2.5 Pro Theta",
       "slug": "agnes-2-5-pro-theta",
       "intelligence_index": 24.1,
-      "cost_per_task": 0.5747,
-      "median_output_tokens_per_second": 184,
+      "cost_per_task": 0.4515,
+      "median_output_tokens_per_second": 179.43,
       "release_date": "2026-11-07"
     },
     {
@@ -54,7 +54,7 @@
       "slug": "apodex-1-1",
       "intelligence_index": 13.7,
       "cost_per_task": 0.7642,
-      "median_output_tokens_per_second": 177.27,
+      "median_output_tokens_per_second": 175.82,
       "release_date": "2026-08-30"
     },
     {
@@ -94,7 +94,7 @@
       "slug": "celeris-1",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 1575.49,
+      "median_output_tokens_per_second": 1675.18,
       "release_date": "2026-07-24"
     },
     {
@@ -198,7 +198,7 @@
       "slug": "claude-4-5-haiku",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 90.23,
+      "median_output_tokens_per_second": 87.14,
       "release_date": "2025-10-15"
     },
     {
@@ -206,7 +206,7 @@
       "slug": "claude-4-5-haiku-reasoning",
       "intelligence_index": 7.4,
       "cost_per_task": 0.5318,
-      "median_output_tokens_per_second": 94.26,
+      "median_output_tokens_per_second": 95.83,
       "release_date": "2025-10-15"
     },
     {
@@ -214,7 +214,7 @@
       "slug": "claude-4-5-sonnet",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 46.26,
+      "median_output_tokens_per_second": 48.85,
       "release_date": "2025-09-29"
     },
     {
@@ -222,7 +222,7 @@
       "slug": "claude-4-5-sonnet-thinking",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 52.53,
+      "median_output_tokens_per_second": 54.75,
       "release_date": "2025-09-29"
     },
     {
@@ -262,7 +262,7 @@
       "slug": "claude-fable-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 66.96,
+      "median_output_tokens_per_second": 71.65,
       "release_date": "2026-06-09"
     },
     {
@@ -270,7 +270,7 @@
       "slug": "claude-fable-5-1",
       "intelligence_index": 49.3,
       "cost_per_task": 12.994,
-      "median_output_tokens_per_second": 67.72,
+      "median_output_tokens_per_second": 69.53,
       "release_date": "2026-09-01"
     },
     {
@@ -278,7 +278,7 @@
       "slug": "claude-fable-5-1-high",
       "intelligence_index": 47.2,
       "cost_per_task": 7.54,
-      "median_output_tokens_per_second": 57.29,
+      "median_output_tokens_per_second": 59.35,
       "release_date": "2026-09-01"
     },
     {
@@ -286,7 +286,7 @@
       "slug": "claude-fable-5-1-low",
       "intelligence_index": 38.7,
       "cost_per_task": 4.4711,
-      "median_output_tokens_per_second": 57.41,
+      "median_output_tokens_per_second": 57.51,
       "release_date": "2026-09-01"
     },
     {
@@ -294,7 +294,7 @@
       "slug": "claude-fable-5-1-medium",
       "intelligence_index": 43.2,
       "cost_per_task": 5.5643,
-      "median_output_tokens_per_second": 58.67,
+      "median_output_tokens_per_second": 60.02,
       "release_date": "2026-09-01"
     },
     {
@@ -302,7 +302,7 @@
       "slug": "claude-fable-5-1-xhigh",
       "intelligence_index": 50,
       "cost_per_task": 10.8475,
-      "median_output_tokens_per_second": 63.7,
+      "median_output_tokens_per_second": 67.07,
       "release_date": "2026-09-01"
     },
     {
@@ -310,7 +310,7 @@
       "slug": "claude-fable-5-2",
       "intelligence_index": 64.8,
       "cost_per_task": 26.5386,
-      "median_output_tokens_per_second": 90.78,
+      "median_output_tokens_per_second": 90.43,
       "release_date": "2026-11-09"
     },
     {
@@ -318,7 +318,7 @@
       "slug": "claude-fable-5-2-high",
       "intelligence_index": 61.9,
       "cost_per_task": 9.0784,
-      "median_output_tokens_per_second": 81.6,
+      "median_output_tokens_per_second": 84.03,
       "release_date": "2026-11-09"
     },
     {
@@ -326,7 +326,7 @@
       "slug": "claude-fable-5-2-low",
       "intelligence_index": 53.9,
       "cost_per_task": 3.0972,
-      "median_output_tokens_per_second": 79.67,
+      "median_output_tokens_per_second": 82.8,
       "release_date": "2026-11-09"
     },
     {
@@ -334,7 +334,7 @@
       "slug": "claude-fable-5-2-medium",
       "intelligence_index": 56.3,
       "cost_per_task": 3.8026,
-      "median_output_tokens_per_second": 82.36,
+      "median_output_tokens_per_second": 83.23,
       "release_date": "2026-11-09"
     },
     {
@@ -342,7 +342,7 @@
       "slug": "claude-fable-5-2-xhigh",
       "intelligence_index": 62.2,
       "cost_per_task": 14.8286,
-      "median_output_tokens_per_second": 85.22,
+      "median_output_tokens_per_second": 86.72,
       "release_date": "2026-11-09"
     },
     {
@@ -350,7 +350,7 @@
       "slug": "claude-haiku-5-5",
       "intelligence_index": 36.5,
       "cost_per_task": 0.411,
-      "median_output_tokens_per_second": 225.78,
+      "median_output_tokens_per_second": 228.19,
       "release_date": "2026-10-07"
     },
     {
@@ -358,7 +358,7 @@
       "slug": "claude-haiku-5-5-high",
       "intelligence_index": 30,
       "cost_per_task": 0.1586,
-      "median_output_tokens_per_second": 173.92,
+      "median_output_tokens_per_second": 183.25,
       "release_date": "2026-10-07"
     },
     {
@@ -366,7 +366,7 @@
       "slug": "claude-haiku-5-5-low",
       "intelligence_index": 18.6,
       "cost_per_task": 0.0438,
-      "median_output_tokens_per_second": 164.43,
+      "median_output_tokens_per_second": 170.87,
       "release_date": "2026-10-07"
     },
     {
@@ -374,7 +374,7 @@
       "slug": "claude-haiku-5-5-medium",
       "intelligence_index": 24.6,
       "cost_per_task": 0.0918,
-      "median_output_tokens_per_second": 165.84,
+      "median_output_tokens_per_second": 178.94,
       "release_date": "2026-10-07"
     },
     {
@@ -382,7 +382,7 @@
       "slug": "claude-haiku-5-5-xhigh",
       "intelligence_index": 34.6,
       "cost_per_task": 0.2484,
-      "median_output_tokens_per_second": 181.63,
+      "median_output_tokens_per_second": 184.15,
       "release_date": "2026-10-07"
     },
     {
@@ -398,7 +398,7 @@
       "slug": "claude-opus-4-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 51.48,
+      "median_output_tokens_per_second": 52.28,
       "release_date": "2025-11-24"
     },
     {
@@ -406,7 +406,7 @@
       "slug": "claude-opus-4-5-thinking",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 55.57,
+      "median_output_tokens_per_second": 62.72,
       "release_date": "2025-11-24"
     },
     {
@@ -430,7 +430,7 @@
       "slug": "claude-opus-4-7",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 55.88,
+      "median_output_tokens_per_second": 58.43,
       "release_date": "2026-04-16"
     },
     {
@@ -446,7 +446,7 @@
       "slug": "claude-opus-4-8",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 60.77,
+      "median_output_tokens_per_second": 65.81,
       "release_date": "2026-05-28"
     },
     {
@@ -454,7 +454,7 @@
       "slug": "claude-opus-5",
       "intelligence_index": 44.2,
       "cost_per_task": 11.8215,
-      "median_output_tokens_per_second": 51.47,
+      "median_output_tokens_per_second": 56.79,
       "release_date": "2026-07-24"
     },
     {
@@ -462,7 +462,7 @@
       "slug": "claude-opus-5-5",
       "intelligence_index": 59.1,
       "cost_per_task": 10.0364,
-      "median_output_tokens_per_second": 97.17,
+      "median_output_tokens_per_second": 97.93,
       "release_date": "2026-09-22"
     },
     {
@@ -470,7 +470,7 @@
       "slug": "claude-opus-5-5-high",
       "intelligence_index": 51.8,
       "cost_per_task": 3.4647,
-      "median_output_tokens_per_second": 82.45,
+      "median_output_tokens_per_second": 85.38,
       "release_date": "2026-09-22"
     },
     {
@@ -478,7 +478,7 @@
       "slug": "claude-opus-5-5-low",
       "intelligence_index": 34.8,
       "cost_per_task": 0.9755,
-      "median_output_tokens_per_second": 83.73,
+      "median_output_tokens_per_second": 85.23,
       "release_date": "2026-09-22"
     },
     {
@@ -486,7 +486,7 @@
       "slug": "claude-opus-5-5-medium",
       "intelligence_index": 48.3,
       "cost_per_task": 2.4511,
-      "median_output_tokens_per_second": 83.27,
+      "median_output_tokens_per_second": 84.55,
       "release_date": "2026-09-22"
     },
     {
@@ -494,7 +494,7 @@
       "slug": "claude-opus-5-5-xhigh",
       "intelligence_index": 57.5,
       "cost_per_task": 6.0472,
-      "median_output_tokens_per_second": 84.71,
+      "median_output_tokens_per_second": 88.23,
       "release_date": "2026-09-22"
     },
     {
@@ -502,7 +502,7 @@
       "slug": "claude-opus-5-high",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 51.74,
+      "median_output_tokens_per_second": 53.49,
       "release_date": "2026-07-24"
     },
     {
@@ -510,7 +510,7 @@
       "slug": "claude-opus-5-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 52.04,
+      "median_output_tokens_per_second": 55.42,
       "release_date": "2026-07-24"
     },
     {
@@ -518,7 +518,7 @@
       "slug": "claude-opus-5-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 51.33,
+      "median_output_tokens_per_second": 53.4,
       "release_date": "2026-07-24"
     },
     {
@@ -526,7 +526,7 @@
       "slug": "claude-opus-5-xhigh",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 51.54,
+      "median_output_tokens_per_second": 55.58,
       "release_date": "2026-07-24"
     },
     {
@@ -534,7 +534,7 @@
       "slug": "claude-sonnet-4-6",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 47.15,
+      "median_output_tokens_per_second": 48.7,
       "release_date": "2026-02-17"
     },
     {
@@ -542,7 +542,7 @@
       "slug": "claude-sonnet-4-6-adaptive",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 63.31,
+      "median_output_tokens_per_second": 62.83,
       "release_date": "2026-02-17"
     },
     {
@@ -550,7 +550,7 @@
       "slug": "claude-sonnet-4-6-non-reasoning-low-effort",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 48.9,
+      "median_output_tokens_per_second": 52.01,
       "release_date": "2026-02-17"
     },
     {
@@ -558,7 +558,7 @@
       "slug": "claude-sonnet-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 83.06,
+      "median_output_tokens_per_second": 82.98,
       "release_date": "2026-06-30"
     },
     {
@@ -566,7 +566,7 @@
       "slug": "claude-sonnet-5-5",
       "intelligence_index": 54.7,
       "cost_per_task": 10.0206,
-      "median_output_tokens_per_second": 132.88,
+      "median_output_tokens_per_second": 130.89,
       "release_date": "2026-09-28"
     },
     {
@@ -574,7 +574,7 @@
       "slug": "claude-sonnet-5-5-high",
       "intelligence_index": 41.5,
       "cost_per_task": 1.6361,
-      "median_output_tokens_per_second": 108.94,
+      "median_output_tokens_per_second": 115.4,
       "release_date": "2026-09-28"
     },
     {
@@ -582,7 +582,7 @@
       "slug": "claude-sonnet-5-5-low",
       "intelligence_index": 25.6,
       "cost_per_task": 0.5113,
-      "median_output_tokens_per_second": 105.47,
+      "median_output_tokens_per_second": 110.74,
       "release_date": "2026-09-28"
     },
     {
@@ -590,7 +590,7 @@
       "slug": "claude-sonnet-5-5-medium",
       "intelligence_index": 30.9,
       "cost_per_task": 0.7807,
-      "median_output_tokens_per_second": 104.74,
+      "median_output_tokens_per_second": 108.01,
       "release_date": "2026-09-28"
     },
     {
@@ -598,7 +598,7 @@
       "slug": "claude-sonnet-5-5-xhigh",
       "intelligence_index": 49.9,
       "cost_per_task": 4.092,
-      "median_output_tokens_per_second": 108.79,
+      "median_output_tokens_per_second": 112.1,
       "release_date": "2026-09-28"
     },
     {
@@ -606,7 +606,7 @@
       "slug": "claude-sonnet-5-high",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 63.33,
+      "median_output_tokens_per_second": 73.97,
       "release_date": "2026-06-30"
     },
     {
@@ -614,7 +614,7 @@
       "slug": "claude-sonnet-5-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 67.53,
+      "median_output_tokens_per_second": 74.42,
       "release_date": "2026-06-30"
     },
     {
@@ -622,7 +622,7 @@
       "slug": "claude-sonnet-5-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 63.7,
+      "median_output_tokens_per_second": 74.55,
       "release_date": "2026-06-30"
     },
     {
@@ -630,7 +630,7 @@
       "slug": "claude-sonnet-5-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 67.79,
+      "median_output_tokens_per_second": 71.17,
       "release_date": "2026-06-30"
     },
     {
@@ -638,7 +638,7 @@
       "slug": "claude-sonnet-5-xhigh",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 66.8,
+      "median_output_tokens_per_second": 74.03,
       "release_date": "2026-06-30"
     },
     {
@@ -662,7 +662,7 @@
       "slug": "command-a-plus",
       "intelligence_index": 6.2,
       "cost_per_task": 0,
-      "median_output_tokens_per_second": 238.87,
+      "median_output_tokens_per_second": 230.25,
       "release_date": "2026-05-20"
     },
     {
@@ -734,7 +734,7 @@
       "slug": "deepseek-r1",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 26.91,
+      "median_output_tokens_per_second": 29.61,
       "release_date": "2025-05-28"
     },
     {
@@ -742,7 +742,7 @@
       "slug": "deepseek-r1-0120",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 166.05,
+      "median_output_tokens_per_second": 158.91,
       "release_date": "2025-01-20"
     },
     {
@@ -822,7 +822,7 @@
       "slug": "deepseek-v3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 51.38,
+      "median_output_tokens_per_second": 44.34,
       "release_date": "2024-12-26"
     },
     {
@@ -838,7 +838,7 @@
       "slug": "deepseek-v3-1",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 96.92,
+      "median_output_tokens_per_second": 93.44,
       "release_date": "2025-08-21"
     },
     {
@@ -846,7 +846,7 @@
       "slug": "deepseek-v3-1-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 121.84,
+      "median_output_tokens_per_second": 135.27,
       "release_date": "2025-08-21"
     },
     {
@@ -910,7 +910,7 @@
       "slug": "deepseek-v4-1-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 211.56,
+      "median_output_tokens_per_second": 220.81,
       "release_date": "2026-09-10"
     },
     {
@@ -918,7 +918,7 @@
       "slug": "deepseek-v4-1-flash-1017",
       "intelligence_index": 32.4,
       "cost_per_task": 0.6021,
-      "median_output_tokens_per_second": 183.74,
+      "median_output_tokens_per_second": 189.86,
       "release_date": "2026-10-17"
     },
     {
@@ -926,7 +926,7 @@
       "slug": "deepseek-v4-1-flash-1017-high",
       "intelligence_index": 28.7,
       "cost_per_task": 0.4562,
-      "median_output_tokens_per_second": 182.06,
+      "median_output_tokens_per_second": 200.57,
       "release_date": "2026-10-17"
     },
     {
@@ -934,7 +934,7 @@
       "slug": "deepseek-v4-1-flash-1017-non-reasoning",
       "intelligence_index": 18.5,
       "cost_per_task": 0.4254,
-      "median_output_tokens_per_second": 181.94,
+      "median_output_tokens_per_second": 188.14,
       "release_date": "2026-10-17"
     },
     {
@@ -942,7 +942,7 @@
       "slug": "deepseek-v4-1-flash-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 254.87,
+      "median_output_tokens_per_second": 283.1,
       "release_date": "2026-09-10"
     },
     {
@@ -950,7 +950,7 @@
       "slug": "deepseek-v4-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 141.51,
+      "median_output_tokens_per_second": 152.71,
       "release_date": "2026-07-31"
     },
     {
@@ -958,7 +958,7 @@
       "slug": "deepseek-v4-flash-0420",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 97.41,
+      "median_output_tokens_per_second": 110.28,
       "release_date": "2026-04-24"
     },
     {
@@ -982,7 +982,7 @@
       "slug": "deepseek-v4-flash-vision",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 171.7,
+      "median_output_tokens_per_second": 179.43,
       "release_date": "2026-08-21"
     },
     {
@@ -990,7 +990,7 @@
       "slug": "deepseek-v4-pro",
       "intelligence_index": 23.1,
       "cost_per_task": 1.7691,
-      "median_output_tokens_per_second": 76.11,
+      "median_output_tokens_per_second": 76.04,
       "release_date": "2026-08-13"
     },
     {
@@ -998,7 +998,7 @@
       "slug": "deepseek-v4-pro-0424",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 78.65,
+      "median_output_tokens_per_second": 79.16,
       "release_date": "2026-04-24"
     },
     {
@@ -1014,7 +1014,7 @@
       "slug": "deepseek-v4-pro-0424-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 163.86,
+      "median_output_tokens_per_second": 155.2,
       "release_date": "2026-04-24"
     },
     {
@@ -1030,7 +1030,7 @@
       "slug": "deepseek-v4-pro-non-reasoning",
       "intelligence_index": 12.6,
       "cost_per_task": 0.977,
-      "median_output_tokens_per_second": 73.22,
+      "median_output_tokens_per_second": 73.02,
       "release_date": "2026-08-13"
     },
     {
@@ -1104,6 +1104,14 @@
       "cost_per_task": null,
       "median_output_tokens_per_second": null,
       "release_date": "2025-11-13"
+    },
+    {
+      "name": "ERNIE 5.5 Flash Preview",
+      "slug": "ernie-5-5-flash",
+      "intelligence_index": 31.3,
+      "cost_per_task": 1.1432,
+      "median_output_tokens_per_second": 234.49,
+      "release_date": "2026-11-23"
     },
     {
       "name": "Exaone 4.0 1.2B (Non-reasoning)",
@@ -1294,7 +1302,7 @@
       "slug": "gemini-2-5-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 206.98,
+      "median_output_tokens_per_second": 202.92,
       "release_date": "2025-05-20"
     },
     {
@@ -1310,7 +1318,7 @@
       "slug": "gemini-2-5-flash-lite",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 265.64,
+      "median_output_tokens_per_second": 269.15,
       "release_date": "2025-06-17"
     },
     {
@@ -1334,7 +1342,7 @@
       "slug": "gemini-2-5-flash-lite-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 383.25,
+      "median_output_tokens_per_second": 406.9,
       "release_date": "2025-06-17"
     },
     {
@@ -1358,7 +1366,7 @@
       "slug": "gemini-2-5-flash-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 210.18,
+      "median_output_tokens_per_second": 207.26,
       "release_date": "2025-05-20"
     },
     {
@@ -1374,7 +1382,7 @@
       "slug": "gemini-2-5-pro",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 131.24,
+      "median_output_tokens_per_second": 133.49,
       "release_date": "2025-06-05"
     },
     {
@@ -1397,8 +1405,8 @@
       "name": "Gemini 3.1 Flash-Lite",
       "slug": "gemini-3-1-flash-lite-preview",
       "intelligence_index": 6.2,
-      "cost_per_task": 0.1945,
-      "median_output_tokens_per_second": 305.04,
+      "cost_per_task": 0.2065,
+      "median_output_tokens_per_second": 372.41,
       "release_date": "2026-03-03"
     },
     {
@@ -1406,7 +1414,7 @@
       "slug": "gemini-3-1-pro-preview",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 154.42,
+      "median_output_tokens_per_second": 159.65,
       "release_date": "2026-02-19"
     },
     {
@@ -1414,7 +1422,7 @@
       "slug": "gemini-3-5-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 190.95,
+      "median_output_tokens_per_second": 198.09,
       "release_date": "2026-05-19"
     },
     {
@@ -1422,7 +1430,7 @@
       "slug": "gemini-3-5-flash-lite",
       "intelligence_index": 11.7,
       "cost_per_task": 0.6929,
-      "median_output_tokens_per_second": 415.41,
+      "median_output_tokens_per_second": 444.2,
       "release_date": "2026-07-21"
     },
     {
@@ -1430,7 +1438,7 @@
       "slug": "gemini-3-5-flash-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 191.67,
+      "median_output_tokens_per_second": 188.69,
       "release_date": "2026-05-19"
     },
     {
@@ -1438,7 +1446,7 @@
       "slug": "gemini-3-5-flash-minimal",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 183.55,
+      "median_output_tokens_per_second": 184.94,
       "release_date": "2026-05-19"
     },
     {
@@ -1446,7 +1454,7 @@
       "slug": "gemini-3-6-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 193,
+      "median_output_tokens_per_second": 201.5,
       "release_date": "2026-07-21"
     },
     {
@@ -1477,8 +1485,8 @@
       "name": "Gemini 3.8 Flash (High)",
       "slug": "gemini-3-8-flash",
       "intelligence_index": 30.7,
-      "cost_per_task": 7.766,
-      "median_output_tokens_per_second": 117.17,
+      "cost_per_task": 3.0217,
+      "median_output_tokens_per_second": 131.9,
       "release_date": "2026-09-02"
     },
     {
@@ -1486,15 +1494,15 @@
       "slug": "gemini-3-8-flash-low",
       "intelligence_index": 22.5,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 114.85,
+      "median_output_tokens_per_second": 127.16,
       "release_date": "2026-09-02"
     },
     {
       "name": "Gemini 3.8 Flash (Medium)",
       "slug": "gemini-3-8-flash-medium",
       "intelligence_index": 30.1,
-      "cost_per_task": 6.2586,
-      "median_output_tokens_per_second": 114.75,
+      "cost_per_task": 2.6064,
+      "median_output_tokens_per_second": 127.26,
       "release_date": "2026-09-02"
     },
     {
@@ -1510,7 +1518,7 @@
       "slug": "gemini-3-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 227.89,
+      "median_output_tokens_per_second": 232.27,
       "release_date": "2025-12-17"
     },
     {
@@ -1518,7 +1526,7 @@
       "slug": "gemini-3-flash-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 223.74,
+      "median_output_tokens_per_second": 233.71,
       "release_date": "2025-12-17"
     },
     {
@@ -1541,8 +1549,8 @@
       "name": "Gemini 4 Argon (High)",
       "slug": "gemini-4-argon",
       "intelligence_index": 50.5,
-      "cost_per_task": 9.9466,
-      "median_output_tokens_per_second": 93.35,
+      "cost_per_task": 7.0616,
+      "median_output_tokens_per_second": 99.21,
       "release_date": "2026-09-30"
     },
     {
@@ -1550,7 +1558,7 @@
       "slug": "gemini-4-argon-medium",
       "intelligence_index": 47.7,
       "cost_per_task": 8.6292,
-      "median_output_tokens_per_second": 87.26,
+      "median_output_tokens_per_second": 94.41,
       "release_date": "2026-09-30"
     },
     {
@@ -1558,7 +1566,7 @@
       "slug": "gemini-4-carbon",
       "intelligence_index": 60.1,
       "cost_per_task": 7.7555,
-      "median_output_tokens_per_second": 79.51,
+      "median_output_tokens_per_second": 75.6,
       "release_date": "2026-10-28"
     },
     {
@@ -1566,7 +1574,7 @@
       "slug": "gemini-4-carbon-low",
       "intelligence_index": 54.2,
       "cost_per_task": 7.1866,
-      "median_output_tokens_per_second": 74.43,
+      "median_output_tokens_per_second": 75.23,
       "release_date": "2026-10-28"
     },
     {
@@ -1582,7 +1590,7 @@
       "slug": "gemini-4-hydrogen",
       "intelligence_index": 54.1,
       "cost_per_task": 3.1602,
-      "median_output_tokens_per_second": 216.18,
+      "median_output_tokens_per_second": 216.81,
       "release_date": "2026-11-12"
     },
     {
@@ -1590,15 +1598,15 @@
       "slug": "gemini-4-hydrogen-high",
       "intelligence_index": 51,
       "cost_per_task": 1.8733,
-      "median_output_tokens_per_second": 208.31,
+      "median_output_tokens_per_second": 213.75,
       "release_date": "2026-11-12"
     },
     {
       "name": "Gemini 4 Hydrogen (Low)",
       "slug": "gemini-4-hydrogen-low",
       "intelligence_index": 26.9,
-      "cost_per_task": 0.2922,
-      "median_output_tokens_per_second": 228.53,
+      "cost_per_task": 0.3674,
+      "median_output_tokens_per_second": 234.03,
       "release_date": "2026-11-12"
     },
     {
@@ -1606,7 +1614,7 @@
       "slug": "gemini-4-hydrogen-medium",
       "intelligence_index": 41.1,
       "cost_per_task": 0.798,
-      "median_output_tokens_per_second": 213.28,
+      "median_output_tokens_per_second": 228.63,
       "release_date": "2026-11-12"
     },
     {
@@ -1614,7 +1622,7 @@
       "slug": "gemini-4-neon",
       "intelligence_index": 61.5,
       "cost_per_task": 6.4448,
-      "median_output_tokens_per_second": 123.55,
+      "median_output_tokens_per_second": 125.35,
       "release_date": "2026-11-18"
     },
     {
@@ -1622,15 +1630,15 @@
       "slug": "gemini-4-neon-high",
       "intelligence_index": 59.8,
       "cost_per_task": 3.7427,
-      "median_output_tokens_per_second": 111.58,
+      "median_output_tokens_per_second": 120.7,
       "release_date": "2026-11-18"
     },
     {
       "name": "Gemini 4 Neon (Low)",
       "slug": "gemini-4-neon-low",
       "intelligence_index": 44.1,
-      "cost_per_task": 0.7452,
-      "median_output_tokens_per_second": 119.15,
+      "cost_per_task": 0.8819,
+      "median_output_tokens_per_second": 121.71,
       "release_date": "2026-11-18"
     },
     {
@@ -1638,7 +1646,7 @@
       "slug": "gemini-4-neon-medium",
       "intelligence_index": 54.9,
       "cost_per_task": 1.9046,
-      "median_output_tokens_per_second": 120.78,
+      "median_output_tokens_per_second": 124.8,
       "release_date": "2026-11-18"
     },
     {
@@ -1724,9 +1732,9 @@
     {
       "name": "Gemma 4 26B A4B (Reasoning)",
       "slug": "gemma-4-26b-a4b",
-      "intelligence_index": null,
-      "cost_per_task": null,
-      "median_output_tokens_per_second": 88.54,
+      "intelligence_index": 4,
+      "cost_per_task": 0.1927,
+      "median_output_tokens_per_second": 95.1,
       "release_date": "2026-04-02"
     },
     {
@@ -1734,7 +1742,7 @@
       "slug": "gemma-4-26b-a4b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 111.36,
+      "median_output_tokens_per_second": 106.53,
       "release_date": "2026-04-02"
     },
     {
@@ -1742,7 +1750,7 @@
       "slug": "gemma-4-31b",
       "intelligence_index": 4.4,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 35.52,
+      "median_output_tokens_per_second": 35.42,
       "release_date": "2026-04-02"
     },
     {
@@ -1750,7 +1758,7 @@
       "slug": "gemma-4-31b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 63.44,
+      "median_output_tokens_per_second": 67.13,
       "release_date": "2026-04-02"
     },
     {
@@ -1790,7 +1798,7 @@
       "slug": "glm-4-5-air",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 79.85,
+      "median_output_tokens_per_second": 74.53,
       "release_date": "2025-07-28"
     },
     {
@@ -1798,7 +1806,7 @@
       "slug": "glm-4-5v",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 37.15,
+      "median_output_tokens_per_second": 34.93,
       "release_date": "2025-08-11"
     },
     {
@@ -1806,7 +1814,7 @@
       "slug": "glm-4-5v-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 43.42,
+      "median_output_tokens_per_second": 42.57,
       "release_date": "2025-08-11"
     },
     {
@@ -1814,7 +1822,7 @@
       "slug": "glm-4-6",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 61.6,
+      "median_output_tokens_per_second": 56.5,
       "release_date": "2025-09-30"
     },
     {
@@ -1822,7 +1830,7 @@
       "slug": "glm-4-6-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 60.13,
+      "median_output_tokens_per_second": 60.03,
       "release_date": "2025-09-30"
     },
     {
@@ -1830,7 +1838,7 @@
       "slug": "glm-4-6v",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 77.42,
+      "median_output_tokens_per_second": 80.72,
       "release_date": "2025-12-08"
     },
     {
@@ -1838,7 +1846,7 @@
       "slug": "glm-4-6v-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 84.11,
+      "median_output_tokens_per_second": 86.39,
       "release_date": "2025-12-08"
     },
     {
@@ -1846,7 +1854,7 @@
       "slug": "glm-4-7",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 82.15,
+      "median_output_tokens_per_second": 70.59,
       "release_date": "2025-12-22"
     },
     {
@@ -1854,7 +1862,7 @@
       "slug": "glm-4-7-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 104.28,
+      "median_output_tokens_per_second": 105.04,
       "release_date": "2026-01-19"
     },
     {
@@ -1862,7 +1870,7 @@
       "slug": "glm-4-7-flash-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 94.07,
+      "median_output_tokens_per_second": 105.88,
       "release_date": "2026-01-19"
     },
     {
@@ -1870,7 +1878,7 @@
       "slug": "glm-4-7-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 70.45,
+      "median_output_tokens_per_second": 74.11,
       "release_date": "2025-12-22"
     },
     {
@@ -1886,7 +1894,7 @@
       "slug": "glm-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 70.79,
+      "median_output_tokens_per_second": 71.09,
       "release_date": "2026-02-11"
     },
     {
@@ -1894,7 +1902,7 @@
       "slug": "glm-5-1",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 77.37,
+      "median_output_tokens_per_second": 82.58,
       "release_date": "2026-04-07"
     },
     {
@@ -1902,7 +1910,7 @@
       "slug": "glm-5-1-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 65.3,
+      "median_output_tokens_per_second": 83.33,
       "release_date": "2026-04-07"
     },
     {
@@ -1910,7 +1918,7 @@
       "slug": "glm-5-2",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 69.68,
+      "median_output_tokens_per_second": 75.71,
       "release_date": "2026-06-16"
     },
     {
@@ -1918,7 +1926,7 @@
       "slug": "glm-5-2-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 155.3,
+      "median_output_tokens_per_second": 169.99,
       "release_date": "2026-06-16"
     },
     {
@@ -1926,7 +1934,7 @@
       "slug": "glm-5-3",
       "intelligence_index": 31.6,
       "cost_per_task": 5.0093,
-      "median_output_tokens_per_second": 88.35,
+      "median_output_tokens_per_second": 88.69,
       "release_date": "2026-08-18"
     },
     {
@@ -1934,7 +1942,7 @@
       "slug": "glm-5-3-flash",
       "intelligence_index": 27.7,
       "cost_per_task": 0.5833,
-      "median_output_tokens_per_second": 63.79,
+      "median_output_tokens_per_second": 61.67,
       "release_date": "2026-08-26"
     },
     {
@@ -1942,7 +1950,7 @@
       "slug": "glm-5-3-low",
       "intelligence_index": 23.1,
       "cost_per_task": 1.5749,
-      "median_output_tokens_per_second": 84.56,
+      "median_output_tokens_per_second": 89.5,
       "release_date": "2026-08-18"
     },
     {
@@ -1950,7 +1958,7 @@
       "slug": "glm-5-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 62,
+      "median_output_tokens_per_second": 64.74,
       "release_date": "2026-02-11"
     },
     {
@@ -1998,7 +2006,7 @@
       "slug": "gpt-4-1",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 168.41,
+      "median_output_tokens_per_second": 180.99,
       "release_date": "2025-04-14"
     },
     {
@@ -2006,7 +2014,7 @@
       "slug": "gpt-4-1-mini",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 105.75,
+      "median_output_tokens_per_second": 110.8,
       "release_date": "2025-04-14"
     },
     {
@@ -2014,7 +2022,7 @@
       "slug": "gpt-4-1-nano",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 324.37,
+      "median_output_tokens_per_second": 329.26,
       "release_date": "2025-04-14"
     },
     {
@@ -2030,7 +2038,7 @@
       "slug": "gpt-4-turbo",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 128.49,
+      "median_output_tokens_per_second": 132.8,
       "release_date": "2023-11-06"
     },
     {
@@ -2038,7 +2046,7 @@
       "slug": "gpt-4o",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 201.09,
+      "median_output_tokens_per_second": 211.06,
       "release_date": "2024-11-20"
     },
     {
@@ -2046,7 +2054,7 @@
       "slug": "gpt-4o-2024-05-13",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 132.62,
+      "median_output_tokens_per_second": 148.25,
       "release_date": "2024-05-13"
     },
     {
@@ -2054,7 +2062,7 @@
       "slug": "gpt-4o-2024-08-06",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 126.68,
+      "median_output_tokens_per_second": 146.7,
       "release_date": "2024-08-06"
     },
     {
@@ -2078,7 +2086,7 @@
       "slug": "gpt-4o-mini",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 69.64,
+      "median_output_tokens_per_second": 70.76,
       "release_date": "2024-07-18"
     },
     {
@@ -2102,7 +2110,7 @@
       "slug": "gpt-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 88.75,
+      "median_output_tokens_per_second": 95.86,
       "release_date": "2025-08-07"
     },
     {
@@ -2110,7 +2118,7 @@
       "slug": "gpt-5-1",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 101.18,
+      "median_output_tokens_per_second": 117.98,
       "release_date": "2025-11-13"
     },
     {
@@ -2118,7 +2126,7 @@
       "slug": "gpt-5-1-codex",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 127.78,
+      "median_output_tokens_per_second": 128.62,
       "release_date": "2025-11-13"
     },
     {
@@ -2126,7 +2134,7 @@
       "slug": "gpt-5-1-codex-mini",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 177.25,
+      "median_output_tokens_per_second": 177.78,
       "release_date": "2025-11-13"
     },
     {
@@ -2134,7 +2142,7 @@
       "slug": "gpt-5-1-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 100.75,
+      "median_output_tokens_per_second": 109.77,
       "release_date": "2025-11-13"
     },
     {
@@ -2142,7 +2150,7 @@
       "slug": "gpt-5-2",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 69.47,
+      "median_output_tokens_per_second": 67.85,
       "release_date": "2025-12-11"
     },
     {
@@ -2150,7 +2158,7 @@
       "slug": "gpt-5-2-codex",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 142.31,
+      "median_output_tokens_per_second": 143.72,
       "release_date": "2025-12-11"
     },
     {
@@ -2166,7 +2174,7 @@
       "slug": "gpt-5-2-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 62.15,
+      "median_output_tokens_per_second": 65.04,
       "release_date": "2025-12-11"
     },
     {
@@ -2174,7 +2182,7 @@
       "slug": "gpt-5-3-codex",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 93.43,
+      "median_output_tokens_per_second": 102.61,
       "release_date": "2026-02-05"
     },
     {
@@ -2182,7 +2190,7 @@
       "slug": "gpt-5-4",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 96.9,
+      "median_output_tokens_per_second": 108.32,
       "release_date": "2026-03-05"
     },
     {
@@ -2198,7 +2206,7 @@
       "slug": "gpt-5-4-mini",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 225.58,
+      "median_output_tokens_per_second": 231.07,
       "release_date": "2026-03-17"
     },
     {
@@ -2206,7 +2214,7 @@
       "slug": "gpt-5-4-mini-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 170.18,
+      "median_output_tokens_per_second": 181.01,
       "release_date": "2026-03-17"
     },
     {
@@ -2214,7 +2222,7 @@
       "slug": "gpt-5-4-mini-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 173.2,
+      "median_output_tokens_per_second": 186.08,
       "release_date": "2026-03-17"
     },
     {
@@ -2222,7 +2230,7 @@
       "slug": "gpt-5-4-nano",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 159.37,
+      "median_output_tokens_per_second": 163.69,
       "release_date": "2026-03-17"
     },
     {
@@ -2230,7 +2238,7 @@
       "slug": "gpt-5-4-nano-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 162.28,
+      "median_output_tokens_per_second": 169.22,
       "release_date": "2026-03-17"
     },
     {
@@ -2238,7 +2246,7 @@
       "slug": "gpt-5-4-nano-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 163.46,
+      "median_output_tokens_per_second": 161.66,
       "release_date": "2026-03-17"
     },
     {
@@ -2246,7 +2254,7 @@
       "slug": "gpt-5-4-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 61.86,
+      "median_output_tokens_per_second": 67.69,
       "release_date": "2026-03-05"
     },
     {
@@ -2262,7 +2270,7 @@
       "slug": "gpt-5-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 80.42,
+      "median_output_tokens_per_second": 86.57,
       "release_date": "2026-04-23"
     },
     {
@@ -2270,7 +2278,7 @@
       "slug": "gpt-5-5-high",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 72.02,
+      "median_output_tokens_per_second": 84.08,
       "release_date": "2026-04-23"
     },
     {
@@ -2286,7 +2294,7 @@
       "slug": "gpt-5-5-instant-06-26",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 183.79,
+      "median_output_tokens_per_second": 200.68,
       "release_date": "2026-06-25"
     },
     {
@@ -2294,7 +2302,7 @@
       "slug": "gpt-5-5-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 74.85,
+      "median_output_tokens_per_second": 79.81,
       "release_date": "2026-04-23"
     },
     {
@@ -2302,7 +2310,7 @@
       "slug": "gpt-5-5-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 68.3,
+      "median_output_tokens_per_second": 83.26,
       "release_date": "2026-04-23"
     },
     {
@@ -2310,7 +2318,7 @@
       "slug": "gpt-5-5-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 69.28,
+      "median_output_tokens_per_second": 79.21,
       "release_date": "2026-04-23"
     },
     {
@@ -2326,7 +2334,7 @@
       "slug": "gpt-5-6-luna",
       "intelligence_index": 23.8,
       "cost_per_task": 0.3313,
-      "median_output_tokens_per_second": 122.72,
+      "median_output_tokens_per_second": 126.7,
       "release_date": "2026-07-09"
     },
     {
@@ -2334,7 +2342,7 @@
       "slug": "gpt-5-6-luna-high",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 123.55,
+      "median_output_tokens_per_second": 124.57,
       "release_date": "2026-07-09"
     },
     {
@@ -2342,7 +2350,7 @@
       "slug": "gpt-5-6-luna-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 122.29,
+      "median_output_tokens_per_second": 124.42,
       "release_date": "2026-07-09"
     },
     {
@@ -2350,7 +2358,7 @@
       "slug": "gpt-5-6-luna-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 121.87,
+      "median_output_tokens_per_second": 122.94,
       "release_date": "2026-07-09"
     },
     {
@@ -2358,7 +2366,7 @@
       "slug": "gpt-5-6-luna-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 129.76,
+      "median_output_tokens_per_second": 125.19,
       "release_date": "2026-07-09"
     },
     {
@@ -2366,7 +2374,7 @@
       "slug": "gpt-5-6-luna-xhigh",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 124.58,
+      "median_output_tokens_per_second": 122.05,
       "release_date": "2026-07-09"
     },
     {
@@ -2374,7 +2382,7 @@
       "slug": "gpt-5-6-sol",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 137.45,
+      "median_output_tokens_per_second": 142.99,
       "release_date": "2026-07-09"
     },
     {
@@ -2382,7 +2390,7 @@
       "slug": "gpt-5-6-sol-high",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 129.26,
+      "median_output_tokens_per_second": 136.22,
       "release_date": "2026-07-09"
     },
     {
@@ -2390,7 +2398,7 @@
       "slug": "gpt-5-6-sol-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 119.63,
+      "median_output_tokens_per_second": 132.48,
       "release_date": "2026-07-09"
     },
     {
@@ -2398,7 +2406,7 @@
       "slug": "gpt-5-6-sol-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 130.77,
+      "median_output_tokens_per_second": 133.08,
       "release_date": "2026-07-09"
     },
     {
@@ -2406,7 +2414,7 @@
       "slug": "gpt-5-6-sol-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 117.72,
+      "median_output_tokens_per_second": 139.45,
       "release_date": "2026-07-09"
     },
     {
@@ -2414,7 +2422,7 @@
       "slug": "gpt-5-6-sol-xhigh",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 135.51,
+      "median_output_tokens_per_second": 134.17,
       "release_date": "2026-07-09"
     },
     {
@@ -2422,7 +2430,7 @@
       "slug": "gpt-5-6-terra",
       "intelligence_index": 32.2,
       "cost_per_task": 3.7349,
-      "median_output_tokens_per_second": 97.28,
+      "median_output_tokens_per_second": 108.6,
       "release_date": "2026-07-09"
     },
     {
@@ -2430,7 +2438,7 @@
       "slug": "gpt-5-6-terra-high",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 100.93,
+      "median_output_tokens_per_second": 106.54,
       "release_date": "2026-07-09"
     },
     {
@@ -2438,7 +2446,7 @@
       "slug": "gpt-5-6-terra-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 95.38,
+      "median_output_tokens_per_second": 102.49,
       "release_date": "2026-07-09"
     },
     {
@@ -2446,7 +2454,7 @@
       "slug": "gpt-5-6-terra-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 93.1,
+      "median_output_tokens_per_second": 103.86,
       "release_date": "2026-07-09"
     },
     {
@@ -2454,7 +2462,7 @@
       "slug": "gpt-5-6-terra-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 89.63,
+      "median_output_tokens_per_second": 100.64,
       "release_date": "2026-07-09"
     },
     {
@@ -2462,7 +2470,7 @@
       "slug": "gpt-5-6-terra-xhigh",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 96.08,
+      "median_output_tokens_per_second": 104.43,
       "release_date": "2026-07-09"
     },
     {
@@ -2478,7 +2486,7 @@
       "slug": "gpt-5-codex",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 193.98,
+      "median_output_tokens_per_second": 209.12,
       "release_date": "2025-09-23"
     },
     {
@@ -2486,7 +2494,7 @@
       "slug": "gpt-5-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 76.73,
+      "median_output_tokens_per_second": 97.58,
       "release_date": "2025-08-07"
     },
     {
@@ -2494,7 +2502,7 @@
       "slug": "gpt-5-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 103.72,
+      "median_output_tokens_per_second": 103.16,
       "release_date": "2025-08-07"
     },
     {
@@ -2502,7 +2510,7 @@
       "slug": "gpt-5-mini",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 94.53,
+      "median_output_tokens_per_second": 98.38,
       "release_date": "2025-08-07"
     },
     {
@@ -2510,7 +2518,7 @@
       "slug": "gpt-5-mini-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 94.64,
+      "median_output_tokens_per_second": 96.14,
       "release_date": "2025-08-07"
     },
     {
@@ -2518,7 +2526,7 @@
       "slug": "gpt-5-mini-minimal",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 91.17,
+      "median_output_tokens_per_second": 92.91,
       "release_date": "2025-08-07"
     },
     {
@@ -2534,7 +2542,7 @@
       "slug": "gpt-5-nano",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 197.83,
+      "median_output_tokens_per_second": 211,
       "release_date": "2025-08-07"
     },
     {
@@ -2542,7 +2550,7 @@
       "slug": "gpt-5-nano-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 187.41,
+      "median_output_tokens_per_second": 215.71,
       "release_date": "2025-08-07"
     },
     {
@@ -2550,7 +2558,7 @@
       "slug": "gpt-5-nano-minimal",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 207.16,
+      "median_output_tokens_per_second": 215.6,
       "release_date": "2025-08-07"
     },
     {
@@ -2558,7 +2566,7 @@
       "slug": "gpt-6-1-sol",
       "intelligence_index": 54.7,
       "cost_per_task": 1.2721,
-      "median_output_tokens_per_second": 79.7,
+      "median_output_tokens_per_second": 82.39,
       "release_date": "2026-09-29"
     },
     {
@@ -2566,7 +2574,7 @@
       "slug": "gpt-6-1-sol-high",
       "intelligence_index": 50.3,
       "cost_per_task": 0.591,
-      "median_output_tokens_per_second": 63.29,
+      "median_output_tokens_per_second": 65.33,
       "release_date": "2026-09-29"
     },
     {
@@ -2574,7 +2582,7 @@
       "slug": "gpt-6-1-sol-low",
       "intelligence_index": 34.8,
       "cost_per_task": 0.1615,
-      "median_output_tokens_per_second": 56.33,
+      "median_output_tokens_per_second": 59.34,
       "release_date": "2026-09-29"
     },
     {
@@ -2582,7 +2590,7 @@
       "slug": "gpt-6-1-sol-medium",
       "intelligence_index": 46.3,
       "cost_per_task": 0.3594,
-      "median_output_tokens_per_second": 52.4,
+      "median_output_tokens_per_second": 55.76,
       "release_date": "2026-09-29"
     },
     {
@@ -2590,7 +2598,7 @@
       "slug": "gpt-6-1-sol-xhigh",
       "intelligence_index": 52.4,
       "cost_per_task": 0.764,
-      "median_output_tokens_per_second": 73.61,
+      "median_output_tokens_per_second": 78.12,
       "release_date": "2026-09-29"
     },
     {
@@ -2598,7 +2606,7 @@
       "slug": "gpt-6-1-terra",
       "intelligence_index": 51.4,
       "cost_per_task": 0.9611,
-      "median_output_tokens_per_second": 75.18,
+      "median_output_tokens_per_second": 77.09,
       "release_date": "2026-10-26"
     },
     {
@@ -2614,7 +2622,7 @@
       "slug": "gpt-6-1-terra-low",
       "intelligence_index": 29.4,
       "cost_per_task": 0.0713,
-      "median_output_tokens_per_second": 68.21,
+      "median_output_tokens_per_second": 64.99,
       "release_date": "2026-10-26"
     },
     {
@@ -2622,7 +2630,7 @@
       "slug": "gpt-6-1-terra-medium",
       "intelligence_index": 38.1,
       "cost_per_task": 0.1688,
-      "median_output_tokens_per_second": 66.48,
+      "median_output_tokens_per_second": 66.08,
       "release_date": "2026-10-26"
     },
     {
@@ -2630,7 +2638,7 @@
       "slug": "gpt-6-1-terra-non-reasoning",
       "intelligence_index": 30.5,
       "cost_per_task": 0.2259,
-      "median_output_tokens_per_second": 65.14,
+      "median_output_tokens_per_second": 63.5,
       "release_date": "2026-10-26"
     },
     {
@@ -2638,7 +2646,7 @@
       "slug": "gpt-6-1-terra-xhigh",
       "intelligence_index": 45.3,
       "cost_per_task": 0.4007,
-      "median_output_tokens_per_second": 71.8,
+      "median_output_tokens_per_second": 70.37,
       "release_date": "2026-10-26"
     },
     {
@@ -2646,7 +2654,7 @@
       "slug": "gpt-6-2-astra",
       "intelligence_index": 62.2,
       "cost_per_task": 3.9979,
-      "median_output_tokens_per_second": 63.31,
+      "median_output_tokens_per_second": 57.93,
       "release_date": "2026-11-17"
     },
     {
@@ -2654,7 +2662,7 @@
       "slug": "gpt-6-2-astra-high",
       "intelligence_index": 60.3,
       "cost_per_task": 2.0739,
-      "median_output_tokens_per_second": 42.5,
+      "median_output_tokens_per_second": 44.42,
       "release_date": "2026-11-17"
     },
     {
@@ -2662,7 +2670,7 @@
       "slug": "gpt-6-2-astra-low",
       "intelligence_index": 45.7,
       "cost_per_task": 0.6617,
-      "median_output_tokens_per_second": 39.58,
+      "median_output_tokens_per_second": 38.72,
       "release_date": "2026-11-17"
     },
     {
@@ -2670,7 +2678,7 @@
       "slug": "gpt-6-2-astra-medium",
       "intelligence_index": 57,
       "cost_per_task": 1.6177,
-      "median_output_tokens_per_second": 40.9,
+      "median_output_tokens_per_second": 41.6,
       "release_date": "2026-11-17"
     },
     {
@@ -2678,7 +2686,7 @@
       "slug": "gpt-6-2-astra-xhigh",
       "intelligence_index": 61.8,
       "cost_per_task": 2.5211,
-      "median_output_tokens_per_second": 41.46,
+      "median_output_tokens_per_second": 44.89,
       "release_date": "2026-11-17"
     },
     {
@@ -2686,7 +2694,7 @@
       "slug": "gpt-6-2-sol",
       "intelligence_index": 57.3,
       "cost_per_task": 1.0144,
-      "median_output_tokens_per_second": 68.04,
+      "median_output_tokens_per_second": 73.7,
       "release_date": "2026-11-17"
     },
     {
@@ -2694,7 +2702,7 @@
       "slug": "gpt-6-2-sol-high",
       "intelligence_index": 54.8,
       "cost_per_task": 0.5636,
-      "median_output_tokens_per_second": 54.47,
+      "median_output_tokens_per_second": 57.67,
       "release_date": "2026-11-17"
     },
     {
@@ -2702,7 +2710,7 @@
       "slug": "gpt-6-2-sol-low",
       "intelligence_index": 40.6,
       "cost_per_task": 0.1836,
-      "median_output_tokens_per_second": 53.38,
+      "median_output_tokens_per_second": 60.13,
       "release_date": "2026-11-17"
     },
     {
@@ -2710,7 +2718,7 @@
       "slug": "gpt-6-2-sol-medium",
       "intelligence_index": 52.4,
       "cost_per_task": 0.4061,
-      "median_output_tokens_per_second": 53.35,
+      "median_output_tokens_per_second": 59.6,
       "release_date": "2026-11-17"
     },
     {
@@ -2718,7 +2726,7 @@
       "slug": "gpt-6-2-sol-xhigh",
       "intelligence_index": 55.6,
       "cost_per_task": 0.648,
-      "median_output_tokens_per_second": 63.57,
+      "median_output_tokens_per_second": 70.66,
       "release_date": "2026-11-17"
     },
     {
@@ -2726,7 +2734,7 @@
       "slug": "gpt-6-astra",
       "intelligence_index": 56.9,
       "cost_per_task": 6.2447,
-      "median_output_tokens_per_second": 64.17,
+      "median_output_tokens_per_second": 65.45,
       "release_date": "2026-09-03"
     },
     {
@@ -2734,7 +2742,7 @@
       "slug": "gpt-6-astra-high",
       "intelligence_index": 54.9,
       "cost_per_task": 3.2386,
-      "median_output_tokens_per_second": 48.89,
+      "median_output_tokens_per_second": 62.7,
       "release_date": "2026-09-03"
     },
     {
@@ -2742,7 +2750,7 @@
       "slug": "gpt-6-astra-low",
       "intelligence_index": 43.5,
       "cost_per_task": 1.4237,
-      "median_output_tokens_per_second": 43.53,
+      "median_output_tokens_per_second": 52.83,
       "release_date": "2026-09-03"
     },
     {
@@ -2750,7 +2758,7 @@
       "slug": "gpt-6-astra-medium",
       "intelligence_index": 51.7,
       "cost_per_task": 2.7324,
-      "median_output_tokens_per_second": 47.16,
+      "median_output_tokens_per_second": 52.59,
       "release_date": "2026-09-03"
     },
     {
@@ -2758,7 +2766,7 @@
       "slug": "gpt-6-astra-xhigh",
       "intelligence_index": 55.4,
       "cost_per_task": 3.6589,
-      "median_output_tokens_per_second": 55.01,
+      "median_output_tokens_per_second": 58.91,
       "release_date": "2026-09-03"
     },
     {
@@ -2766,7 +2774,7 @@
       "slug": "gpt-6-luna",
       "intelligence_index": 27.9,
       "cost_per_task": 0.152,
-      "median_output_tokens_per_second": 145.45,
+      "median_output_tokens_per_second": 156.42,
       "release_date": "2026-09-22"
     },
     {
@@ -2774,7 +2782,7 @@
       "slug": "gpt-6-luna-high",
       "intelligence_index": 21.5,
       "cost_per_task": 0.0729,
-      "median_output_tokens_per_second": 139.33,
+      "median_output_tokens_per_second": 159.56,
       "release_date": "2026-09-22"
     },
     {
@@ -2782,7 +2790,7 @@
       "slug": "gpt-6-luna-low",
       "intelligence_index": 9.7,
       "cost_per_task": 0.0051,
-      "median_output_tokens_per_second": 146.54,
+      "median_output_tokens_per_second": 148.63,
       "release_date": "2026-09-22"
     },
     {
@@ -2790,7 +2798,7 @@
       "slug": "gpt-6-luna-medium",
       "intelligence_index": 18.5,
       "cost_per_task": 0.0422,
-      "median_output_tokens_per_second": 145.36,
+      "median_output_tokens_per_second": 147.83,
       "release_date": "2026-09-22"
     },
     {
@@ -2798,7 +2806,7 @@
       "slug": "gpt-6-luna-non-reasoning",
       "intelligence_index": 9.4,
       "cost_per_task": 0.0714,
-      "median_output_tokens_per_second": 145.32,
+      "median_output_tokens_per_second": 147.9,
       "release_date": "2026-09-22"
     },
     {
@@ -2806,7 +2814,7 @@
       "slug": "gpt-6-luna-xhigh",
       "intelligence_index": 23.5,
       "cost_per_task": 0.1041,
-      "median_output_tokens_per_second": 139.94,
+      "median_output_tokens_per_second": 156.42,
       "release_date": "2026-09-22"
     },
     {
@@ -2814,7 +2822,7 @@
       "slug": "gpt-6-sol",
       "intelligence_index": 44.1,
       "cost_per_task": 2.4658,
-      "median_output_tokens_per_second": 145.37,
+      "median_output_tokens_per_second": 170.65,
       "release_date": "2026-09-22"
     },
     {
@@ -2830,7 +2838,7 @@
       "slug": "gpt-6-sol-high",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 143.34,
+      "median_output_tokens_per_second": 155.56,
       "release_date": "2026-09-22"
     },
     {
@@ -2838,7 +2846,7 @@
       "slug": "gpt-6-sol-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 143.5,
+      "median_output_tokens_per_second": 148.14,
       "release_date": "2026-09-22"
     },
     {
@@ -2854,7 +2862,7 @@
       "slug": "gpt-6-sol-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 138.07,
+      "median_output_tokens_per_second": 146.46,
       "release_date": "2026-09-22"
     },
     {
@@ -2862,7 +2870,7 @@
       "slug": "gpt-6-sol-xhigh",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 133.56,
+      "median_output_tokens_per_second": 158.34,
       "release_date": "2026-09-22"
     },
     {
@@ -2870,7 +2878,7 @@
       "slug": "gpt-oss-120b",
       "intelligence_index": 3.8,
       "cost_per_task": 0.3453,
-      "median_output_tokens_per_second": 241.56,
+      "median_output_tokens_per_second": 242.25,
       "release_date": "2025-08-05"
     },
     {
@@ -2878,7 +2886,7 @@
       "slug": "gpt-oss-120b-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 256.22,
+      "median_output_tokens_per_second": 256.3,
       "release_date": "2025-08-05"
     },
     {
@@ -2886,7 +2894,7 @@
       "slug": "gpt-oss-20b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 124.49,
+      "median_output_tokens_per_second": 126.71,
       "release_date": "2025-08-05"
     },
     {
@@ -2894,7 +2902,7 @@
       "slug": "gpt-oss-20b-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 154.1,
+      "median_output_tokens_per_second": 178.72,
       "release_date": "2025-08-05"
     },
     {
@@ -2998,7 +3006,7 @@
       "slug": "granite-4-2-8b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 88.03,
+      "median_output_tokens_per_second": 86.74,
       "release_date": "2026-08-25"
     },
     {
@@ -3046,7 +3054,7 @@
       "slug": "grok-4",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 80.23,
+      "median_output_tokens_per_second": 84.81,
       "release_date": "2025-07-10"
     },
     {
@@ -3070,7 +3078,7 @@
       "slug": "grok-4-20",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 134.22,
+      "median_output_tokens_per_second": 143.91,
       "release_date": "2026-04-07"
     },
     {
@@ -3094,7 +3102,7 @@
       "slug": "grok-4-20-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 127.13,
+      "median_output_tokens_per_second": 132.22,
       "release_date": "2026-04-07"
     },
     {
@@ -3102,7 +3110,7 @@
       "slug": "grok-4-3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 101.77,
+      "median_output_tokens_per_second": 96.7,
       "release_date": "2026-04-30"
     },
     {
@@ -3118,7 +3126,7 @@
       "slug": "grok-4-3-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 101.74,
+      "median_output_tokens_per_second": 103.91,
       "release_date": "2026-04-30"
     },
     {
@@ -3126,7 +3134,7 @@
       "slug": "grok-4-3-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 89.01,
+      "median_output_tokens_per_second": 89.6,
       "release_date": "2026-04-30"
     },
     {
@@ -3134,7 +3142,7 @@
       "slug": "grok-4-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 68.35,
+      "median_output_tokens_per_second": 72.69,
       "release_date": "2026-07-08"
     },
     {
@@ -3142,7 +3150,7 @@
       "slug": "grok-4-6",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 79.06,
+      "median_output_tokens_per_second": 86.04,
       "release_date": "2026-08-12"
     },
     {
@@ -3150,7 +3158,7 @@
       "slug": "grok-4-6-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 69.8,
+      "median_output_tokens_per_second": 78.92,
       "release_date": "2026-08-12"
     },
     {
@@ -3158,7 +3166,7 @@
       "slug": "grok-4-6-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 81.43,
+      "median_output_tokens_per_second": 85.63,
       "release_date": "2026-08-12"
     },
     {
@@ -3166,7 +3174,7 @@
       "slug": "grok-4-6-xhigh",
       "intelligence_index": 31,
       "cost_per_task": 4.68,
-      "median_output_tokens_per_second": 69.17,
+      "median_output_tokens_per_second": 76.89,
       "release_date": "2026-08-12"
     },
     {
@@ -3174,7 +3182,7 @@
       "slug": "grok-4-7",
       "intelligence_index": 35.4,
       "cost_per_task": 7.7715,
-      "median_output_tokens_per_second": 89.77,
+      "median_output_tokens_per_second": 95.78,
       "release_date": "2026-09-21"
     },
     {
@@ -3182,7 +3190,7 @@
       "slug": "grok-4-7-high",
       "intelligence_index": 35.2,
       "cost_per_task": 6.1836,
-      "median_output_tokens_per_second": 85.68,
+      "median_output_tokens_per_second": 85.9,
       "release_date": "2026-09-21"
     },
     {
@@ -3190,7 +3198,7 @@
       "slug": "grok-4-7-low",
       "intelligence_index": 31.1,
       "cost_per_task": 2.9222,
-      "median_output_tokens_per_second": 68.82,
+      "median_output_tokens_per_second": 76.42,
       "release_date": "2026-09-21"
     },
     {
@@ -3254,7 +3262,7 @@
       "slug": "hermes-4-llama-3-1-405b-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 43.63,
+      "median_output_tokens_per_second": 43.24,
       "release_date": "2025-08-27"
     },
     {
@@ -3278,7 +3286,7 @@
       "slug": "hy3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 56.34,
+      "median_output_tokens_per_second": 64.28,
       "release_date": "2026-07-06"
     },
     {
@@ -3318,7 +3326,7 @@
       "slug": "inkling",
       "intelligence_index": 12.5,
       "cost_per_task": 1.352,
-      "median_output_tokens_per_second": 165.33,
+      "median_output_tokens_per_second": 163.2,
       "release_date": "2026-07-15"
     },
     {
@@ -3326,7 +3334,7 @@
       "slug": "inkling-2-mini",
       "intelligence_index": 20.1,
       "cost_per_task": 0.5865,
-      "median_output_tokens_per_second": 142.3,
+      "median_output_tokens_per_second": 146.13,
       "release_date": "2026-11-20"
     },
     {
@@ -3334,7 +3342,7 @@
       "slug": "inkling-2-small",
       "intelligence_index": 30.7,
       "cost_per_task": 1.1784,
-      "median_output_tokens_per_second": 90.96,
+      "median_output_tokens_per_second": 92.16,
       "release_date": "2026-11-05"
     },
     {
@@ -3342,7 +3350,7 @@
       "slug": "inkling-high",
       "intelligence_index": 11,
       "cost_per_task": 0.617,
-      "median_output_tokens_per_second": 161.29,
+      "median_output_tokens_per_second": 155.67,
       "release_date": "2026-07-15"
     },
     {
@@ -3350,7 +3358,7 @@
       "slug": "inkling-small",
       "intelligence_index": 12.9,
       "cost_per_task": 0.2032,
-      "median_output_tokens_per_second": 138.87,
+      "median_output_tokens_per_second": 149.9,
       "release_date": "2026-07-30"
     },
     {
@@ -3358,7 +3366,7 @@
       "slug": "inkling-small-high",
       "intelligence_index": 9.6,
       "cost_per_task": 0.0614,
-      "median_output_tokens_per_second": 128.04,
+      "median_output_tokens_per_second": 141.97,
       "release_date": "2026-07-30"
     },
     {
@@ -3526,7 +3534,7 @@
       "slug": "k2-horizon-375b-a23b",
       "intelligence_index": 17.8,
       "cost_per_task": 0,
-      "median_output_tokens_per_second": 1010.48,
+      "median_output_tokens_per_second": 1008.65,
       "release_date": "2026-09-03"
     },
     {
@@ -3598,7 +3606,7 @@
       "slug": "kimi-k2",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 49.59,
+      "median_output_tokens_per_second": 55,
       "release_date": "2025-07-11"
     },
     {
@@ -3606,7 +3614,7 @@
       "slug": "kimi-k2-0905",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 47.81,
+      "median_output_tokens_per_second": 54.54,
       "release_date": "2025-09-05"
     },
     {
@@ -3614,7 +3622,7 @@
       "slug": "kimi-k2-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 51.83,
+      "median_output_tokens_per_second": 54.57,
       "release_date": "2026-01-27"
     },
     {
@@ -3622,7 +3630,7 @@
       "slug": "kimi-k2-5-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 54.99,
+      "median_output_tokens_per_second": 58.11,
       "release_date": "2026-01-27"
     },
     {
@@ -3630,7 +3638,7 @@
       "slug": "kimi-k2-6",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 40.25,
+      "median_output_tokens_per_second": 41.2,
       "release_date": "2026-04-20"
     },
     {
@@ -3638,7 +3646,7 @@
       "slug": "kimi-k2-6-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 38.66,
+      "median_output_tokens_per_second": 38.73,
       "release_date": "2026-04-20"
     },
     {
@@ -3646,7 +3654,7 @@
       "slug": "kimi-k2-7-code",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 67.08,
+      "median_output_tokens_per_second": 78.98,
       "release_date": "2026-06-12"
     },
     {
@@ -3654,7 +3662,7 @@
       "slug": "kimi-k2-thinking",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 120.41,
+      "median_output_tokens_per_second": 123.35,
       "release_date": "2025-11-06"
     },
     {
@@ -3662,7 +3670,7 @@
       "slug": "kimi-k3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 44.27,
+      "median_output_tokens_per_second": 47.2,
       "release_date": "2026-07-16"
     },
     {
@@ -3678,7 +3686,7 @@
       "slug": "kimi-k3-low",
       "intelligence_index": 17.4,
       "cost_per_task": 2.3688,
-      "median_output_tokens_per_second": 43.71,
+      "median_output_tokens_per_second": 46.21,
       "release_date": "2026-07-16"
     },
     {
@@ -3774,7 +3782,7 @@
       "slug": "lfm3-1-7b",
       "intelligence_index": 6,
       "cost_per_task": 0.1732,
-      "median_output_tokens_per_second": 429.97,
+      "median_output_tokens_per_second": 422.08,
       "release_date": "2026-10-27"
     },
     {
@@ -3782,7 +3790,7 @@
       "slug": "lfm3-vl-2b",
       "intelligence_index": 1.7,
       "cost_per_task": 0.1237,
-      "median_output_tokens_per_second": 434.41,
+      "median_output_tokens_per_second": 435.23,
       "release_date": "2026-10-27"
     },
     {
@@ -3814,7 +3822,7 @@
       "slug": "ling-3-0-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 179.94,
+      "median_output_tokens_per_second": 189.1,
       "release_date": "2026-08-04"
     },
     {
@@ -3838,7 +3846,7 @@
       "slug": "ling-3-0-tiny",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 183.98,
+      "median_output_tokens_per_second": 192.71,
       "release_date": "2026-08-06"
     },
     {
@@ -3854,7 +3862,7 @@
       "slug": "ling-3-1-flash-1001",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 60.83,
+      "median_output_tokens_per_second": 62.32,
       "release_date": "2026-10-01"
     },
     {
@@ -3870,7 +3878,7 @@
       "slug": "ling-flash-2-0",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 6.61,
+      "median_output_tokens_per_second": 7.61,
       "release_date": "2025-09-17"
     },
     {
@@ -3934,7 +3942,7 @@
       "slug": "llama-3-1-instruct-8b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 142.94,
+      "median_output_tokens_per_second": 143.08,
       "release_date": "2024-07-23"
     },
     {
@@ -3998,7 +4006,7 @@
       "slug": "llama-3-3-instruct-70b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 91.57,
+      "median_output_tokens_per_second": 91.92,
       "release_date": "2024-12-06"
     },
     {
@@ -4038,7 +4046,7 @@
       "slug": "llama-4-maverick",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 188.9,
+      "median_output_tokens_per_second": 179.07,
       "release_date": "2025-04-05"
     },
     {
@@ -4046,7 +4054,7 @@
       "slug": "llama-4-scout",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 126.63,
+      "median_output_tokens_per_second": 129.94,
       "release_date": "2025-04-05"
     },
     {
@@ -4078,7 +4086,7 @@
       "slug": "longcat-2-0",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 57.49,
+      "median_output_tokens_per_second": 56.6,
       "release_date": "2026-06-29"
     },
     {
@@ -4118,7 +4126,7 @@
       "slug": "magistral-small-2509",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 78.32,
+      "median_output_tokens_per_second": 107.32,
       "release_date": "2025-09-17"
     },
     {
@@ -4126,7 +4134,7 @@
       "slug": "mercury-2",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 469.75,
+      "median_output_tokens_per_second": 564.25,
       "release_date": "2026-02-20"
     },
     {
@@ -4134,7 +4142,7 @@
       "slug": "mercury-2-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 721.49,
+      "median_output_tokens_per_second": 680.43,
       "release_date": "2026-09-08"
     },
     {
@@ -4198,7 +4206,7 @@
       "slug": "mimo-v2-6-pro",
       "intelligence_index": 29.9,
       "cost_per_task": 0.2572,
-      "median_output_tokens_per_second": 36.7,
+      "median_output_tokens_per_second": 45.01,
       "release_date": "2026-09-21"
     },
     {
@@ -4286,7 +4294,7 @@
       "slug": "minimax-m1-80k",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 57.68,
+      "median_output_tokens_per_second": 61.86,
       "release_date": "2025-06-17"
     },
     {
@@ -4294,7 +4302,7 @@
       "slug": "minimax-m2",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 120.71,
+      "median_output_tokens_per_second": 119.88,
       "release_date": "2025-10-26"
     },
     {
@@ -4310,7 +4318,7 @@
       "slug": "minimax-m2-5",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 62.82,
+      "median_output_tokens_per_second": 61.48,
       "release_date": "2026-02-12"
     },
     {
@@ -4318,7 +4326,7 @@
       "slug": "minimax-m2-7",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 56.38,
+      "median_output_tokens_per_second": 60.42,
       "release_date": "2026-03-18"
     },
     {
@@ -4326,7 +4334,7 @@
       "slug": "minimax-m3",
       "intelligence_index": 19,
       "cost_per_task": 1.291,
-      "median_output_tokens_per_second": 96.88,
+      "median_output_tokens_per_second": 98.34,
       "release_date": "2026-06-01"
     },
     {
@@ -4334,7 +4342,7 @@
       "slug": "minimax-m3-1-flash",
       "intelligence_index": 29.1,
       "cost_per_task": 0.492,
-      "median_output_tokens_per_second": 121.04,
+      "median_output_tokens_per_second": 133.21,
       "release_date": "2026-10-19"
     },
     {
@@ -4342,7 +4350,7 @@
       "slug": "ministral-3-14b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 121.93,
+      "median_output_tokens_per_second": 124.93,
       "release_date": "2025-12-02"
     },
     {
@@ -4350,7 +4358,7 @@
       "slug": "ministral-3-3b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 265.35,
+      "median_output_tokens_per_second": 267.27,
       "release_date": "2025-12-02"
     },
     {
@@ -4358,7 +4366,7 @@
       "slug": "ministral-3-8b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 112.07,
+      "median_output_tokens_per_second": 112.06,
       "release_date": "2025-12-02"
     },
     {
@@ -4406,7 +4414,7 @@
       "slug": "mistral-large-3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 86.36,
+      "median_output_tokens_per_second": 86.71,
       "release_date": "2025-12-02"
     },
     {
@@ -4414,7 +4422,7 @@
       "slug": "mistral-large-4",
       "intelligence_index": 26.1,
       "cost_per_task": 2.0617,
-      "median_output_tokens_per_second": 95.95,
+      "median_output_tokens_per_second": 97.61,
       "release_date": "2026-10-29"
     },
     {
@@ -4422,7 +4430,7 @@
       "slug": "mistral-large-4-medium",
       "intelligence_index": 23.1,
       "cost_per_task": 1.4121,
-      "median_output_tokens_per_second": 93.43,
+      "median_output_tokens_per_second": 102.15,
       "release_date": "2026-10-29"
     },
     {
@@ -4430,7 +4438,7 @@
       "slug": "mistral-large-4-preview",
       "intelligence_index": 25.2,
       "cost_per_task": 4.2089,
-      "median_output_tokens_per_second": 92.63,
+      "median_output_tokens_per_second": 108.5,
       "release_date": "2026-10-06"
     },
     {
@@ -4446,7 +4454,7 @@
       "slug": "mistral-medium-3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 46.91,
+      "median_output_tokens_per_second": 46.68,
       "release_date": "2025-05-07"
     },
     {
@@ -4462,7 +4470,7 @@
       "slug": "mistral-medium-3-5",
       "intelligence_index": 4.6,
       "cost_per_task": 1.0391,
-      "median_output_tokens_per_second": 172.64,
+      "median_output_tokens_per_second": 176.74,
       "release_date": "2026-04-29"
     },
     {
@@ -4494,7 +4502,7 @@
       "slug": "mistral-small-3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 70.77,
+      "median_output_tokens_per_second": 73.3,
       "release_date": "2025-01-30"
     },
     {
@@ -4510,7 +4518,7 @@
       "slug": "mistral-small-3-2",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 37.33,
+      "median_output_tokens_per_second": 35.6,
       "release_date": "2025-06-20"
     },
     {
@@ -4518,7 +4526,7 @@
       "slug": "mistral-small-4",
       "intelligence_index": 4.3,
       "cost_per_task": 0.0399,
-      "median_output_tokens_per_second": 166.62,
+      "median_output_tokens_per_second": 165.71,
       "release_date": "2026-03-16"
     },
     {
@@ -4526,7 +4534,7 @@
       "slug": "mistral-small-4-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 161.03,
+      "median_output_tokens_per_second": 165.42,
       "release_date": "2026-03-16"
     },
     {
@@ -4534,7 +4542,7 @@
       "slug": "mixtral-8x7b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 24.64,
+      "median_output_tokens_per_second": 24.21,
       "release_date": "2023-12-11"
     },
     {
@@ -4582,7 +4590,7 @@
       "slug": "muse-ember",
       "intelligence_index": 36.1,
       "cost_per_task": 0.1359,
-      "median_output_tokens_per_second": 598.76,
+      "median_output_tokens_per_second": 594.44,
       "release_date": "2026-11-09"
     },
     {
@@ -4590,15 +4598,15 @@
       "slug": "muse-ember-xhigh",
       "intelligence_index": 34.2,
       "cost_per_task": 0.1162,
-      "median_output_tokens_per_second": 597.38,
+      "median_output_tokens_per_second": 600.36,
       "release_date": "2026-11-09"
     },
     {
       "name": "Muse Glimmer (High)",
       "slug": "muse-glimmer",
       "intelligence_index": 6.3,
-      "cost_per_task": 0.2061,
-      "median_output_tokens_per_second": 103.54,
+      "cost_per_task": 0.1494,
+      "median_output_tokens_per_second": 100.29,
       "release_date": "2026-08-10"
     },
     {
@@ -4614,7 +4622,7 @@
       "slug": "muse-spark-1-1",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 274.24,
+      "median_output_tokens_per_second": 316.97,
       "release_date": "2026-07-09"
     },
     {
@@ -4622,7 +4630,7 @@
       "slug": "muse-spark-1-2",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 288.27,
+      "median_output_tokens_per_second": 316.97,
       "release_date": "2026-08-05"
     },
     {
@@ -4630,7 +4638,7 @@
       "slug": "muse-spark-1-3",
       "intelligence_index": 36.6,
       "cost_per_task": 2.3858,
-      "median_output_tokens_per_second": 117.93,
+      "median_output_tokens_per_second": 116.43,
       "release_date": "2026-09-02"
     },
     {
@@ -4638,15 +4646,15 @@
       "slug": "muse-spark-1-3-xhigh",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 346.43,
+      "median_output_tokens_per_second": 347.05,
       "release_date": "2026-09-02"
     },
     {
       "name": "Muse Spark Open (Xhigh)",
       "slug": "muse-spark-open",
       "intelligence_index": 24.9,
-      "cost_per_task": 2.0177,
-      "median_output_tokens_per_second": 198.84,
+      "cost_per_task": 1.7657,
+      "median_output_tokens_per_second": 212.06,
       "release_date": "2026-10-15"
     },
     {
@@ -4654,7 +4662,7 @@
       "slug": "muse-wonder",
       "intelligence_index": 43.7,
       "cost_per_task": 6.952,
-      "median_output_tokens_per_second": 97.25,
+      "median_output_tokens_per_second": 100.49,
       "release_date": "2026-10-12"
     },
     {
@@ -4670,7 +4678,7 @@
       "slug": "muse-wonder-high",
       "intelligence_index": 40.5,
       "cost_per_task": 4.5605,
-      "median_output_tokens_per_second": 93.63,
+      "median_output_tokens_per_second": 88.68,
       "release_date": "2026-10-12"
     },
     {
@@ -4709,16 +4717,16 @@
       "name": "Nemotron 3.5 Lightning",
       "slug": "nemotron-3-5-lightning",
       "intelligence_index": 5.5,
-      "cost_per_task": 0.2898,
-      "median_output_tokens_per_second": 350.25,
+      "cost_per_task": 0.2377,
+      "median_output_tokens_per_second": 363.66,
       "release_date": "2026-08-11"
     },
     {
       "name": "Nemotron 3.5 Super VL",
       "slug": "nemotron-3-5-super-vl",
       "intelligence_index": 13.6,
-      "cost_per_task": 0.4818,
-      "median_output_tokens_per_second": 411.12,
+      "cost_per_task": 0.5453,
+      "median_output_tokens_per_second": 443.69,
       "release_date": "2026-10-15"
     },
     {
@@ -4750,7 +4758,7 @@
       "slug": "north-mini-code",
       "intelligence_index": 3.4,
       "cost_per_task": 0,
-      "median_output_tokens_per_second": 331.11,
+      "median_output_tokens_per_second": 330.23,
       "release_date": "2026-06-09"
     },
     {
@@ -4758,7 +4766,7 @@
       "slug": "nova-2-0-lite",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 134.31,
+      "median_output_tokens_per_second": 149.8,
       "release_date": "2025-10-29"
     },
     {
@@ -4766,7 +4774,7 @@
       "slug": "nova-2-0-lite-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 156.07,
+      "median_output_tokens_per_second": 156.84,
       "release_date": "2025-10-29"
     },
     {
@@ -4774,7 +4782,7 @@
       "slug": "nova-2-0-lite-reasoning-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 132.68,
+      "median_output_tokens_per_second": 145.61,
       "release_date": "2025-10-29"
     },
     {
@@ -4782,7 +4790,7 @@
       "slug": "nova-2-0-lite-reasoning-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 164.82,
+      "median_output_tokens_per_second": 166.52,
       "release_date": "2025-10-29"
     },
     {
@@ -4814,7 +4822,7 @@
       "slug": "nova-2-0-pro",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 124.31,
+      "median_output_tokens_per_second": 129.9,
       "release_date": "2025-11-27"
     },
     {
@@ -4822,7 +4830,7 @@
       "slug": "nova-2-0-pro-reasoning-low",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 124.78,
+      "median_output_tokens_per_second": 127.34,
       "release_date": "2025-11-27"
     },
     {
@@ -4830,7 +4838,7 @@
       "slug": "nova-2-0-pro-reasoning-medium",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 127.78,
+      "median_output_tokens_per_second": 132.3,
       "release_date": "2025-11-27"
     },
     {
@@ -4846,7 +4854,7 @@
       "slug": "nova-micro",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 287.72,
+      "median_output_tokens_per_second": 295.79,
       "release_date": "2024-12-03"
     },
     {
@@ -4862,7 +4870,7 @@
       "slug": "nova-pro",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 122.12,
+      "median_output_tokens_per_second": 125.35,
       "release_date": "2024-12-03"
     },
     {
@@ -4870,7 +4878,7 @@
       "slug": "nvidia-nemotron-3-nano-30b-a3b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 280.43,
+      "median_output_tokens_per_second": 273.53,
       "release_date": "2025-12-15"
     },
     {
@@ -4878,7 +4886,7 @@
       "slug": "nvidia-nemotron-3-nano-30b-a3b-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 221.06,
+      "median_output_tokens_per_second": 191.23,
       "release_date": "2025-12-15"
     },
     {
@@ -4894,15 +4902,15 @@
       "slug": "nvidia-nemotron-3-super-120b-a12b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 213.88,
+      "median_output_tokens_per_second": 197.65,
       "release_date": "2026-03-11"
     },
     {
       "name": "Nemotron 3 Ultra 550B A55B (Reasoning)",
       "slug": "nvidia-nemotron-3-ultra-550b-a55b",
       "intelligence_index": 11.8,
-      "cost_per_task": 2.1897,
-      "median_output_tokens_per_second": 275.76,
+      "cost_per_task": 2.5044,
+      "median_output_tokens_per_second": 282.09,
       "release_date": "2026-06-04"
     },
     {
@@ -4910,7 +4918,7 @@
       "slug": "nvidia-nemotron-nano-12b-v2-vl",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 204.32,
+      "median_output_tokens_per_second": 205.99,
       "release_date": "2025-10-28"
     },
     {
@@ -4926,7 +4934,7 @@
       "slug": "nvidia-nemotron-nano-9b-v2",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 170.71,
+      "median_output_tokens_per_second": 168.46,
       "release_date": "2025-08-18"
     },
     {
@@ -4934,7 +4942,7 @@
       "slug": "nvidia-nemotron-nano-9b-v2-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 171.18,
+      "median_output_tokens_per_second": 168.25,
       "release_date": "2025-08-18"
     },
     {
@@ -4974,7 +4982,7 @@
       "slug": "o3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 146.43,
+      "median_output_tokens_per_second": 156.14,
       "release_date": "2025-04-16"
     },
     {
@@ -5094,7 +5102,7 @@
       "slug": "phi-4",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 42,
+      "median_output_tokens_per_second": 42.55,
       "release_date": "2024-12-12"
     },
     {
@@ -5102,7 +5110,7 @@
       "slug": "phi-4-mini",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 42.21,
+      "median_output_tokens_per_second": 40.12,
       "release_date": "2025-02-26"
     },
     {
@@ -5120,6 +5128,14 @@
       "cost_per_task": null,
       "median_output_tokens_per_second": null,
       "release_date": "2024-11-18"
+    },
+    {
+      "name": "Quasar 1.2 358B (Max, Based on GLM-5.3)",
+      "slug": "quasar-1-2-358b",
+      "intelligence_index": 23.1,
+      "cost_per_task": 0.131,
+      "median_output_tokens_per_second": 138.17,
+      "release_date": "2026-10-07"
     },
     {
       "name": "Quasar 438B (Max, Based on GLM-5.2)",
@@ -5174,7 +5190,7 @@
       "slug": "qwen2-5-72b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 32.04,
+      "median_output_tokens_per_second": 31.3,
       "release_date": "2024-09-19"
     },
     {
@@ -5246,7 +5262,7 @@
       "slug": "qwen3-14b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 59.06,
+      "median_output_tokens_per_second": 57.76,
       "release_date": "2025-04-28"
     },
     {
@@ -5254,7 +5270,7 @@
       "slug": "qwen3-14b-instruct-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 55.55,
+      "median_output_tokens_per_second": 60.61,
       "release_date": "2025-04-28"
     },
     {
@@ -5270,7 +5286,7 @@
       "slug": "qwen3-235b-a22b-instruct-2507",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 67.9,
+      "median_output_tokens_per_second": 65.13,
       "release_date": "2025-07-21"
     },
     {
@@ -5294,7 +5310,7 @@
       "slug": "qwen3-30b-a3b-2507",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 56.32,
+      "median_output_tokens_per_second": 60.69,
       "release_date": "2025-07-29"
     },
     {
@@ -5310,7 +5326,7 @@
       "slug": "qwen3-30b-a3b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 81.02,
+      "median_output_tokens_per_second": 100.2,
       "release_date": "2025-04-28"
     },
     {
@@ -5318,7 +5334,7 @@
       "slug": "qwen3-30b-a3b-instruct-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 68.45,
+      "median_output_tokens_per_second": 93.28,
       "release_date": "2025-04-28"
     },
     {
@@ -5326,7 +5342,7 @@
       "slug": "qwen3-32b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 63.54,
+      "median_output_tokens_per_second": 64.1,
       "release_date": "2025-04-28"
     },
     {
@@ -5334,7 +5350,7 @@
       "slug": "qwen3-32b-instruct-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 22.63,
+      "median_output_tokens_per_second": 25.42,
       "release_date": "2025-04-28"
     },
     {
@@ -5390,7 +5406,7 @@
       "slug": "qwen3-5-122b-a10b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 130.5,
+      "median_output_tokens_per_second": 132.9,
       "release_date": "2026-02-24"
     },
     {
@@ -5398,7 +5414,7 @@
       "slug": "qwen3-5-122b-a10b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 142.94,
+      "median_output_tokens_per_second": 146.43,
       "release_date": "2026-02-24"
     },
     {
@@ -5406,7 +5422,7 @@
       "slug": "qwen3-5-27b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 23.4,
+      "median_output_tokens_per_second": 23.2,
       "release_date": "2026-02-24"
     },
     {
@@ -5414,7 +5430,7 @@
       "slug": "qwen3-5-27b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 21.99,
+      "median_output_tokens_per_second": 23.09,
       "release_date": "2026-02-24"
     },
     {
@@ -5438,7 +5454,7 @@
       "slug": "qwen3-5-35b-a3b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 151.99,
+      "median_output_tokens_per_second": 153.75,
       "release_date": "2026-02-24"
     },
     {
@@ -5446,7 +5462,7 @@
       "slug": "qwen3-5-35b-a3b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 168.34,
+      "median_output_tokens_per_second": 168.87,
       "release_date": "2026-02-24"
     },
     {
@@ -5454,7 +5470,7 @@
       "slug": "qwen3-5-397b-a17b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 57.94,
+      "median_output_tokens_per_second": 57.81,
       "release_date": "2026-02-16"
     },
     {
@@ -5462,7 +5478,7 @@
       "slug": "qwen3-5-397b-a17b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 57.96,
+      "median_output_tokens_per_second": 57.99,
       "release_date": "2026-02-16"
     },
     {
@@ -5486,7 +5502,7 @@
       "slug": "qwen3-5-9b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 59.52,
+      "median_output_tokens_per_second": 51.9,
       "release_date": "2026-03-02"
     },
     {
@@ -5494,7 +5510,7 @@
       "slug": "qwen3-5-9b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 126.12,
+      "median_output_tokens_per_second": 137.12,
       "release_date": "2026-03-02"
     },
     {
@@ -5502,7 +5518,7 @@
       "slug": "qwen3-5-omni-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 238,
+      "median_output_tokens_per_second": 234.22,
       "release_date": "2026-03-30"
     },
     {
@@ -5510,7 +5526,7 @@
       "slug": "qwen3-5-omni-plus",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 76.38,
+      "median_output_tokens_per_second": 74.97,
       "release_date": "2026-03-30"
     },
     {
@@ -5518,7 +5534,7 @@
       "slug": "qwen3-6-27b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 57.9,
+      "median_output_tokens_per_second": 60.24,
       "release_date": "2026-04-22"
     },
     {
@@ -5526,7 +5542,7 @@
       "slug": "qwen3-6-27b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 57.3,
+      "median_output_tokens_per_second": 60.41,
       "release_date": "2026-04-22"
     },
     {
@@ -5534,7 +5550,7 @@
       "slug": "qwen3-6-35b-a3b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 95.97,
+      "median_output_tokens_per_second": 99.42,
       "release_date": "2026-04-16"
     },
     {
@@ -5542,7 +5558,7 @@
       "slug": "qwen3-6-35b-a3b-non-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 102.25,
+      "median_output_tokens_per_second": 102.66,
       "release_date": "2026-04-16"
     },
     {
@@ -5558,7 +5574,7 @@
       "slug": "qwen3-6-plus",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 55.34,
+      "median_output_tokens_per_second": 54.99,
       "release_date": "2026-04-02"
     },
     {
@@ -5566,7 +5582,7 @@
       "slug": "qwen3-7-max",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 192.95,
+      "median_output_tokens_per_second": 197.76,
       "release_date": "2026-05-19"
     },
     {
@@ -5574,7 +5590,7 @@
       "slug": "qwen3-7-plus",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 58.36,
+      "median_output_tokens_per_second": 57.21,
       "release_date": "2026-06-01"
     },
     {
@@ -5582,7 +5598,7 @@
       "slug": "qwen3-8-2-4t-a95b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 39.69,
+      "median_output_tokens_per_second": 41.28,
       "release_date": "2026-08-12"
     },
     {
@@ -5590,7 +5606,7 @@
       "slug": "qwen3-8-27b",
       "intelligence_index": 20.1,
       "cost_per_task": 3.5323,
-      "median_output_tokens_per_second": 55.69,
+      "median_output_tokens_per_second": 54,
       "release_date": "2026-08-14"
     },
     {
@@ -5598,22 +5614,22 @@
       "slug": "qwen3-8-27b-low",
       "intelligence_index": 15.7,
       "cost_per_task": 1.9059,
-      "median_output_tokens_per_second": 63.89,
+      "median_output_tokens_per_second": 62.15,
       "release_date": "2026-08-14"
     },
     {
       "name": "Qwen3.8 27B (Medium)",
       "slug": "qwen3-8-27b-medium",
       "intelligence_index": 17.5,
-      "cost_per_task": 2.2709,
-      "median_output_tokens_per_second": 58.72,
+      "cost_per_task": 2.5081,
+      "median_output_tokens_per_second": 57.39,
       "release_date": "2026-08-14"
     },
     {
       "name": "Qwen3.8 27B (Non-reasoning)",
       "slug": "qwen3-8-27b-non-reasoning",
       "intelligence_index": 10,
-      "cost_per_task": 3.7729,
+      "cost_per_task": 4.6287,
       "median_output_tokens_per_second": 60.76,
       "release_date": "2026-08-14"
     },
@@ -5622,7 +5638,7 @@
       "slug": "qwen3-8-flash-next",
       "intelligence_index": 28.5,
       "cost_per_task": 0.5716,
-      "median_output_tokens_per_second": 89.42,
+      "median_output_tokens_per_second": 91,
       "release_date": "2026-08-26"
     },
     {
@@ -5630,7 +5646,7 @@
       "slug": "qwen3-8-max",
       "intelligence_index": 33.7,
       "cost_per_task": 10.0285,
-      "median_output_tokens_per_second": 40.22,
+      "median_output_tokens_per_second": 40.34,
       "release_date": "2026-09-02"
     },
     {
@@ -5638,7 +5654,7 @@
       "slug": "qwen3-8-max-0803",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 40.18,
+      "median_output_tokens_per_second": 40.31,
       "release_date": "2026-08-03"
     },
     {
@@ -5662,7 +5678,7 @@
       "slug": "qwen3-coder-30b-a3b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 223.98,
+      "median_output_tokens_per_second": 226.51,
       "release_date": "2025-07-31"
     },
     {
@@ -5678,7 +5694,7 @@
       "slug": "qwen3-coder-next",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 82.33,
+      "median_output_tokens_per_second": 79.21,
       "release_date": "2026-02-03"
     },
     {
@@ -5718,7 +5734,7 @@
       "slug": "qwen3-next-80b-a3b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 134.81,
+      "median_output_tokens_per_second": 133.37,
       "release_date": "2025-09-11"
     },
     {
@@ -5734,7 +5750,7 @@
       "slug": "qwen3-omni-30b-a3b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 96.72,
+      "median_output_tokens_per_second": 96.18,
       "release_date": "2025-09-22"
     },
     {
@@ -5742,7 +5758,7 @@
       "slug": "qwen3-omni-30b-a3b-reasoning",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 101.88,
+      "median_output_tokens_per_second": 100.93,
       "release_date": "2025-09-22"
     },
     {
@@ -5750,7 +5766,7 @@
       "slug": "qwen3-vl-235b-a22b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 22.54,
+      "median_output_tokens_per_second": 27.36,
       "release_date": "2025-09-23"
     },
     {
@@ -5830,7 +5846,7 @@
       "slug": "qwen4-max",
       "intelligence_index": 42.8,
       "cost_per_task": 3.2681,
-      "median_output_tokens_per_second": 136.52,
+      "median_output_tokens_per_second": 105.76,
       "release_date": "2026-11-16"
     },
     {
@@ -5854,7 +5870,7 @@
       "slug": "reflection-beam",
       "intelligence_index": 17.7,
       "cost_per_task": 0.2844,
-      "median_output_tokens_per_second": 423.05,
+      "median_output_tokens_per_second": 401.33,
       "release_date": "2026-10-16"
     },
     {
@@ -5870,7 +5886,7 @@
       "slug": "reka-flash-3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 88.96,
+      "median_output_tokens_per_second": 91.35,
       "release_date": "2025-03-10"
     },
     {
@@ -5902,7 +5918,7 @@
       "slug": "sarvam-105b",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 460.57,
+      "median_output_tokens_per_second": 401.18,
       "release_date": "2026-03-06"
     },
     {
@@ -5926,7 +5942,7 @@
       "slug": "seed-oss-36b-instruct",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 40.31,
+      "median_output_tokens_per_second": 39.66,
       "release_date": "2025-08-20"
     },
     {
@@ -5942,7 +5958,7 @@
       "slug": "solar-mini4",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 174.96,
+      "median_output_tokens_per_second": 137.83,
       "release_date": "2026-09-22"
     },
     {
@@ -5998,14 +6014,14 @@
       "slug": "solar-pro-3",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 162.2,
+      "median_output_tokens_per_second": 158.85,
       "release_date": "2026-04-06"
     },
     {
       "name": "Solar Pro 4",
       "slug": "solar-pro4",
       "intelligence_index": 14.2,
-      "cost_per_task": 0.9557,
+      "cost_per_task": 1.3347,
       "median_output_tokens_per_second": 89.79,
       "release_date": "2026-08-06"
     },
@@ -6046,7 +6062,7 @@
       "slug": "step-3-5-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 155.35,
+      "median_output_tokens_per_second": 201.95,
       "release_date": "2026-04-02"
     },
     {
@@ -6054,7 +6070,7 @@
       "slug": "step-3-5-flash-0202",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 150.03,
+      "median_output_tokens_per_second": 208.98,
       "release_date": "2026-02-02"
     },
     {
@@ -6062,7 +6078,7 @@
       "slug": "step-3-7-flash",
       "intelligence_index": null,
       "cost_per_task": null,
-      "median_output_tokens_per_second": 198.68,
+      "median_output_tokens_per_second": 205.62,
       "release_date": "2026-05-29"
     },
     {
@@ -6077,8 +6093,8 @@
       "name": "Step 5 Preview",
       "slug": "step-5",
       "intelligence_index": 28.5,
-      "cost_per_task": 2.3453,
-      "median_output_tokens_per_second": 108.6,
+      "cost_per_task": 3.9376,
+      "median_output_tokens_per_second": 106.25,
       "release_date": "2026-09-18"
     },
     {
@@ -6086,7 +6102,7 @@
       "slug": "tencent-hy4",
       "intelligence_index": 34.6,
       "cost_per_task": 1.0311,
-      "median_output_tokens_per_second": 98.51,
+      "median_output_tokens_per_second": 101.41,
       "release_date": "2026-11-03"
     },
     {
